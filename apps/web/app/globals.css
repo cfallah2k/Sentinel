@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  color: #e2e8f0;
+  background-color: #020617;
+  font-family: var(--font-sans);
+  font-feature-settings: 'calt' 1, 'clig' 1, 'liga' 1;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  --bg: #020617;
+  --bg-soft: rgba(15, 23, 42, 0.82);
+  --surface: rgba(15, 23, 42, 0.92);
+  --surface-strong: rgba(15, 23, 42, 0.98);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --muted-surface: rgba(148, 163, 184, 0.16);
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  color: #0f172a;
+  background-color: #f8fafc;
+  --bg: #f8fafc;
+  --bg-soft: rgba(255, 255, 255, 0.92);
+  --surface: rgba(255, 255, 255, 0.88);
+  --surface-strong: rgba(255, 255, 255, 0.98);
+  --text: #0f172a;
+  --muted: #475569;
+  --muted-surface: rgba(15, 23, 42, 0.08);
+  --border: rgba(15, 23, 42, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply min-h-screen bg-[var(--bg)] text-[var(--text)] antialiased;
+  background-color: var(--bg);
+  font-family: var(--font-sans);
+  background-image: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 24%), radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.1), transparent 28%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+button,
+a {
+  transition: all 0.2s ease;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.28);
+  color: inherit;
+}
+
+main {
+  @apply min-h-screen;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+
+@layer utilities {
+  .shadow-glow {
+    box-shadow: 0 20px 80px rgba(56, 189, 248, 0.18);
+  }
+
+  .text-shadow-soft {
+    text-shadow: 0 10px 30px rgba(15, 23, 42, 0.24);
+  }
+}

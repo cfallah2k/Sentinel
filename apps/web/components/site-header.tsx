@@ -1,0 +1,105 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { Menu, ShieldCheck, X } from 'lucide-react';
+import { ThemeToggle } from './theme-toggle';
+
+const navItems = [
+  { label: 'Product', href: '/product' },
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Security', href: '/security' },
+  { label: 'Developers', href: '/developers' }
+];
+
+export default function SiteHeader() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[rgba(2,6,23,0.88)] backdrop-blur-2xl shadow-[0_25px_120px_rgba(15,23,42,0.2)]">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <Link href="/" className="flex items-center gap-3 transition hover:opacity-90">
+          <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-sentinel-500 via-sky-500 to-cyan-400 text-white shadow-glow">
+            <ShieldCheck className="h-5 w-5" />
+          </div>
+          <div>
+            <p className="text-[0.65rem] uppercase tracking-[0.34em] text-sentinel-300">SENTINEL</p>
+            <p className="text-sm font-semibold text-white">AI Data Governance</p>
+          </div>
+        </Link>
+
+        <nav className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-full px-3 py-2 transition duration-200 hover:bg-white/5 hover:text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <div className="hidden items-center gap-3 md:flex">
+            <Link
+              href="/login"
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10"
+            >
+              Sign in
+            </Link>
+            <Link
+              href="/register"
+              className="rounded-full bg-sentinel-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-sentinel-500/20 transition hover:bg-sentinel-400"
+            >
+              Start free
+            </Link>
+          </div>
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10 md:hidden"
+            onClick={() => setMobileOpen((value) => !value)}
+            aria-label="Toggle navigation"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      {mobileOpen ? (
+        <div className="border-t border-white/10 bg-slate-950/95 px-6 py-5 md:hidden">
+          <div className="grid gap-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-3xl px-4 py-3 text-sm text-slate-200 transition hover:bg-slate-900/80 hover:text-white"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-4 grid gap-3">
+            <Link
+              href="/login"
+              className="rounded-3xl border border-white/10 bg-white/5 px-4 py-3 text-center text-sm text-white transition hover:bg-white/10"
+              onClick={() => setMobileOpen(false)}
+            >
+              Sign in
+            </Link>
+            <Link
+              href="/register"
+              className="rounded-3xl bg-sentinel-500 px-4 py-3 text-center text-sm font-semibold text-white shadow-glow hover:bg-sentinel-400"
+              onClick={() => setMobileOpen(false)}
+            >
+              Start free
+            </Link>
+          </div>
+        </div>
+      ) : null}
+    </header>
+  );
+}
