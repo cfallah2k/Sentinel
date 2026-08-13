@@ -62,6 +62,7 @@ const navGroups: NavGroup[] = [
     href: '/developers',
     items: [
       { label: 'Developers overview', href: '/developers' },
+      { label: 'AI Gateway Playground', href: '/playground' },
       { label: 'Docs', href: '/docs' },
       { label: 'Integrations', href: '/integrations' },
       { label: 'Get started', href: '/get-started' }

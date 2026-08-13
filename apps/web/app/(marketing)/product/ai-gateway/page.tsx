@@ -125,10 +125,10 @@ export default function AiGatewayPage() {
 
       <CtaSection
         eyebrow="Gateway"
-        title="Put a policy guard on every model call."
-        description="Point your SDKs at Sentinel and watch the request lens light up."
-        primary={{ label: 'Start free trial', href: '/register' }}
-        secondary={{ label: 'See the policy engine', href: '/product/policy-engine' }}
+        title="See it in action — no setup required."
+        description="Type a prompt in the playground and watch Sentinel detect, redact, and block before the model ever sees it."
+        primary={{ label: 'Try the live playground', href: '/playground' }}
+        secondary={{ label: 'Start free trial', href: '/register' }}
       />
     </div>
   );
