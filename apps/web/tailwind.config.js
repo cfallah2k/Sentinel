@@ -118,6 +118,20 @@ module.exports = {
         glow: '0 20px 80px rgba(56, 189, 248, 0.18)',
         panel: '0 25px 80px rgba(15, 23, 42, 0.24)'
       },
+      maxWidth: {
+        xs: '24rem',
+        sm: '28rem',
+        md: '32rem',
+        lg: '36rem',
+        xl: '42rem',
+        '2xl': '48rem',
+        '3xl': '56rem',
+        '4xl': '64rem',
+        '5xl': '72rem',
+        '6xl': '84rem',
+        '7xl': '96rem',
+        prose: '65ch'
+      },
       backgroundImage: {
         'hero-grid': 'radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), transparent 28%), radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.12), transparent 24%)'
       },

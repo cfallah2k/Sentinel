@@ -10,7 +10,7 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
       <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(circle,_rgba(14,165,233,0.08),_transparent_55%)] blur-3xl" />
       <div className="relative">
         <SiteHeader />
-        <main className="mx-auto max-w-7xl px-6 py-10 lg:px-8 lg:py-14">{children}</main>
+        <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">{children}</main>
         <SiteFooter />
       </div>
     </div>

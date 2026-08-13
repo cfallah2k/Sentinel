@@ -18,8 +18,6 @@ const GitHubIcon = () => (
   </svg>
 );
 
-const primaryGradient = 'from-sentinel-500 via-sky-500 to-cyan-400';
-
 const socialLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/sentinel-ai', icon: LinkedInIcon },
   { label: 'Twitter', href: 'https://twitter.com/sentinel_ai', icon: TwitterIcon },
@@ -76,31 +74,8 @@ const footerColumns = [
 export default function SiteFooter() {
   return (
     <footer className="border-t border-white/10 bg-[var(--bg-soft)] backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel backdrop-blur-xl sm:p-8">
-          <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-3/4 -translate-x-1/2 rounded-full bg-sentinel-500/10 blur-3xl" />
-          <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-[0.65rem] uppercase tracking-[0.3em] text-sentinel-300">Enterprise AI governance</p>
-              <h2 className="mt-2 text-lg font-bold leading-snug text-white sm:text-xl lg:text-2xl">
-                Built to protect every AI decision, signal, and workflow
-              </h2>
-              <p className="mt-3 text-xs leading-6 text-slate-400 sm:text-sm">
-                One control plane for AI policy, data governance, and audit-ready trust.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-3">
-              <Link
-                href="/contact"
-                className={`inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r ${primaryGradient} px-5 py-2.5 text-xs font-semibold text-white shadow-lg shadow-sentinel-500/20 transition hover:opacity-90 sm:w-auto sm:text-sm`}
-              >
-                Talk to sales
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] lg:gap-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] lg:gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2.5">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sentinel-500 via-sky-500 to-cyan-400 text-white shadow-glow">

@@ -37,7 +37,7 @@ export default function SiteHeader() {
     <header
       className="sticky top-0 z-50 border-b border-white/10 bg-[var(--bg-soft)] backdrop-blur-2xl shadow-[0_25px_120px_rgba(15,23,42,0.2)] transition-colors duration-300"
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2.5 transition hover:opacity-90">
           <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-sentinel-500 via-sky-500 to-cyan-400 text-white shadow-glow sm:h-10 sm:w-10">
             <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -90,13 +90,28 @@ export default function SiteHeader() {
 
       {mobileOpen
         ? createPortal(
-            <div className="fixed inset-0 z-40 md:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-              <div
-                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-                onClick={() => setMobileOpen(false)}
-              />
-              <div className="relative flex h-full flex-col overflow-y-auto bg-slate-950/95 pt-20 backdrop-blur-2xl">
-                <div className="flex-1 px-6 pb-10 pt-8">
+            <div className="fixed inset-0 z-[60] md:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+              <div className="flex h-full flex-col bg-[var(--bg)]">
+                <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+                  <Link href="/" className="flex items-center gap-2.5 transition hover:opacity-90" onClick={() => setMobileOpen(false)}>
+                    <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-sentinel-500 via-sky-500 to-cyan-400 text-white shadow-glow">
+                      <ShieldCheck className="h-4 w-4" />
+                    </div>
+                    <div>
+                      <p className="text-[0.6rem] uppercase tracking-[0.3em] text-sentinel-300">SENTINEL</p>
+                      <p className="text-xs font-semibold text-white">AI Data Governance</p>
+                    </div>
+                  </Link>
+                  <button
+                    type="button"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+                    onClick={() => setMobileOpen(false)}
+                    aria-label="Close navigation"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+                <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                   <nav className="grid gap-1">
                     {navItems.map((item) => (
                       <Link
@@ -126,7 +141,7 @@ export default function SiteHeader() {
                     </Link>
                   </div>
                 </div>
-                <div className="border-t border-white/5 px-6 py-4">
+                <div className="border-t border-white/5 px-4 py-4 sm:px-6">
                   <p className="text-xs text-slate-500">© {new Date().getFullYear()} Sentinel. All rights reserved.</p>
                 </div>
               </div>
