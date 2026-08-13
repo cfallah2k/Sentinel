@@ -11,7 +11,7 @@ interface StepsProps {
 
 export default function Steps({ eyebrow, title, steps }: StepsProps) {
   return (
-    <section className="mx-auto max-w-4xl">
+    <section className="mx-auto max-w-7xl">
       <div className="text-center">
         <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">{eyebrow}</p>
         <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">{title}</h2>

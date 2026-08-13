@@ -99,7 +99,7 @@ export default function AiGatewayPage() {
         <FeatureGrid items={features} />
       </section>
 
-      <section className="mx-auto max-w-4xl">
+      <section className="mx-auto max-w-7xl">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {decisions.map(({ label, detail, tone }) => (
             <div key={label} className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-4 text-center shadow-panel backdrop-blur-xl sm:rounded-[1.5rem]">

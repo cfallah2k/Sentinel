@@ -7,7 +7,7 @@ export default function DevelopersPage() {
   ];
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-20 text-[var(--text)]">
+    <main className="mx-auto max-w-7xl px-6 py-20 text-[var(--text)]">
       <section className="rounded-[2rem] border border-white/10 bg-[var(--surface)] p-10 shadow-panel backdrop-blur-xl">
         <div className="mb-10">
           <p className="text-sm uppercase tracking-[0.35em] text-sentinel-300">Developers</p>

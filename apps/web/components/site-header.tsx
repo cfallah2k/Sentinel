@@ -1,21 +1,80 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { Menu, ShieldCheck, X } from 'lucide-react';
+import { ChevronDown, Menu, ShieldCheck, X } from 'lucide-react';
 import { ThemeToggle } from './theme-toggle';
 
-const navItems = [
-  { label: 'Product', href: '/product' },
-  { label: 'Solutions', href: '/solutions' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Security', href: '/security' },
-  { label: 'Developers', href: '/developers' }
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+interface NavGroup {
+  label: string;
+  href: string;
+  items: NavItem[];
+}
+
+const navGroups: NavGroup[] = [
+  {
+    label: 'Product',
+    href: '/product',
+    items: [
+      { label: 'Product overview', href: '/product' },
+      { label: 'AI Governance', href: '/product/ai-governance' },
+      { label: 'AI Gateway', href: '/product/ai-gateway' },
+      { label: 'Policy Engine', href: '/product/policy-engine' },
+      { label: 'AI Passport', href: '/product/ai-passport' },
+      { label: 'Approvals', href: '/product/approvals' },
+      { label: 'Audit', href: '/product/audit' },
+      { label: 'Data Classification', href: '/product/data-classification' },
+      { label: 'Data Flow', href: '/product/data-flow' },
+      { label: 'Incidents', href: '/product/incidents' }
+    ]
+  },
+  {
+    label: 'Solutions',
+    href: '/solutions',
+    items: [
+      { label: 'Solutions overview', href: '/solutions' },
+      { label: 'Enterprise', href: '/solutions/enterprise' },
+      { label: 'Compliance & regulated', href: '/solutions/compliance' },
+      { label: 'Security teams', href: '/solutions/security' },
+      { label: 'Privacy programs', href: '/solutions/privacy' },
+      { label: 'Developers', href: '/solutions/developers' },
+      { label: 'Government', href: '/solutions/government' }
+    ]
+  },
+  {
+    label: 'Security',
+    href: '/security',
+    items: [
+      { label: 'Security overview', href: '/security' },
+      { label: 'Trust', href: '/trust' },
+      { label: 'Compliance', href: '/compliance' },
+      { label: 'System status', href: '/status' }
+    ]
+  },
+  {
+    label: 'Developers',
+    href: '/developers',
+    items: [
+      { label: 'Developers overview', href: '/developers' },
+      { label: 'Docs', href: '/docs' },
+      { label: 'Integrations', href: '/integrations' },
+      { label: 'Get started', href: '/get-started' }
+    ]
+  }
 ];
+
+const pricingNav = { label: 'Pricing', href: '/pricing' };
 
 export default function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -33,8 +92,30 @@ export default function SiteHeader() {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    if (!openDropdown) return;
+
+    const onPointerDown = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpenDropdown(null);
+    };
+
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [openDropdown]);
+
   return (
     <header
+      ref={headerRef}
       className="sticky top-0 z-50 border-b border-white/10 bg-[var(--bg-soft)] backdrop-blur-2xl shadow-[0_25px_120px_rgba(15,23,42,0.2)] transition-colors duration-300"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
@@ -48,16 +129,47 @@ export default function SiteHeader() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-full px-3 py-2 transition duration-200 hover:bg-white/5 hover:text-white"
-            >
-              {item.label}
-            </Link>
+        <nav className="hidden items-center gap-1 md:flex">
+          {navGroups.map((group) => (
+            <div key={group.label} className="relative">
+              <button
+                type="button"
+                onClick={() => setOpenDropdown(openDropdown === group.label ? null : group.label)}
+                aria-expanded={openDropdown === group.label}
+                aria-haspopup="true"
+                className={`inline-flex items-center gap-1 rounded-full px-3 py-2 text-sm transition duration-200 hover:bg-white/5 hover:text-white ${
+                  openDropdown === group.label ? 'text-white' : 'text-slate-300'
+                }`}
+              >
+                {group.label}
+                <ChevronDown
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                    openDropdown === group.label ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+              {openDropdown === group.label ? (
+                <div className="absolute left-0 top-full z-50 mt-2 w-60 rounded-2xl border border-white/10 bg-[var(--surface-strong)] p-2 shadow-panel backdrop-blur-2xl">
+                  {group.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setOpenDropdown(null)}
+                      className="block rounded-xl px-3.5 py-2.5 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           ))}
+          <Link
+            href={pricingNav.href}
+            className="rounded-full px-3 py-2 text-sm text-slate-300 transition duration-200 hover:bg-white/5 hover:text-white"
+          >
+            {pricingNav.label}
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -112,19 +224,42 @@ export default function SiteHeader() {
                   </button>
                 </div>
                 <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                  <nav className="grid gap-1">
-                    {navItems.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="rounded-2xl px-4 py-3.5 text-base font-medium text-slate-200 transition hover:bg-white/5 hover:text-white"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
+                  <nav className="grid gap-7">
+                    {navGroups.map((group) => (
+                      <div key={group.label}>
+                        <Link
+                          href={group.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="text-sm font-semibold uppercase tracking-[0.2em] text-sentinel-300 transition hover:text-white"
+                        >
+                          {group.label}
+                        </Link>
+                        <ul className="mt-2 grid gap-0.5">
+                          {group.items.map((item) => (
+                            <li key={item.href}>
+                              <Link
+                                href={item.href}
+                                onClick={() => setMobileOpen(false)}
+                                className="block rounded-xl px-3 py-2.5 text-base text-slate-200 transition hover:bg-white/5 hover:text-white"
+                              >
+                                {item.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
+                    <div>
+                      <Link
+                        href={pricingNav.href}
+                        onClick={() => setMobileOpen(false)}
+                        className="text-sm font-semibold uppercase tracking-[0.2em] text-sentinel-300 transition hover:text-white"
+                      >
+                        {pricingNav.label}
+                      </Link>
+                    </div>
                   </nav>
-                  <div className="mt-8 grid gap-3">
+                  <div className="mt-10 grid gap-3">
                     <Link
                       href="/login"
                       className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-center text-sm font-medium text-white transition hover:bg-white/10"
