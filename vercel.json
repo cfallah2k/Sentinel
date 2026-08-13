@@ -1,6 +1,0 @@
-{
-  "framework": "nextjs",
-  "buildCommand": "turbo run build --filter=@sentinel/web",
-  "installCommand": "pnpm install",
-  "outputDirectory": "apps/web/.next"
-}
