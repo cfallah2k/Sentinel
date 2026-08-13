@@ -1,0 +1,36 @@
+import { AlertTriangle, Bot, Clock, Hourglass } from 'lucide-react';
+import { Card, CardBody, CardHeader } from '@/components/ui/card';
+import { PageHeader } from '@/components/ui/page-header';
+import { StatCard } from '@/components/ui/stat-card';
+import { SystemsTable } from '@/components/registry/registry-tables';
+import { aiSystems } from '@/lib/mock-data';
+
+const fmt = (n: number) => n.toLocaleString();
+
+export default function Page() {
+  const rows = aiSystems.filter((s) => s.status === 'Pending');
+  const highRisk = rows.filter((s) => s.risk === 'High' || s.risk === 'Critical');
+  const requests = rows.reduce((a, s) => a + s.requests24h, 0);
+
+  return (
+    <div className="space-y-6">
+      <PageHeader
+        eyebrow="Registry · AI Systems"
+        title="Pending AI Systems"
+        description="Systems awaiting governance approval. High-risk requests from pending systems require human approval at the gateway."
+      />
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <StatCard label="Pending Systems" value={rows.length} icon={Hourglass} accent="amber" />
+        <StatCard label="Staging / Dev" value={rows.filter((s) => s.environment !== 'Production').length} icon={Bot} accent="sky" />
+        <StatCard label="High Risk" value={highRisk.length} icon={AlertTriangle} accent="rose" />
+        <StatCard label="Requests / 24h" value={fmt(requests)} icon={Clock} accent="violet" />
+      </div>
+      <Card>
+        <CardHeader title="Pending AI Systems" subtitle="Awaiting security and governance sign-off" />
+        <CardBody>
+          <SystemsTable rows={rows} />
+        </CardBody>
+      </Card>
+    </div>
+  );
+}

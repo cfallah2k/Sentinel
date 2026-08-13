@@ -1,5 +1,11 @@
-import PlaceholderPage from '../../../../components/placeholder-page';
+import { DashboardOverview } from '@/components/dashboard/dashboard-overview';
 
 export default function Page() {
-  return <PlaceholderPage title={"Dashboard Overview"} description={"Dashboard Overview placeholder page for /dashboard/overview"} />;
+  return (
+    <DashboardOverview
+      eyebrow="Overview"
+      title="Platform Overview"
+      description="A high-level snapshot of the platform — gateway throughput, policy health, incidents, and data flow activity in one place."
+    />
+  );
 }

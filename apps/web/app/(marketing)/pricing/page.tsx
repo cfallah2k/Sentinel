@@ -1,48 +1,193 @@
-const tiers = [
-  { name: 'Free / Trial', description: 'Explore core policy and classification controls for a limited environment.', price: 'Custom quote' },
-  { name: 'Professional', description: 'For focused AI governance at product and security teams.', price: 'Custom quote' },
-  { name: 'Business', description: 'Full org governance, monitoring, and reporting across teams.', price: 'Custom quote' },
-  { name: 'Enterprise', description: 'Advanced controls, custom deployment, and managed support.', price: 'Custom quote' },
-  { name: 'Government', description: 'Sovereign deployment and compliance reporting architecture.', price: 'Custom quote' }
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { ArrowRight, Check, Sparkles } from 'lucide-react';
+import MarketingHero from '@/components/marketing/hero';
+import Faq from '@/components/marketing/faq';
+import CtaSection from '@/components/marketing/cta-section';
+
+const plans = [
+  {
+    name: 'Free',
+    tagline: 'For teams evaluating governance',
+    monthly: 0,
+    annual: 0,
+    cta: { label: 'Start free', href: '/register' },
+    features: [
+      '1 AI provider',
+      '3 active policies',
+      '7-day audit retention',
+      '50k requests / month',
+      'Community support'
+    ]
+  },
+  {
+    name: 'Growth',
+    tagline: 'For scaling AI deployments',
+    monthly: 249,
+    annual: 199,
+    cta: { label: 'Start free trial', href: '/register' },
+    highlighted: true,
+    features: [
+      'Unlimited providers',
+      'Unlimited policies',
+      '90-day audit retention',
+      '5M requests / month',
+      'Redaction engine',
+      'SSO + SCIM',
+      'Email support'
+    ]
+  },
+  {
+    name: 'Enterprise',
+    tagline: 'For regulated, global operations',
+    monthly: 1499,
+    annual: 1199,
+    cta: { label: 'Talk to sales', href: '/contact' },
+    features: [
+      'Everything in Growth',
+      'Custom retention & residency',
+      'EU AI Act & framework mapping',
+      'Dedicated support manager',
+      '99.9% uptime SLA',
+      'Security review & DPA'
+    ]
+  }
+];
+
+const faqItems = [
+  {
+    question: 'How does the free tier work?',
+    answer:
+      'The free tier includes one provider connection, three active policies, and seven days of audit retention — enough to run the gateway end to end and evaluate whether Sentinel fits your workflow. No credit card required.'
+  },
+  {
+    question: 'What counts as a request?',
+    answer:
+      'A request is a single inference call routed through the Sentinel gateway, including streaming sessions and embedding calls. Blocked and redacted requests count the same, since every one is evaluated against policy.'
+  },
+  {
+    question: 'Can I change plans at any time?',
+    answer:
+      'Yes. Upgrades apply immediately with prorated billing. Downgrades take effect at the end of your billing cycle, and your data and policies are retained throughout.'
+  },
+  {
+    question: 'Do you offer discounts for annual billing?',
+    answer:
+      'Annual billing includes a 20% discount on the Growth and Enterprise tiers. Enterprise contracts can also include volume-based pricing for request tiers above 10 million per month.'
+  },
+  {
+    question: 'What about data residency and retention?',
+    answer:
+      'Workspaces are hosted in the region you choose at signup. Audit retention is configurable on Growth and Enterprise, and Enterprise supports custom retention windows to meet regulatory requirements.'
+  },
+  {
+    question: 'Is a security review available?',
+    answer:
+      'Enterprise customers receive access to our trust center, SOC 2 Type II report, ISO 27001 certificate, DPA, and a dedicated security review process with their procurement team.'
+  }
 ];
 
 export default function PricingPage() {
+  const [annual, setAnnual] = useState(true);
+
   return (
-    <main className="mx-auto max-w-7xl px-6 py-20 text-[var(--text)]">
-      <section className="rounded-[2rem] border border-white/10 bg-[var(--surface)] p-10 shadow-panel backdrop-blur-xl">
-        <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.35em] text-sentinel-300">Pricing</p>
-          <h1 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">Flexible pricing for governance programs that demand control and compliance.</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-            Sentinel is priced for enterprise deployment, with customized plans that match your risk profile, scale, and data governance needs.
-          </p>
+    <div className="space-y-16 lg:space-y-24">
+      <MarketingHero
+        eyebrow="Pricing"
+        title="Governance that pays for itself with the first blocked leak."
+        description="Start free, scale with volume. Every plan includes the gateway, policy engine, classification, and audit trail."
+        primary={{ label: 'Start free trial', href: '/register' }}
+        secondary={{ label: 'Request a demo', href: '/request-demo' }}
+      />
+
+      <section className="space-y-8">
+        <div className="flex items-center justify-center gap-3">
+          <span className={`text-xs font-semibold uppercase tracking-[0.2em] ${annual ? 'text-slate-500' : 'text-white'}`}>
+            Monthly
+          </span>
+          <button
+            type="button"
+            role="switch"
+            aria-checked={annual}
+            aria-label="Toggle annual billing"
+            onClick={() => setAnnual((value) => !value)}
+            className={`relative h-7 w-14 rounded-full border transition ${annual ? 'border-sentinel-500/50 bg-sentinel-500/30' : 'border-white/10 bg-white/10'}`}
+          >
+            <span
+              className={`absolute top-1 h-5 w-5 rounded-full bg-sentinel-400 shadow-glow transition-all duration-200 ${annual ? 'left-7' : 'left-1'}`}
+            />
+          </button>
+          <span className={`text-xs font-semibold uppercase tracking-[0.2em] ${annual ? 'text-white' : 'text-slate-500'}`}>
+            Annual
+          </span>
+          <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-emerald-300">
+            Save 20%
+          </span>
         </div>
 
-        <div className="grid gap-6 xl:grid-cols-5">
-          {tiers.map((tier) => (
-            <div key={tier.name} className="rounded-[1.75rem] border border-white/10 bg-slate-950/90 p-8 shadow-panel transition hover:-translate-y-1 hover:border-sentinel-500/20 hover:bg-slate-900/95">
-              <h2 className="text-xl font-semibold text-white">{tier.name}</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-300">{tier.description}</p>
-              <div className="mt-8 text-3xl font-semibold text-white">{tier.price}</div>
-              <button className="mt-8 w-full rounded-full bg-sentinel-500 px-5 py-3 text-sm font-semibold text-white shadow-glow hover:bg-sentinel-400">
-                Contact sales
-              </button>
-            </div>
-          ))}
+        <div className="grid gap-4 lg:grid-cols-3 lg:gap-6">
+          {plans.map((plan) => {
+            const price = annual ? plan.annual : plan.monthly;
+            return (
+              <div
+                key={plan.name}
+                className={`relative flex flex-col rounded-[1.25rem] border p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7 ${
+                  plan.highlighted
+                    ? 'border-sentinel-500/40 bg-[rgba(15,23,42,0.97)] shadow-[0_35px_120px_rgba(30,111,255,0.12)]'
+                    : 'border-white/10 bg-[rgba(15,23,42,0.92)]'
+                }`}
+              >
+                {plan.highlighted ? (
+                  <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-sentinel-500 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-white shadow-glow">
+                    <Sparkles className="h-3 w-3" /> Most popular
+                  </span>
+                ) : null}
+                <h2 className="text-base font-semibold text-white sm:text-lg">{plan.name}</h2>
+                <p className="mt-1 text-xs text-slate-400">{plan.tagline}</p>
+                <div className="mt-5 flex items-end gap-2">
+                  <p className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                    ${price}
+                  </p>
+                  <p className="pb-1.5 text-xs text-slate-500">/ month{annual && plan.monthly > 0 ? ', billed annually' : ''}</p>
+                </div>
+                <Link
+                  href={plan.cta.href}
+                  className={`mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-2.5 text-xs font-semibold transition sm:text-sm ${
+                    plan.highlighted
+                      ? 'bg-sentinel-500 text-white shadow-glow hover:bg-sentinel-400'
+                      : 'border border-white/10 bg-white/5 text-white hover:bg-white/10'
+                  }`}
+                >
+                  {plan.cta.label} <ArrowRight className="h-4 w-4" />
+                </Link>
+                <ul className="mt-6 space-y-2.5 border-t border-white/5 pt-6">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2.5 text-xs text-slate-300 sm:text-sm">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-sentinel-300" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {[
-            'Policy enforcement and classification across AI workflows',
-            'Audit-ready evidence and report generation',
-            'Hybrid deployment support and governance automation'
-          ].map((item) => (
-            <div key={item} className="rounded-[1.75rem] border border-white/10 bg-slate-950/90 p-6 text-sm text-slate-300">
-              {item}
-            </div>
-          ))}
-        </div>
+        <p className="text-center text-xs leading-6 text-slate-500">
+          Volume pricing available above 10M requests per month. All plans include unlimited users and policy evaluations.
+        </p>
       </section>
-    </main>
+
+      <Faq eyebrow="Pricing FAQ" title="Answers to the questions we hear most" items={faqItems} />
+
+      <CtaSection
+        eyebrow="Compare with confidence"
+        title="Get a custom quote for your AI estate."
+        description="Tell us about your providers, request volume, and compliance obligations — we will size the right tier."
+        primary={{ label: 'Talk to sales', href: '/contact' }}
+        secondary={{ label: 'Start free', href: '/register' }}
+      />
+    </div>
   );
 }

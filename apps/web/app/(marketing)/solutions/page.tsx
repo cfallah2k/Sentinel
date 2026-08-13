@@ -1,76 +1,115 @@
+import { ArrowRight, Building2, Landmark, Lock, ShieldCheck, Terminal, Users } from 'lucide-react';
+import Link from 'next/link';
+import MarketingHero from '@/components/marketing/hero';
+import CtaSection from '@/components/marketing/cta-section';
+
+const solutions = [
+  {
+    title: 'Enterprise',
+    description: 'Govern AI across business units, regions, and legacy systems without slowing innovation.',
+    href: '/solutions/enterprise',
+    icon: Building2,
+    stat: '2.7k+ workflows protected'
+  },
+  {
+    title: 'Regulated & compliance-led',
+    description: 'Continuous evidence for SOC 2, ISO 27001, GDPR, HIPAA, and the EU AI Act.',
+    href: '/solutions/compliance',
+    icon: ShieldCheck,
+    stat: '6+ frameworks mapped'
+  },
+  {
+    title: 'Security teams',
+    description: 'Gateway enforcement, incident response, and audit trails for security operations.',
+    href: '/solutions/security',
+    icon: Lock,
+    stat: '99.99% visibility'
+  },
+  {
+    title: 'Privacy programs',
+    description: 'Data minimization, classification, and redaction that keep personal data inside policy.',
+    href: '/solutions/privacy',
+    icon: Users,
+    stat: '18 detectors tuned'
+  },
+  {
+    title: 'Developers',
+    description: 'Policy as code, SDKs, and an OpenAI-compatible gateway that fits existing pipelines.',
+    href: '/solutions/developers',
+    icon: Terminal,
+    stat: '<50ms evaluation'
+  },
+  {
+    title: 'Government',
+    description: 'AI registries, public-sector governance, and accountability for citizen services.',
+    href: '/solutions/government',
+    icon: Landmark,
+    stat: 'Registry-first design'
+  }
+];
+
+const audience = [
+  { label: 'CIOs & CTOs', detail: 'AI adoption with guardrails' },
+  { label: 'CISOs & security', detail: 'Zero-trust AI enforcement' },
+  { label: 'DPOs & privacy', detail: 'Minimization and redaction' },
+  { label: 'Compliance officers', detail: 'Continuous audit evidence' },
+  { label: 'Data platform teams', detail: 'Classification and lineage' },
+  { label: 'Engineering leads', detail: 'Governance without friction' }
+];
+
 export default function SolutionsPage() {
-  const solutions = [
-    {
-      title: 'Risk visibility',
-      description: 'Capture every AI data flow across apps, models, and providers with a searchable governance topology.'
-    },
-    {
-      title: 'Policy enforcement',
-      description: 'Apply consistent controls at the gateway layer and stop non-compliant AI requests before they reach providers.'
-    },
-    {
-      title: 'Sensitive data protection',
-      description: 'Detect regulated content, PII, and high-risk assets with context-aware classification and redaction.'
-    },
-    {
-      title: 'Audit readiness',
-      description: 'Generate evidence-rich logs, reports, and access trails for security, privacy, and compliance reviews.'
-    },
-    {
-      title: 'Governance automation',
-      description: 'Use policy templates, approval workflows, and scorecards to scale controls across teams and projects.'
-    },
-    {
-      title: 'Operational alerting',
-      description: 'Trigger risk notifications, incident reviews, and data protection actions from a single secure control plane.'
-    }
-  ];
-
   return (
-    <main className="mx-auto max-w-7xl px-6 py-20 text-[var(--text)]">
-      <section className="rounded-[2rem] border border-white/10 bg-[var(--surface)] p-10 shadow-panel backdrop-blur-xl">
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.9fr] lg:items-center">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-sentinel-300">Solutions</p>
-            <h1 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">AI governance that protects data, controls risk, and enables enterprise scale.</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Sentinel gives security, privacy, and risk teams a unified control layer for every AI interaction, provider, and dataset. Build policy-driven protection across cloud, SaaS, and custom AI workflows.
-            </p>
-          </div>
-
-          <div className="rounded-[2rem] border border-white/10 bg-slate-950/90 p-8 shadow-glow">
-            <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Key outcomes</p>
-            <div className="mt-6 grid gap-4 text-sm text-slate-300">
-              <div className="rounded-3xl bg-slate-900/90 p-5">Reduce AI exposure with proactive policy enforcement.</div>
-              <div className="rounded-3xl bg-slate-900/90 p-5">Manage sensitive flows with real-time discovery and classification.</div>
-              <div className="rounded-3xl bg-slate-900/90 p-5">Support audits with evidence-ready logs and governance reports.</div>
+    <div className="space-y-16 lg:space-y-24">
+      <MarketingHero
+        eyebrow="Solutions"
+        title="Governance shaped for the way your team works."
+        description="Sentinel adapts to your role, your industry, and your regulatory reality — one platform, six working perspectives."
+        primary={{ label: 'Start free trial', href: '/register' }}
+        secondary={{ label: 'Talk to an expert', href: '/contact' }}
+      >
+        <div className="grid grid-cols-2 gap-3">
+          {audience.map(({ label, detail }) => (
+            <div key={label} className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl">
+              <p className="text-sm font-semibold text-white">{label}</p>
+              <p className="mt-1 text-xs text-slate-400">{detail}</p>
             </div>
-          </div>
+          ))}
+        </div>
+      </MarketingHero>
+
+      <section className="space-y-6">
+        <div className="text-center">
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Explore solutions</p>
+          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Pick your starting point</h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          {solutions.map(({ title, description, href, icon: Icon, stat }) => (
+            <Link
+              key={title}
+              href={href}
+              className="group flex flex-col rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-sentinel-500/25 sm:rounded-[1.5rem] sm:p-6"
+            >
+              <div className="flex items-start justify-between">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <ArrowRight className="h-4 w-4 text-slate-500 transition group-hover:translate-x-0.5 group-hover:text-sentinel-300" />
+              </div>
+              <h3 className="mt-4 text-base font-semibold text-white transition group-hover:text-sentinel-200">{title}</h3>
+              <p className="mt-2 flex-1 text-xs leading-6 text-slate-400 sm:text-sm">{description}</p>
+              <p className="mt-4 border-t border-white/5 pt-4 text-[0.65rem] uppercase tracking-[0.25em] text-slate-500">{stat}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
-      <section className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {solutions.map((solution) => (
-          <div key={solution.title} className="rounded-[2rem] border border-white/10 bg-slate-950/90 p-8 shadow-panel transition duration-300 hover:-translate-y-1 hover:border-sentinel-500/20 hover:bg-slate-900/95">
-            <h2 className="text-xl font-semibold text-white">{solution.title}</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-300">{solution.description}</p>
-          </div>
-        ))}
-      </section>
-
-      <section className="mt-12 rounded-[2rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-10 shadow-panel backdrop-blur-xl">
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-sentinel-300">Enterprise readiness</p>
-            <h2 className="mt-3 text-3xl font-semibold text-white">Governance workflows built for audit, policy, and control.</h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {['Compliant by design', 'Cross-team trust', 'Actionable evidence'].map((item) => (
-              <div key={item} className="rounded-3xl border border-white/10 bg-slate-950/90 p-5 text-sm text-slate-300">{item}</div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </main>
+      <CtaSection
+        eyebrow="Not sure where to start?"
+        title="Tell us about your stack and obligations."
+        description="We will map the right path across product, integrations, and compliance in a 30-minute call."
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
+        secondary={{ label: 'Start free trial', href: '/register' }}
+      />
+    </div>
   );
 }

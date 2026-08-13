@@ -1,5 +1,5 @@
-import PlaceholderPage from '../../../components/placeholder-page';
+import AuditHome from '@/components/governance/audit-home';
 
 export default function Page() {
-  return <PlaceholderPage title={"Audit"} description={"Audit placeholder page for /audit"} />;
+  return <AuditHome active="/audit" />;
 }

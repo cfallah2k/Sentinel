@@ -1,5 +1,5 @@
-import PlaceholderPage from '../../../components/placeholder-page';
+import RiskOverview from '@/components/governance/risk-overview';
 
 export default function Page() {
-  return <PlaceholderPage title={"Risk"} description={"Risk placeholder page for /risk"} />;
+  return <RiskOverview active="/risk" />;
 }

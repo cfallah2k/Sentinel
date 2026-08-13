@@ -1,5 +1,5 @@
-import PlaceholderPage from '../../../components/placeholder-page';
+import ReportsHome from '@/components/governance/reports-home';
 
 export default function Page() {
-  return <PlaceholderPage title={"Reports"} description={"Reports placeholder page for /reports"} />;
+  return <ReportsHome active="/reports" />;
 }

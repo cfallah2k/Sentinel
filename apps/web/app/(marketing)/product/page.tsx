@@ -1,78 +1,169 @@
-export default function ProductPage() {
-  const productFeatures = [
-    {
-      title: 'AI system mapping',
-      description: 'Scan and visualize every model, container, and integration in a single, searchable topology.'
-    },
-    {
-      title: 'Sensitive flow detection',
-      description: 'Identify risk paths across AI inputs, outputs, and third-party provider connections.'
-    },
-    {
-      title: 'Policy orchestration',
-      description: 'Create reusable policies that enforce governance across all AI channels and data domains.'
-    },
-    {
-      title: 'Automated evidence',
-      description: 'Produce audit-ready reports and passports for governance reviews and compliance teams.'
-    },
-    {
-      title: 'Real-time insights',
-      description: 'Monitor policy execution, risk signals, and drift indicators with live dashboards.'
-    },
-    {
-      title: 'Secure AI gateway',
-      description: 'Route requests through a purpose-built control plane that evaluates every call before it reaches an AI provider.'
-    }
-  ];
+import Link from 'next/link';
+import {
+  ArrowRight,
+  BookOpen,
+  Boxes,
+  Fingerprint,
+  Network,
+  ScrollText,
+  ShieldCheck,
+  ShieldHalf,
+  UserCheck,
+  Workflow
+} from 'lucide-react';
+import MarketingHero from '@/components/marketing/hero';
+import FeatureGrid from '@/components/marketing/feature-grid';
+import Steps from '@/components/marketing/steps';
+import CtaSection from '@/components/marketing/cta-section';
 
+const capabilities = [
+  {
+    title: 'AI Gateway',
+    description: 'An OpenAI-compatible proxy that evaluates every request against policy before it reaches a model.',
+    href: '/product/ai-gateway',
+    icon: ShieldCheck
+  },
+  {
+    title: 'Policy Engine',
+    description: 'Author, version, and enforce governance rules with allow, block, redact, and approval decisions.',
+    href: '/product/policy-engine',
+    icon: Workflow
+  },
+  {
+    title: 'Data Classification',
+    description: 'Detect sensitive data across your estate with detectors tuned for PII, financial, health, and more.',
+    href: '/product/data-classification',
+    icon: Fingerprint
+  },
+  {
+    title: 'Data Flow Governance',
+    description: 'Trace data movement from source to inference and surface every sensitive flow.',
+    href: '/product/data-flow',
+    icon: Network
+  },
+  {
+    title: 'AI Passports',
+    description: 'Rich metadata for every AI system — purpose, risk, data categories, and attestations.',
+    href: '/product/ai-passport',
+    icon: BookOpen
+  },
+  {
+    title: 'Approvals',
+    description: 'Human-in-the-loop workflows for high-risk requests, policy exceptions, and data access.',
+    href: '/product/approvals',
+    icon: UserCheck
+  },
+  {
+    title: 'Incidents',
+    description: 'Triage, escalate, and remediate AI policy violations and data exposures with SLA tracking.',
+    href: '/product/incidents',
+    icon: ShieldHalf
+  },
+  {
+    title: 'Audit & Reporting',
+    description: 'Immutable event logs, evidence exports, and scheduled reports for every stakeholder.',
+    href: '/product/audit',
+    icon: Boxes
+  },
+  {
+    title: 'AI Governance',
+    description: 'A unified control plane connecting registry, policy, risk, and compliance in one loop.',
+    href: '/product/ai-governance',
+    icon: ScrollText
+  }
+];
+
+const visualRows = [
+  { label: 'Request evaluated', value: 'policy: pol-1', tone: 'text-emerald-300' },
+  { label: 'Decision', value: 'Blocked — PII to unapproved provider', tone: 'text-rose-300' },
+  { label: 'Audit event', value: 'evt-8f21a9 · captured', tone: 'text-sentinel-300' }
+];
+
+export default function ProductPage() {
   return (
-    <main className="mx-auto max-w-7xl px-6 py-20 text-[var(--text)]">
-      <section className="rounded-[2rem] border border-white/10 bg-[var(--surface)] p-10 shadow-panel backdrop-blur-xl">
-        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.85fr] lg:items-center">
-          <div>
-            <p className="text-sm uppercase tracking-[0.35em] text-sentinel-300">Product</p>
-            <h1 className="mt-4 text-4xl font-semibold text-white sm:text-5xl">Enterprise AI security built for confidence, control, and compliance.</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Sentinel helps security, risk, and engineering teams see every AI surface, govern every policy, and prove controls with structured evidence.
-            </p>
-          </div>
-          <div className="rounded-[2rem] border border-white/10 bg-slate-950/90 p-8 shadow-glow">
-            <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Product at a glance</p>
-            <div className="mt-6 grid gap-4 text-sm text-slate-300">
-              <div className="rounded-3xl bg-slate-900/90 p-4">AI discovery engine with metadata-driven mapping.</div>
-              <div className="rounded-3xl bg-slate-900/90 p-4">Policy authoring and enforcement in one unified workflow.</div>
-              <div className="rounded-3xl bg-slate-900/90 p-4">Audit-ready trails across every AI decision and data flow.</div>
+    <div className="space-y-16 lg:space-y-24">
+      <MarketingHero
+        eyebrow="Product"
+        title="One control plane for every AI data path."
+        description="Sentinel connects the gateway, policy engine, classification, and audit trail into a single loop — so governance is enforced where AI happens and proven where auditors look."
+        primary={{ label: 'Start free trial', href: '/register' }}
+        secondary={{ label: 'Read the docs', href: '/docs' }}
+      >
+        <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
+          <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.24),_transparent_45%)]" />
+          <div className="relative space-y-3">
+            <div className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-300 sm:text-sm">
+              <span>Gateway — Atlas Support Copilot</span>
+              <span className="rounded-full bg-sentinel-500/15 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-sentinel-200">
+                Live
+              </span>
+            </div>
+            <div className="space-y-2 rounded-[1.25rem] border border-white/10 bg-slate-900/90 p-3.5 shadow-glow">
+              {visualRows.map((row) => (
+                <div key={row.label} className="flex items-center justify-between rounded-2xl bg-slate-950/90 px-3.5 py-2.5 text-xs sm:text-sm">
+                  <span className="text-slate-300">{row.label}</span>
+                  <span className={row.tone}>{row.value}</span>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-3 gap-2.5">
+              {[
+                { label: 'Policies', value: '1.4k' },
+                { label: 'Flows traced', value: '2.7k' },
+                { label: 'Evidence', value: '12m+' }
+              ].map((item) => (
+                <div key={item.label} className="rounded-2xl bg-slate-950/85 p-3 text-center">
+                  <p className="text-sm font-semibold text-white sm:text-base">{item.value}</p>
+                  <p className="mt-0.5 text-[0.55rem] uppercase tracking-[0.2em] text-slate-500">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </MarketingHero>
 
-      <section className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {productFeatures.map((feature) => (
-          <div key={feature.title} className="rounded-[2rem] border border-white/10 bg-slate-950/90 p-8 shadow-panel transition hover:-translate-y-1 hover:border-sentinel-500/20 hover:bg-slate-900/95">
-            <h2 className="text-xl font-semibold text-white">{feature.title}</h2>
-            <p className="mt-4 text-sm leading-7 text-slate-300">{feature.description}</p>
-          </div>
-        ))}
-      </section>
-
-      <section className="mt-12 rounded-[2rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-10 shadow-panel backdrop-blur-xl">
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/90 p-8 shadow-glow">
-            <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Platform capabilities</p>
-            <p className="mt-4 text-sm leading-7 text-slate-300">Sentinel combines discovery, governance, and evidence collection in a single UX designed for enterprise teams.</p>
-          </div>
-          <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/90 p-8 shadow-glow">
-            <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Deployment flexibility</p>
-            <p className="mt-4 text-sm leading-7 text-slate-300">Deploy in hybrid, cloud, or dedicated environments while maintaining secure policy boundaries.</p>
-          </div>
-          <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/90 p-8 shadow-glow">
-            <p className="text-sm uppercase tracking-[0.35em] text-slate-400">Operational insight</p>
-            <p className="mt-4 text-sm leading-7 text-slate-300">Use audit-grade evidence and live risk data to support board-level governance and security operations.</p>
-          </div>
+      <section className="space-y-8">
+        <div className="text-center">
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Capabilities</p>
+          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Nine capabilities, one governance loop</h2>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          {capabilities.map(({ title, description, href, icon: Icon }) => (
+            <Link
+              key={title}
+              href={href}
+              className="group rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-sentinel-500/25 sm:rounded-[1.5rem] sm:p-6"
+            >
+              <div className="flex items-start justify-between">
+                <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <ArrowRight className="h-4 w-4 text-slate-500 transition group-hover:translate-x-0.5 group-hover:text-sentinel-300" />
+              </div>
+              <h3 className="mt-4 text-sm font-semibold text-white sm:text-base">{title}</h3>
+              <p className="mt-2 text-xs leading-6 text-slate-400 sm:text-sm">{description}</p>
+            </Link>
+          ))}
         </div>
       </section>
-    </main>
+
+      <Steps
+        eyebrow="How it works"
+        title="From first request to audit-ready in three moves"
+        steps={[
+          { title: 'Route through the gateway', description: 'Every AI request passes through Sentinel before reaching a model — nothing executes unpoliced.' },
+          { title: 'Enforce policy at runtime', description: 'The policy engine evaluates conditions and returns allow, block, redact, or require-approval decisions.' },
+          { title: 'Prove it with evidence', description: 'Every decision lands in the immutable audit trail, linked to evidence your auditors can export.' }
+        ]}
+      />
+
+      <CtaSection
+        eyebrow="See it in action"
+        title="Route your first governed request today."
+        description="Free tier includes the gateway, three policies, and seven days of audit retention."
+        primary={{ label: 'Start free trial', href: '/register' }}
+        secondary={{ label: 'Explore integrations', href: '/integrations' }}
+      />
+    </div>
   );
 }
