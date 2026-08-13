@@ -71,7 +71,7 @@ export default function GetStartedPage() {
           <pre className="mt-4 overflow-x-auto rounded-[1.25rem] bg-slate-900/95 px-5 py-5 text-xs leading-6 text-slate-200 sm:text-sm">
             <code>{command}</code>
           </pre>
-          <div className="mt-4 grid grid-cols-3 gap-2.5">
+          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
             {[
               { label: 'Gateway latency', value: '<50ms' },
               { label: 'Setup time', value: '~45m' },
@@ -91,7 +91,7 @@ export default function GetStartedPage() {
           {phases.map(({ icon: Icon, title, description, steps, duration }, index) => (
             <div
               key={title}
-              className="relative rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6"
+              className="relative rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6"
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-sentinel-500/15 text-sentinel-300 shadow-[0_8px_40px_rgba(56,189,248,0.1)]">
@@ -123,7 +123,7 @@ export default function GetStartedPage() {
         </div>
 
         <div className="space-y-4 lg:sticky lg:top-24">
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
             <div className="flex items-center gap-3">
               <Terminal className="h-5 w-5 text-sentinel-300" />
               <h2 className="text-base font-semibold text-white sm:text-lg">Before you start</h2>
@@ -137,7 +137,7 @@ export default function GetStartedPage() {
               ))}
             </ul>
           </div>
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
             <h2 className="text-base font-semibold text-white sm:text-lg">Next stops</h2>
             <div className="mt-4 space-y-2.5">
               {[

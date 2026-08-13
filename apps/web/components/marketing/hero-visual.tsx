@@ -2,7 +2,7 @@ export default function HeroVisual() {
   return (
     <div className="relative mx-auto w-full max-w-md">
       <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-tr from-sentinel-500/25 via-sky-500/10 to-cyan-400/25 blur-2xl" />
-      <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl sm:p-6">
+      <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:p-6">
         <div className="flex items-center gap-1.5 border-b border-white/10 pb-3">
           <span className="h-2.5 w-2.5 rounded-full bg-rose-400/80" />
           <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
@@ -12,7 +12,7 @@ export default function HeroVisual() {
           </span>
         </div>
 
-        <div className="mt-4 grid grid-cols-3 gap-3">
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
           <div className="rounded-xl border border-white/10 bg-white/5 p-3">
             <p className="text-[0.55rem] uppercase tracking-[0.2em] text-slate-500">Requests</p>
             <p className="mt-1 text-sm font-semibold text-white">1.2M</p>

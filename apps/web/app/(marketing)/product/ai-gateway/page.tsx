@@ -76,7 +76,7 @@ export default function AiGatewayPage() {
           <pre className="mt-4 overflow-x-auto rounded-[1.25rem] bg-slate-900/95 px-5 py-5 text-xs leading-6 text-slate-200 sm:text-sm">
             <code>{code}</code>
           </pre>
-          <div className="mt-4 grid grid-cols-3 gap-2.5">
+          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
             {[
               { label: 'Latency', value: '38ms' },
               { label: 'Evaluated', value: '100%' },
@@ -102,7 +102,7 @@ export default function AiGatewayPage() {
       <section className="mx-auto max-w-4xl">
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {decisions.map(({ label, detail, tone }) => (
-            <div key={label} className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-4 text-center shadow-panel backdrop-blur-xl sm:rounded-[1.5rem]">
+            <div key={label} className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-4 text-center shadow-panel backdrop-blur-xl sm:rounded-[1.5rem]">
               <p className={`text-sm font-semibold sm:text-base ${tone}`}>{label}</p>
               <p className="mt-1.5 text-[0.65rem] leading-5 text-slate-500">{detail}</p>
             </div>

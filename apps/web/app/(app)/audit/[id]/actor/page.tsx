@@ -70,7 +70,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                 </div>
               </div>
             </div>
-            <div className="mt-5 grid grid-cols-3 gap-3 border-t border-white/5 pt-4 text-center">
+            <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-3 border-t border-white/5 pt-4 text-center">
               <div>
                 <p className="text-lg font-semibold text-white">{events.length}</p>
                 <p className="text-[0.6rem] uppercase tracking-[0.2em] text-slate-500">Events</p>

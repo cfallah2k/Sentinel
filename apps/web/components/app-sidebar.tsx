@@ -105,7 +105,7 @@ export default function AppSidebar() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <aside className="z-30 flex w-full shrink-0 flex-col border-b border-white/10 bg-[rgba(15,23,42,0.92)] backdrop-blur-xl lg:h-screen lg:w-72 lg:border-b-0 lg:border-r">
+    <aside className="z-30 flex w-full shrink-0 flex-col border-b border-white/10 bg-[var(--surface)] backdrop-blur-xl lg:h-screen lg:w-72 lg:border-b-0 lg:border-r">
       <div className="flex items-center justify-between gap-3 px-5 py-4 lg:px-6 lg:py-6">
         <Link href="/dashboard" className="flex items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br from-sentinel-500 to-cyan-400 shadow-glow">

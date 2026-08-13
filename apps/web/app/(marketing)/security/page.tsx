@@ -68,7 +68,7 @@ export default function SecurityPage() {
         primary={{ label: 'Visit trust center', href: '/trust' }}
         secondary={{ label: 'Report a vulnerability', href: '/legal/security' }}
       >
-        <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
+        <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.22),_transparent_45%)]" />
           <div className="relative space-y-3">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Posture snapshot</p>
@@ -104,7 +104,7 @@ export default function SecurityPage() {
           {pillars.map(({ icon: Icon, title, description, points }) => (
             <div
               key={title}
-              className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7"
+              className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">
                 <Icon className="h-5 w-5" />
@@ -124,7 +124,7 @@ export default function SecurityPage() {
         </div>
       </section>
 
-      <section className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
+      <section className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
         <div className="text-center">
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Certifications & frameworks</p>
           <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Verified, not just claimed</h2>

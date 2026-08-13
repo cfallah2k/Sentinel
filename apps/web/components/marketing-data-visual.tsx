@@ -1,6 +1,6 @@
 export default function MarketingDataVisual() {
   return (
-    <section className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+    <section className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.14),_transparent_30%)] blur-3xl" />
       <div className="relative space-y-5 sm:space-y-6">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

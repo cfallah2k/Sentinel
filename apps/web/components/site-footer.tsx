@@ -75,9 +75,9 @@ const footerColumns = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[rgba(2,6,23,0.88)] backdrop-blur-xl">
+    <footer className="border-t border-white/10 bg-[var(--bg-soft)] backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.9)] p-6 shadow-panel backdrop-blur-xl sm:p-8">
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel backdrop-blur-xl sm:p-8">
           <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-3/4 -translate-x-1/2 rounded-full bg-sentinel-500/10 blur-3xl" />
           <div className="relative flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">

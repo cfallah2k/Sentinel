@@ -80,7 +80,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl animate-float sm:rounded-[2rem] sm:p-5">
+          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl animate-float sm:rounded-[2rem] sm:p-5">
             <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.24),_transparent_45%)]" />
             <div className="relative space-y-4 sm:space-y-5">
               <div className="flex items-center justify-between gap-3 rounded-[1.25rem] border border-white/10 bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-300 sm:rounded-[1.5rem] sm:text-sm">
@@ -124,7 +124,7 @@ export default function HomePage() {
         </div>
 
         <section className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6">
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Enterprise readiness</p>
             <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Designed for AI security teams who move fast and need absolute trust.</h2>
             <div className="mt-6 space-y-3.5">
@@ -137,10 +137,10 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Trusted at scale</p>
             <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Operational visibility meets governance precision.</h2>
-            <div className="mt-6 grid grid-cols-2 gap-3">
+            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {trustStats.map((stat) => (
                 <div key={stat.label} className="rounded-[1.25rem] bg-slate-950/90 p-4 text-xs text-slate-300 sm:rounded-[1.5rem] sm:text-sm">
                   <p className="text-xl font-semibold text-white sm:text-2xl">{stat.value}</p>
@@ -151,7 +151,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
+        <section className="rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Secure your AI strategy</p>

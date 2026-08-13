@@ -29,7 +29,7 @@ export default function Faq({ eyebrow, title, items }: FaqProps) {
           return (
             <div
               key={item.question}
-              className="overflow-hidden rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] shadow-panel backdrop-blur-xl sm:rounded-[1.5rem]"
+              className="overflow-hidden rounded-[1.25rem] border border-white/10 bg-[var(--surface)] shadow-panel backdrop-blur-xl sm:rounded-[1.5rem]"
             >
               <button
                 type="button"

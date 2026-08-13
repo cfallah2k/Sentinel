@@ -20,7 +20,7 @@ export default function Steps({ eyebrow, title, steps }: StepsProps) {
         {steps.map((step, index) => (
           <div
             key={step.title}
-            className="relative rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6"
+            className="relative rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6"
           >
             <div className="flex h-9 w-9 items-center justify-center rounded-2xl bg-sentinel-500/15 text-sm font-bold text-sentinel-300 shadow-[0_8px_40px_rgba(56,189,248,0.1)]">
               {String(index + 1).padStart(2, '0')}

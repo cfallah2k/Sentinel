@@ -63,7 +63,7 @@ export default function SecuritySolutionPage() {
       >
         <div className="flex flex-col gap-3">
           {threats.map(({ label, detail }) => (
-            <div key={label} className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] px-4 py-3 shadow-panel backdrop-blur-xl">
+            <div key={label} className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] px-4 py-3 shadow-panel backdrop-blur-xl">
               <div>
                 <p className="text-xs font-semibold text-white sm:text-sm">{label}</p>
                 <p className="text-[0.65rem] text-slate-500">{detail}</p>
@@ -86,7 +86,7 @@ export default function SecuritySolutionPage() {
         <FeatureGrid items={features} />
       </section>
 
-      <section className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
+      <section className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
         <div className="text-center">
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Operational flow</p>
           <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">From signal to response in one loop</h2>

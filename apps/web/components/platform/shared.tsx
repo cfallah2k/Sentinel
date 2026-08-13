@@ -30,7 +30,7 @@ export function ScopeList({ scopes }: { scopes: string[] }) {
 
 export function StatTile({ label, value, sub }: { label: string; value: string; sub?: string }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] px-5 py-4 shadow-panel backdrop-blur-xl">
+    <div className="rounded-3xl border border-white/10 bg-[var(--surface)] px-5 py-4 shadow-panel backdrop-blur-xl">
       <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">{label}</p>
       <p className="mt-1.5 text-xl font-semibold text-white">{value}</p>
       {sub ? <p className="mt-0.5 text-[0.65rem] text-slate-500">{sub}</p> : null}

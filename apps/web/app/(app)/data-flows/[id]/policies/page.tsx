@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                   <Badge key={d} label={d} tone={d === 'Block' ? 'rose' : d === 'Redact' ? 'amber' : d === 'Require Approval' ? 'violet' : 'green'} />
                 ))}
               </div>
-              <div className="mt-3 grid grid-cols-3 gap-3 border-t border-white/5 pt-3 text-[0.65rem]">
+              <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3 border-t border-white/5 pt-3 text-[0.65rem]">
                 <span className="text-slate-400">Scope: <span className="text-slate-200">{p.scope}</span></span>
                 <span className="text-slate-400">Conditions: <span className="text-slate-200">{p.conditions}</span></span>
                 <span className="text-slate-400">Enforcements: <span className="text-slate-200">{fmt(p.enforcements)}</span></span>

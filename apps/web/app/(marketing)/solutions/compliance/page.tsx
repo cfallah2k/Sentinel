@@ -46,9 +46,9 @@ export default function ComplianceSolutionPage() {
         primary={{ label: 'Start free trial', href: '/register' }}
         secondary={{ label: 'See framework coverage', href: '/compliance' }}
       >
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {frameworks.map((framework) => (
-            <div key={framework} className="flex items-center gap-2.5 rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] px-4 py-3 shadow-panel backdrop-blur-xl">
+            <div key={framework} className="flex items-center gap-2.5 rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] px-4 py-3 shadow-panel backdrop-blur-xl">
               <BadgeCheck className="h-4 w-4 shrink-0 text-sentinel-300" />
               <span className="text-xs font-semibold text-white sm:text-sm">{framework}</span>
             </div>
@@ -80,7 +80,7 @@ export default function ComplianceSolutionPage() {
             answer: 'Obligation mapping is pre-built for Tier 1 and Tier 2 systems; you attach systems and the platform tracks documentation readiness.'
           }
         ].map(({ question, answer }) => (
-          <div key={question} className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+          <div key={question} className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
             <h3 className="text-sm font-semibold text-white sm:text-base">{question}</h3>
             <p className="mt-2.5 text-xs leading-6 text-slate-400 sm:text-sm">{answer}</p>
           </div>

@@ -58,7 +58,7 @@ export default function PrivacySolutionPage() {
       >
         <div className="flex flex-col gap-3">
           {categories.map((category) => (
-            <div key={category} className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] px-4 py-3 text-xs text-slate-300 shadow-panel backdrop-blur-xl sm:text-sm">
+            <div key={category} className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] px-4 py-3 text-xs text-slate-300 shadow-panel backdrop-blur-xl sm:text-sm">
               <span>{category}</span>
               <span className="inline-flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.2em] text-emerald-300">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -78,7 +78,7 @@ export default function PrivacySolutionPage() {
         <FeatureGrid items={features} />
       </section>
 
-      <section className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
+      <section className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
         <div className="text-center">
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">For your next DPIA</p>
           <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Documentation from live telemetry</h2>

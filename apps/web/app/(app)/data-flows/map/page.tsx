@@ -24,7 +24,7 @@ export default function Page() {
       </div>
       <FlowMap flows={enrichedFlows} />
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        <div className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">Source systems</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {sources.map((s) => (
@@ -35,7 +35,7 @@ export default function Page() {
             ))}
           </div>
         </div>
-        <div className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">AI destinations</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {destinations.map((d) => (

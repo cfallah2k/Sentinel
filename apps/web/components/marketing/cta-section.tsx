@@ -16,7 +16,7 @@ export default function CtaSection({
   secondary = { label: 'Talk to sales', href: '/contact' }
 }: CtaSectionProps) {
   return (
-    <section className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
+    <section className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
       <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-3/4 -translate-x-1/2 rounded-full bg-sentinel-500/10 blur-3xl" />
       <div className="relative flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
         <div>

@@ -61,7 +61,7 @@ export function CategoryCard({ row }: { row: ClassRow }) {
           <div className="mt-1.5">
             <ProgressBar value={row.coverage} color={catBarColor(row.color)} />
           </div>
-          <div className="mt-4 grid grid-cols-2 gap-3 border-t border-white/5 pt-3">
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 border-t border-white/5 pt-3">
             <div>
               <p className="text-[0.6rem] uppercase tracking-wider text-slate-500">Matches 24h</p>
               <p className="mt-0.5 text-sm font-semibold text-white">{fmt(row.matched24h)}</p>

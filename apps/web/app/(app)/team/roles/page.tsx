@@ -28,7 +28,7 @@ export default function Page() {
         {roles.map(([role, perms]) => {
           const members = teamMembers.filter((m) => m.role === role);
           return (
-            <Link key={role} href={`/team/roles/${role.toLowerCase()}`} className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl transition hover:border-sentinel-500/40">
+            <Link key={role} href={`/team/roles/${role.toLowerCase()}`} className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl transition hover:border-sentinel-500/40">
               <div className="flex items-center justify-between">
                 <Badge label={role} tone="blue" />
                 <span className="text-[0.65rem] text-slate-500">{members.length} members</span>

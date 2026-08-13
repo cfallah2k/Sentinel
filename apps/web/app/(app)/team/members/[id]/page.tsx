@@ -52,7 +52,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
         actions={<Badge label={member.status} tone={toneForStatus(member.status)} />}
       />
 
-      <div className="flex flex-wrap items-center gap-4 rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+      <div className="flex flex-wrap items-center gap-4 rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
         <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-sentinel-500/25 bg-sentinel-500/10 text-lg font-bold text-sentinel-300">
           {initials}
         </div>

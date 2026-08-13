@@ -54,7 +54,7 @@ export default function AiGovernancePage() {
         primary={{ label: 'Start free trial', href: '/register' }}
         secondary={{ label: 'See the registry', href: '/product/ai-passport' }}
       >
-        <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
+        <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.22),_transparent_45%)]" />
           <div className="relative space-y-3">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Governance posture</p>

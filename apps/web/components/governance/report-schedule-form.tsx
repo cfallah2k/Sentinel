@@ -36,7 +36,7 @@ export default function ReportScheduleForm({ report }: { report: Report }) {
         <CardBody className="space-y-6">
           <div>
             <label className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">Frequency</label>
-            <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:grid-cols-4">
               {frequencies.map((f) => (
                 <button
                   key={f}

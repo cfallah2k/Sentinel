@@ -71,7 +71,7 @@ export default function PolicyEnginePage() {
           <pre className="mt-4 overflow-x-auto rounded-[1.25rem] bg-slate-900/95 px-5 py-5 text-xs leading-6 text-slate-200 sm:text-sm">
             <code>{policy}</code>
           </pre>
-          <div className="mt-4 grid grid-cols-3 gap-2.5">
+          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
             {stats.map(({ label, value }) => (
               <div key={label} className="rounded-2xl bg-slate-950/90 p-3 text-center">
                 <p className="text-sm font-semibold text-white sm:text-base">{value}</p>

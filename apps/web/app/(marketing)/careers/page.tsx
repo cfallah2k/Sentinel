@@ -54,7 +54,7 @@ export default function CareersPage() {
           {culture.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6"
+              className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6"
             >
               <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">
                 <Icon className="h-5 w-5" />
@@ -67,7 +67,7 @@ export default function CareersPage() {
       </section>
 
       <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
+        <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
           <div className="flex items-center gap-3">
             <Coffee className="h-5 w-5 text-sentinel-300" />
             <h2 className="text-base font-semibold text-white sm:text-lg">Benefits and perks</h2>
@@ -81,7 +81,7 @@ export default function CareersPage() {
             ))}
           </ul>
         </div>
-        <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
+        <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
           <div className="flex items-center gap-3">
             <MapPin className="h-5 w-5 text-sentinel-300" />
             <h2 className="text-base font-semibold text-white sm:text-lg">Our headquarters</h2>
@@ -100,7 +100,7 @@ export default function CareersPage() {
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Open positions</p>
           <h2 className="mt-2 text-lg font-semibold text-white sm:text-xl">We are not hiring right now</h2>
         </div>
-        <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 text-center shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-10">
+        <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 text-center shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-10">
           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">
             <Rocket className="h-6 w-6" />
           </div>

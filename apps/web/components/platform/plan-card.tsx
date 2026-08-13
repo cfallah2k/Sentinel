@@ -32,8 +32,8 @@ export function PlanCard({
     <div
       className={`flex flex-col rounded-3xl border p-6 shadow-panel backdrop-blur-xl ${
         featured
-          ? 'border-sentinel-500/50 bg-[rgba(15,23,42,0.92)] ring-1 ring-sentinel-500/30'
-          : 'border-white/10 bg-[rgba(15,23,42,0.92)]'
+          ? 'border-sentinel-500/50 bg-[var(--surface)] ring-1 ring-sentinel-500/30'
+          : 'border-white/10 bg-[var(--surface)]'
       }`}
     >
       <div className="flex items-center justify-between">

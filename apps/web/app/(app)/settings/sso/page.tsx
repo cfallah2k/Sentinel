@@ -32,7 +32,7 @@ export default function Page() {
         {providers.map((p) => {
           const Icon = p.icon;
           return (
-            <div key={p.id} className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+            <div key={p.id} className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
               <div className="flex items-center justify-between">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-sentinel-500/20 bg-sentinel-500/10 text-sentinel-300">
                   <Icon className="h-5 w-5" />

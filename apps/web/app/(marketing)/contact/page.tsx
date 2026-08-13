@@ -8,7 +8,7 @@ const officeLocations = [
   {
     city: 'Monrovia',
     region: 'Liberia',
-    address: 'Capitol Hill, Monrovia, Liberia',
+    address: 'New Georgia Estate, Turning Point Junction, Monrovia, Liberia',
     type: 'Headquarters'
   }
 ];
@@ -40,7 +40,7 @@ export default function ContactPage() {
       />
 
       <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-        <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
+        <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
           {submitted ? (
             <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-300">
@@ -151,7 +151,7 @@ export default function ContactPage() {
         </div>
 
         <div className="space-y-4">
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">
                 <Mail className="h-5 w-5" />
@@ -164,7 +164,7 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">
                 <Phone className="h-5 w-5" />
@@ -177,7 +177,7 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">
                 <Clock className="h-5 w-5" />
@@ -189,7 +189,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">
                 <MapPin className="h-5 w-5" />
@@ -214,7 +214,7 @@ export default function ContactPage() {
           {officeLocations.map((office) => (
             <div
               key={office.city}
-              className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6 md:col-span-3"
+              className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6 md:col-span-3"
             >
               <span className="inline-flex items-center gap-2 rounded-full bg-sentinel-500/10 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-sentinel-300">
                 <MapPin className="h-3 w-3" />

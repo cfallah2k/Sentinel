@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
         <Card className="lg:col-span-2">
           <CardHeader title="Control summary" subtitle="Distribution by state" />
           <CardBody>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
                 { label: 'Implemented', value: controls.filter((c) => c.status === 'Implemented').length, tone: 'text-emerald-300' },
                 { label: 'Partially implemented', value: controls.filter((c) => c.status === 'Partially Implemented').length, tone: 'text-amber-300' },

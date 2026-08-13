@@ -52,7 +52,7 @@ export default function AboutPage() {
         primary={{ label: 'Meet the platform', href: '/product' }}
         secondary={{ label: 'Read our story', href: '/blog' }}
       >
-        <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
+        <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.24),_transparent_45%)]" />
           <div className="relative space-y-3">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Company snapshot</p>
@@ -101,7 +101,7 @@ export default function AboutPage() {
         </div>
         <div className="space-y-3">
           {milestones.map((milestone) => (
-            <div key={milestone.year} className="flex gap-4 rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-5">
+            <div key={milestone.year} className="flex gap-4 rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-5">
               <span className="flex h-9 w-16 shrink-0 items-center justify-center rounded-2xl bg-sentinel-500/10 text-xs font-bold text-sentinel-300">
                 {milestone.year}
               </span>

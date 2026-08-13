@@ -45,7 +45,7 @@ export default function Page() {
                 <div className="mt-2">
                   <ProgressBar value={f.progress} color={f.progress >= 70 ? 'bg-emerald-400' : f.progress >= 50 ? 'bg-amber-400' : 'bg-rose-400'} />
                 </div>
-                <div className="mt-4 grid grid-cols-3 gap-2 text-[0.65rem]">
+                <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-[0.65rem]">
                   <div className="rounded-xl border border-white/5 bg-white/[0.03] px-3 py-2">
                     <p className="text-slate-500">Controls</p>
                     <p className="mt-0.5 font-semibold text-white">{f.controls}</p>

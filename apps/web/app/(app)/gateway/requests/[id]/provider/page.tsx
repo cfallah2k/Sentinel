@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           <CardHeader title="Provider" subtitle={provider ? `${provider.type} · ${provider.region}` : 'Provider details unavailable'} />
           <CardBody>
             {provider ? (
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <Metric label="Type" value={provider.type} />
                 <Metric label="Region" value={provider.region} />
                 <Metric label="Models" value={provider.models} />
@@ -55,7 +55,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           <CardHeader title="Model" subtitle={model ? `${model.modality} · ${model.contextWindow} context` : 'Model details unavailable'} />
           <CardBody>
             {model ? (
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <Metric label="Modality" value={model.modality} />
                 <Metric label="Context Window" value={model.contextWindow} />
                 <Metric label="Pricing" value={model.pricing} />

@@ -35,7 +35,7 @@ export default function SiteHeader() {
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-white/10 bg-[rgba(2,6,23,0.88)] backdrop-blur-2xl shadow-[0_25px_120px_rgba(15,23,42,0.2)] transition-colors duration-300"
+      className="sticky top-0 z-50 border-b border-white/10 bg-[var(--bg-soft)] backdrop-blur-2xl shadow-[0_25px_120px_rgba(15,23,42,0.2)] transition-colors duration-300"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
         <Link href="/" className="flex items-center gap-2.5 transition hover:opacity-90">

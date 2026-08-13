@@ -77,7 +77,7 @@ export function IntegrationCard({ integration }: { integration: Integration }) {
   return (
     <Link
       href={`/integrations-hub/${integration.id}`}
-      className="group flex flex-col rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl transition hover:border-sentinel-500/40 hover:shadow-glow"
+      className="group flex flex-col rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl transition hover:border-sentinel-500/40 hover:shadow-glow"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-sentinel-500/20 bg-sentinel-500/10 text-sentinel-300">

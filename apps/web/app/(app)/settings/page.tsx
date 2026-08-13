@@ -70,7 +70,7 @@ export default function Page() {
               <Link
                 key={s.href}
                 href={s.href}
-                className="flex items-start gap-3.5 rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-4.5 shadow-panel backdrop-blur-xl transition hover:border-sentinel-500/40"
+                className="flex items-start gap-3.5 rounded-3xl border border-white/10 bg-[var(--surface)] p-4.5 shadow-panel backdrop-blur-xl transition hover:border-sentinel-500/40"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-sentinel-500/20 bg-sentinel-500/10 text-sentinel-300">
                   <Icon className="h-4.5 w-4.5" size={18} />

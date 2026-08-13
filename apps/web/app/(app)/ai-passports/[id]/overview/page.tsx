@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           <CardHeader title="Declaration summary" subtitle="What this passport certifies" />
           <CardBody>
             <p className="text-sm leading-6 text-slate-300">{p.purpose}</p>
-            <div className="mt-4 grid grid-cols-2 gap-3">
+            <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {[
                 { label: 'Data types', value: p.dataTypes.length },
                 { label: 'Certifications', value: p.certifications.length },

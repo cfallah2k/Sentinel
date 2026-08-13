@@ -29,7 +29,7 @@ export default function Page() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {policies.map((p) => (
-          <div key={p.id} className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+          <div key={p.id} className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
             <div className="flex items-center justify-between">
               <p className="text-xs font-semibold text-white">{p.name}</p>
               <Badge label={`${windows[p.id]}d`} tone="blue" />

@@ -27,14 +27,14 @@ export default function Page() {
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         <div className="lg:col-span-2">
-          <div className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+          <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">Platform Usage — 30 Days</p>
             <div className="mt-4">
               <AreaTrend data={usage30d} dataKey="requests" xKey="date" height={220} />
             </div>
           </div>
         </div>
-        <div className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">Orgs by Plan</p>
           <div className="mt-4">
             <DonutChart data={orgsByPlan()} height={200} />

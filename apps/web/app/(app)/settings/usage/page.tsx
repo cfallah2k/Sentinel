@@ -25,22 +25,22 @@ export default function Page() {
       />
 
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-4">
-        <div className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
           <p className="text-xs text-slate-400">Requests today</p>
           <p className="mt-1 text-2xl font-bold text-white">{(today?.requests ?? 0).toLocaleString()}</p>
           <p className="mt-1 text-[0.65rem] text-slate-500">Peak {hourlySeries.reduce((m, h) => Math.max(m, h.allowed + h.blocked), 0).toLocaleString()}/hr</p>
         </div>
-        <div className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
           <p className="text-xs text-slate-400">Requests yesterday</p>
           <p className="mt-1 text-2xl font-bold text-white">{(yesterday?.requests ?? 0).toLocaleString()}</p>
           <p className="mt-1 text-[0.65rem] text-slate-500">Δ {(Math.abs((today?.requests ?? 0) - (yesterday?.requests ?? 0)) / Math.max(1, yesterday?.requests ?? 1) * 100).toFixed(1)}% vs today</p>
         </div>
-        <div className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
           <p className="text-xs text-slate-400">Active apps</p>
           <p className="mt-1 text-2xl font-bold text-white">4</p>
           <p className="mt-1 text-[0.65rem] text-slate-500">2 more than last month</p>
         </div>
-        <div className="rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
           <p className="text-xs text-slate-400">Tokens billed</p>
           <p className="mt-1 text-2xl font-bold text-white">418M</p>
           <p className="mt-1 text-[0.65rem] text-slate-500">All in monthly quota</p>

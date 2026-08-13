@@ -36,7 +36,7 @@ export default function Page() {
           {sections.map((s) => {
             const Icon = s.icon;
             return (
-              <Link key={s.href} href={s.href} className="flex items-center gap-4 rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl transition hover:border-sentinel-500/40">
+              <Link key={s.href} href={s.href} className="flex items-center gap-4 rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl transition hover:border-sentinel-500/40">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-sentinel-500/20 bg-sentinel-500/10 text-sentinel-300">
                   <Icon className="h-5 w-5" />
                 </div>

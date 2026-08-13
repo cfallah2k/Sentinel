@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                 <ProgressBar value={row.coverage} color={catBarColor(row.color)} />
               </div>
             </div>
-            <div className="mt-5 grid grid-cols-2 gap-3">
+            <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3">
                 <p className="text-[0.6rem] uppercase tracking-wider text-slate-500">Systems tagged</p>
                 <p className="mt-1 text-lg font-semibold text-white">{row.systems}</p>
@@ -38,7 +38,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
         <Card>
           <CardHeader title="24h activity" subtitle="Detector performance" />
           <CardBody>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-3">
                 <p className="text-[0.6rem] uppercase tracking-wider text-slate-500">Matches</p>
                 <p className="mt-1 text-lg font-semibold text-white">{fmt(row.matched24h)}</p>

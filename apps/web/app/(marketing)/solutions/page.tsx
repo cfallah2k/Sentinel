@@ -67,9 +67,9 @@ export default function SolutionsPage() {
         primary={{ label: 'Start free trial', href: '/register' }}
         secondary={{ label: 'Talk to an expert', href: '/contact' }}
       >
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {audience.map(({ label, detail }) => (
-            <div key={label} className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl">
+            <div key={label} className="rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl">
               <p className="text-sm font-semibold text-white">{label}</p>
               <p className="mt-1 text-xs text-slate-400">{detail}</p>
             </div>
@@ -87,7 +87,7 @@ export default function SolutionsPage() {
             <Link
               key={title}
               href={href}
-              className="group flex flex-col rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-sentinel-500/25 sm:rounded-[1.5rem] sm:p-6"
+              className="group flex flex-col rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-sentinel-500/25 sm:rounded-[1.5rem] sm:p-6"
             >
               <div className="flex items-start justify-between">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">

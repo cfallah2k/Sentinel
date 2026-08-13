@@ -69,7 +69,7 @@ export default function StatusPage() {
           return (
             <div
               key={service.name}
-              className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-5"
+              className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-5"
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-start gap-3.5">
@@ -115,7 +115,7 @@ export default function StatusPage() {
             return (
               <div
                 key={incident.title}
-                className="flex flex-col gap-3 rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-4 shadow-panel backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:rounded-[1.5rem] sm:p-5"
+                className="flex flex-col gap-3 rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-4 shadow-panel backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:rounded-[1.5rem] sm:p-5"
               >
                 <div className="flex items-start gap-3.5">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />

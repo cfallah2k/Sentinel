@@ -12,7 +12,7 @@ export default function AppTopbar() {
   const unread = notifications.filter((n) => n.unread).length;
 
   return (
-    <header className="sticky top-0 z-20 border-b border-white/10 bg-[rgba(15,23,42,0.92)] backdrop-blur-xl">
+    <header className="sticky top-0 z-20 border-b border-white/10 bg-[var(--surface)] backdrop-blur-xl">
       <div className="flex h-16 items-center gap-3 px-4 sm:px-6">
         <button
           type="button"
@@ -51,7 +51,7 @@ export default function AppTopbar() {
             {notifOpen ? (
               <>
                 <div className="fixed inset-0 z-30" onClick={() => setNotifOpen(false)} />
-                <div className="absolute right-0 z-40 mt-2 w-80 overflow-hidden rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.98)] shadow-panel backdrop-blur-xl">
+                <div className="absolute right-0 z-40 mt-2 w-80 overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface-strong)] shadow-panel backdrop-blur-xl">
                   <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
                     <p className="text-xs font-semibold text-white">Notifications</p>
                     <Link href="/notifications" onClick={() => setNotifOpen(false)} className="text-[0.65rem] font-semibold text-sentinel-300 hover:text-sentinel-200">
@@ -96,7 +96,7 @@ export default function AppTopbar() {
             {userOpen ? (
               <>
                 <div className="fixed inset-0 z-30" onClick={() => setUserOpen(false)} />
-                <div className="absolute right-0 z-40 mt-2 w-56 overflow-hidden rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.98)] shadow-panel backdrop-blur-xl">
+                <div className="absolute right-0 z-40 mt-2 w-56 overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface-strong)] shadow-panel backdrop-blur-xl">
                   <div className="border-b border-white/10 px-5 py-3">
                     <p className="text-xs font-semibold text-white">{currentUser.name}</p>
                     <p className="truncate text-[0.65rem] text-slate-500">{currentUser.email}</p>

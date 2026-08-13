@@ -84,7 +84,7 @@ export default function BlogPage() {
           {['AI governance', 'Policy engineering', 'EU AI Act', 'Data classification'].map((topic) => (
             <div
               key={topic}
-              className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] px-4 py-3 text-xs text-slate-300 shadow-panel backdrop-blur-xl sm:text-sm"
+              className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] px-4 py-3 text-xs text-slate-300 shadow-panel backdrop-blur-xl sm:text-sm"
             >
               <span>{topic}</span>
               <ArrowRight className="h-4 w-4 text-sentinel-300" />
@@ -93,7 +93,7 @@ export default function BlogPage() {
         </div>
       </MarketingHero>
 
-      <section className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
+      <section className="relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
         <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-sentinel-500/10 blur-3xl" />
         <div className="relative grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
@@ -113,7 +113,7 @@ export default function BlogPage() {
               Read the feature <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {['Policy engine', 'EU AI Act', 'Audit trail', 'Classification'].map((label) => (
               <div key={label} className="rounded-[1.25rem] border border-white/10 bg-slate-950/90 p-4">
                 <p className="text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">Featured</p>
@@ -146,7 +146,7 @@ export default function BlogPage() {
             <Link
               key={post.title}
               href={post.href}
-              className="group flex flex-col rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-sentinel-500/25 sm:rounded-[1.5rem] sm:p-6"
+              className="group flex flex-col rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-sentinel-500/25 sm:rounded-[1.5rem] sm:p-6"
             >
               <div className="flex items-center justify-between">
                 <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-sentinel-500/10 text-sentinel-300">

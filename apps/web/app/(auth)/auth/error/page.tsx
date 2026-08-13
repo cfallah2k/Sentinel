@@ -14,7 +14,7 @@ export default function AuthErrorPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-8 shadow-panel backdrop-blur-xl">
+      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
         <div className="flex flex-col items-center py-2 text-center">
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-500/15">
             <ShieldX className="h-7 w-7 text-rose-400" size={28} />

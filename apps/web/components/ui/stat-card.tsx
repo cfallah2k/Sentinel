@@ -49,7 +49,7 @@ export function StatCard({
   const positive = (delta ?? 0) >= 0;
   const sparkColor = sparkColors[accent] ?? '#38bdf8';
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl">
+    <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">{label}</p>

@@ -135,8 +135,8 @@ export default function PricingPage() {
                 key={plan.name}
                 className={`relative flex flex-col rounded-[1.25rem] border p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7 ${
                   plan.highlighted
-                    ? 'border-sentinel-500/40 bg-[rgba(15,23,42,0.97)] shadow-[0_35px_120px_rgba(30,111,255,0.12)]'
-                    : 'border-white/10 bg-[rgba(15,23,42,0.92)]'
+                    ? 'border-sentinel-500/40 bg-[var(--surface-strong)] shadow-[0_35px_120px_rgba(30,111,255,0.12)]'
+                    : 'border-white/10 bg-[var(--surface)]'
                 }`}
               >
                 {plan.highlighted ? (

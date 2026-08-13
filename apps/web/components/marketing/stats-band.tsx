@@ -13,7 +13,7 @@ export default function StatsBand({ stats }: StatsBandProps) {
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 text-xs text-slate-400 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6 sm:text-sm"
+          className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 text-xs text-slate-400 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6 sm:text-sm"
         >
           <p className="text-xl font-semibold text-white sm:text-3xl">{stat.value}</p>
           <p className="mt-2 uppercase tracking-[0.3em] text-slate-500">{stat.label}</p>

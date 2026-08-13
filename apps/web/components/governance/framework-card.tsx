@@ -33,7 +33,7 @@ export default function FrameworkCard({ framework }: { framework: ComplianceFram
             color={framework.status === 'Behind' ? 'bg-rose-400' : framework.status === 'At Risk' ? 'bg-amber-400' : 'bg-sky-400'}
           />
         </div>
-        <div className="mt-4 grid grid-cols-3 gap-2 border-t border-white/5 pt-4 text-center">
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 border-t border-white/5 pt-4 text-center">
           <MiniStat label="Controls" value={framework.controls} />
           <MiniStat label="Evidence" value={framework.evidence} />
           <MiniStat label="Gaps" value={framework.gaps} />

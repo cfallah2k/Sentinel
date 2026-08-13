@@ -69,7 +69,7 @@ export default function RegisterPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[rgba(15,23,42,0.92)] p-8 shadow-panel backdrop-blur-xl">
+      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
         <h1 className="text-2xl font-semibold tracking-tight text-white">Create your workspace</h1>
         <p className="mt-1.5 text-sm text-slate-400">Tell us a little about your organization so we can tailor your governance plane.</p>
 
@@ -144,7 +144,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div>
               <label htmlFor="country" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
                 Country <span className="text-sentinel-300">*</span>

@@ -14,7 +14,7 @@ interface LegalDocProps {
 export default function LegalDoc({ eyebrow, title, updated, intro, sections }: LegalDocProps) {
   return (
     <article className="mx-auto max-w-3xl">
-      <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
+      <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
         <p className="text-[0.65rem] uppercase tracking-[0.3em] text-sentinel-300">{eyebrow}</p>
         <h1 className="mt-3 text-2xl font-semibold text-white sm:text-3xl">{title}</h1>
         <p className="mt-3 text-xs uppercase tracking-[0.25em] text-slate-500">Last updated {updated}</p>

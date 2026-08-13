@@ -48,7 +48,7 @@ const sections = [
     paragraphs: [
       'Security questions and disclosure submissions: security@sentinel.ai.',
       'For urgent issues, our security on-call is reachable through the workspace incident reporting flow at all times.',
-      'Legal contact for security terms: Sentinel Technologies, Inc., Capitol Hill, Monrovia, Liberia.'
+      'Legal contact for security terms: Sentinel Technologies, Inc., New Georgia Estate, Turning Point Junction, Monrovia, Liberia.'
     ]
   }
 ];

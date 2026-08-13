@@ -69,9 +69,9 @@ export default function EnterpriseSolutionPage() {
         primary={{ label: 'Talk to sales', href: '/contact' }}
         secondary={{ label: 'Request a demo', href: '/request-demo' }}
       >
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {useCases.map(({ title, detail }) => (
-            <div key={title} className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl">
+            <div key={title} className="rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl">
               <p className="text-sm font-semibold text-white">{title}</p>
               <p className="mt-1.5 text-xs leading-5 text-slate-400">{detail}</p>
             </div>
@@ -88,7 +88,7 @@ export default function EnterpriseSolutionPage() {
         <FeatureGrid items={features} />
       </section>
 
-      <section className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
+      <section className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
         <div className="grid gap-6 lg:grid-cols-2">
           <div>
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Enterprise rollout</p>

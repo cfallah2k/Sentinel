@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
             <p className="text-xs leading-6 text-slate-400">
               {row.description} Payloads detected as {row.name} are evaluated against the {row.name.toLowerCase()} handling rule before any transmission to an AI system.
             </p>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {[
                 { label: 'Sensitivity', value: `S${row.sensitivity}` },
                 { label: 'Systems', value: row.systems },

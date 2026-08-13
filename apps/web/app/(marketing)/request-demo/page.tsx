@@ -29,13 +29,13 @@ export default function RequestDemoPage() {
         title="See Sentinel govern your AI stack in 30 minutes."
         description="A live walkthrough of the gateway, policy engine, classification, and audit trail — tailored to your providers and compliance obligations."
       >
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           {[
             { label: 'Duration', value: '30 minutes', icon: Clock },
             { label: 'Audience', value: 'Security & data', icon: User },
             { label: 'Format', value: 'Live or recorded', icon: CalendarDays }
           ].map(({ label, value, icon: Icon }) => (
-            <div key={label} className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.95)] p-4 shadow-panel backdrop-blur-xl">
+            <div key={label} className="rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl">
               <Icon className="h-4 w-4 text-sentinel-300" />
               <p className="mt-2 text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">{label}</p>
               <p className="mt-1 text-sm font-semibold text-white">{value}</p>
@@ -45,7 +45,7 @@ export default function RequestDemoPage() {
       </MarketingHero>
 
       <section className="grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-        <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
+        <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
           {submitted ? (
             <div className="flex min-h-[420px] flex-col items-center justify-center text-center">
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-300">
@@ -152,7 +152,7 @@ export default function RequestDemoPage() {
         </div>
 
         <div className="space-y-4">
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">What you will see</p>
             <ul className="mt-5 space-y-3">
               {[
@@ -169,7 +169,7 @@ export default function RequestDemoPage() {
               ))}
             </ul>
           </div>
-          <div className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Prefer to explore alone?</p>
             <p className="mt-3 text-sm leading-7 text-slate-400">
               Create a free workspace and run the gateway against your own providers in under an hour.
