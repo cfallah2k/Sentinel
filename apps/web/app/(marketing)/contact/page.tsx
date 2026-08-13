@@ -6,22 +6,10 @@ import MarketingHero from '@/components/marketing/hero';
 
 const officeLocations = [
   {
-    city: 'San Francisco',
-    region: 'United States',
-    address: '535 Mission Street, Suite 1200',
+    city: 'Monrovia',
+    region: 'Liberia',
+    address: 'Capitol Hill, Monrovia, Liberia',
     type: 'Headquarters'
-  },
-  {
-    city: 'London',
-    region: 'United Kingdom',
-    address: '1 Finsbury Avenue, Floor 7',
-    type: 'EMEA office'
-  },
-  {
-    city: 'Singapore',
-    region: 'Singapore',
-    address: 'Marina Bay Financial Centre, Tower 3',
-    type: 'APAC office'
   }
 ];
 
@@ -183,8 +171,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-xs uppercase tracking-[0.25em] text-slate-500">Phone</p>
-                <a href="tel:+14155550132" className="text-sm font-semibold text-white transition hover:text-sentinel-200">
-                  +1 (415) 555-0132
+                <a href="tel:+231777000000" className="text-sm font-semibold text-white transition hover:text-sentinel-200">
+                  +231 77 700 0000
                 </a>
               </div>
             </div>
@@ -219,14 +207,14 @@ export default function ContactPage() {
 
       <section className="space-y-6">
         <div className="text-center">
-          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Our offices</p>
-          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Global reach, remote-friendly by default</h2>
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Our office</p>
+          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Headquartered in Monrovia, Liberia — more to come soon</h2>
         </div>
         <div className="grid gap-4 md:grid-cols-3 lg:gap-6">
           {officeLocations.map((office) => (
             <div
               key={office.city}
-              className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6"
+              className="rounded-[1.25rem] border border-white/10 bg-[rgba(15,23,42,0.92)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6 md:col-span-3"
             >
               <span className="inline-flex items-center gap-2 rounded-full bg-sentinel-500/10 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-sentinel-300">
                 <MapPin className="h-3 w-3" />

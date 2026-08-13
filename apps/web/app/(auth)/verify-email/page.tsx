@@ -31,7 +31,7 @@ export default function VerifyEmailPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4 py-12">
+    <div className="flex flex-1 flex-col items-center justify-center px-4 py-12">
       <div className="mb-8 flex items-center gap-3">
         <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-sentinel-500 to-cyan-400 shadow-glow">
           <ShieldAlert className="h-5 w-5 text-white" size={20} />

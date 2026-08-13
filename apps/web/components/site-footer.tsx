@@ -96,12 +96,6 @@ export default function SiteFooter() {
               >
                 Talk to sales
               </Link>
-              <Link
-                href="/register"
-                className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 sm:w-auto sm:text-sm"
-              >
-                Get Started
-              </Link>
             </div>
           </div>
         </div>
@@ -158,16 +152,18 @@ export default function SiteFooter() {
 
         <div className="mt-12 flex flex-col gap-5 border-t border-white/5 pt-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start">
-            <span className="order-2 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-400 sm:order-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              All systems operational
-            </span>
-            <nav className="order-1 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-500 sm:order-2">
-              <a href="/legal/privacy" className="transition-colors hover:text-white">Privacy</a>
-              <a href="/legal/terms" className="transition-colors hover:text-white">Terms</a>
-              <a href="/legal/cookies" className="transition-colors hover:text-white">Cookies</a>
-              <a href="/legal/security" className="transition-colors hover:text-white">Security</a>
-            </nav>
+            <div className="order-1 flex flex-col items-center gap-3 sm:order-1">
+              <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-slate-500">
+                <a href="/legal/privacy" className="transition-colors hover:text-white">Privacy</a>
+                <a href="/legal/terms" className="transition-colors hover:text-white">Terms</a>
+                <a href="/legal/cookies" className="transition-colors hover:text-white">Cookies</a>
+                <a href="/legal/security" className="transition-colors hover:text-white">Security</a>
+              </nav>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                All systems operational
+              </span>
+            </div>
           </div>
           <p className="text-center text-xs text-slate-500 lg:text-right">
             © {new Date().getFullYear()} Sentinel. All rights reserved.

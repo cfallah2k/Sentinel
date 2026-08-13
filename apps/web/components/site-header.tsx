@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { Menu, ShieldCheck, X } from 'lucide-react';
 import { ThemeToggle } from './theme-toggle';
@@ -87,49 +88,52 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {mobileOpen ? (
-        <div className="fixed inset-0 z-40 md:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-          <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={() => setMobileOpen(false)}
-          />
-          <div className="relative flex h-full flex-col overflow-y-auto bg-slate-950/95 backdrop-blur-2xl">
-            <div className="flex-1 px-6 pb-10 pt-8">
-              <nav className="grid gap-1">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-2xl px-4 py-3.5 text-base font-medium text-slate-200 transition hover:bg-white/5 hover:text-white"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-              <div className="mt-8 grid gap-3">
-                <Link
-                  href="/login"
-                  className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-center text-sm font-medium text-white transition hover:bg-white/10"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Sign in
-                </Link>
-                <Link
-                  href="/register"
-                  className="rounded-2xl bg-sentinel-500 px-4 py-3.5 text-center text-sm font-semibold text-white shadow-glow transition hover:bg-sentinel-400"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  Start free
-                </Link>
+      {mobileOpen
+        ? createPortal(
+            <div className="fixed inset-0 z-40 md:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+              <div
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                onClick={() => setMobileOpen(false)}
+              />
+              <div className="relative flex h-full flex-col overflow-y-auto bg-slate-950/95 pt-20 backdrop-blur-2xl">
+                <div className="flex-1 px-6 pb-10 pt-8">
+                  <nav className="grid gap-1">
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="rounded-2xl px-4 py-3.5 text-base font-medium text-slate-200 transition hover:bg-white/5 hover:text-white"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </nav>
+                  <div className="mt-8 grid gap-3">
+                    <Link
+                      href="/login"
+                      className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-center text-sm font-medium text-white transition hover:bg-white/10"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Sign in
+                    </Link>
+                    <Link
+                      href="/register"
+                      className="rounded-2xl bg-sentinel-500 px-4 py-3.5 text-center text-sm font-semibold text-white shadow-glow transition hover:bg-sentinel-400"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Start free
+                    </Link>
+                  </div>
+                </div>
+                <div className="border-t border-white/5 px-6 py-4">
+                  <p className="text-xs text-slate-500">© {new Date().getFullYear()} Sentinel. All rights reserved.</p>
+                </div>
               </div>
-            </div>
-            <div className="border-t border-white/5 px-6 py-4">
-              <p className="text-xs text-slate-500">© {new Date().getFullYear()} Sentinel. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      ) : null}
+            </div>,
+            document.body
+          )
+        : null}
     </header>
   );
 }

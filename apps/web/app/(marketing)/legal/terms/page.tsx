@@ -52,7 +52,7 @@ const sections = [
   {
     heading: 'General',
     paragraphs: [
-      'These terms are governed by the laws of the State of California, without regard to conflict-of-law principles, except where your agreement specifies otherwise.',
+      'These terms are governed by the laws of the Republic of Liberia, without regard to conflict-of-law principles, except where your agreement specifies otherwise.',
       'We will notify you of material changes to these terms at least 30 days in advance; continued use after the effective date constitutes acceptance.',
       'Questions about these terms may be directed to legal@sentinel.ai.'
     ]

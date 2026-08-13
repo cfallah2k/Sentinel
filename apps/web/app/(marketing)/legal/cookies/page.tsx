@@ -37,7 +37,7 @@ const sections = [
   {
     heading: 'Contact',
     paragraphs: [
-      'Questions about this policy can be directed to our privacy team at privacy@sentinel.ai, or by mail to Sentinel Technologies, Inc., 535 Mission Street, Suite 1200, San Francisco, CA 94105, USA.',
+      'Questions about this policy can be directed to our privacy team at privacy@sentinel.ai, or by mail to Sentinel Technologies, Inc., Capitol Hill, Monrovia, Liberia.',
       'You may also contact our data protection representative for the EEA at dpo@sentinel.ai.'
     ]
   }
