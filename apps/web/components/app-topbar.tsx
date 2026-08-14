@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Bell, Check, ChevronDown, LogOut, RotateCcw, Search, Settings2, UserCircle2 } from 'lucide-react';
+import { Bell, ChevronDown, LogOut, Search, Settings2, UserCircle2 } from 'lucide-react';
 import { currentOrg, currentUser, notifications, roleLabel } from '@/lib/mock-data';
-import { ALL_ROLES, clearDemoRole, getClientRole, setDemoRole } from '@/lib/role-access';
+import { demoAccountFor, getClientRole } from '@/lib/role-access';
 
 export default function AppTopbar() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -15,8 +15,16 @@ export default function AppTopbar() {
 
   useEffect(() => {
     const clientRole = getClientRole();
-    if (clientRole && clientRole !== currentUser.role) setRole(clientRole);
+    if (clientRole) setRole(clientRole);
   }, []);
+
+  const account = demoAccountFor(role);
+  const name = account?.name ?? currentUser.name;
+  const initials = account
+    ? account.name.split(' ').map((p) => p[0]).join('')
+    : currentUser.initials;
+  const title = account?.title ?? currentUser.title;
+  const email = account?.email ?? currentUser.email;
 
   return (
     <header className="sticky top-0 z-20 border-b border-white/10 bg-[var(--surface)] backdrop-blur-xl">
@@ -96,11 +104,11 @@ export default function AppTopbar() {
               className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/60 py-1 pl-1 pr-2.5 transition hover:bg-white/10"
             >
               <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-400 text-[0.65rem] font-bold text-white">
-                {currentUser.initials}
+                {initials}
               </span>
               <span className="hidden text-left sm:block">
-                <span className="block max-w-28 truncate text-xs font-semibold text-white">{currentUser.name}</span>
-                <span className="block text-[0.6rem] text-slate-500">{currentUser.title}</span>
+                <span className="block max-w-28 truncate text-xs font-semibold text-white">{name}</span>
+                <span className="block text-[0.6rem] text-slate-500">{title}</span>
               </span>
               <ChevronDown className="hidden h-3.5 w-3.5 text-slate-500 sm:block" size={14} />
             </button>
@@ -109,43 +117,11 @@ export default function AppTopbar() {
                 <div className="fixed inset-0 z-30" onClick={() => setUserOpen(false)} />
                 <div className="absolute right-0 z-40 mt-2 w-64 overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface-strong)] shadow-panel backdrop-blur-xl">
                   <div className="border-b border-white/10 px-5 py-3">
-                    <p className="text-xs font-semibold text-white">{currentUser.name}</p>
-                    <p className="truncate text-[0.65rem] text-slate-500">{currentUser.email}</p>
+                    <p className="text-xs font-semibold text-white">{name}</p>
+                    <p className="truncate text-[0.65rem] text-slate-500">{email}</p>
                     <span className="mt-2 inline-block rounded-full bg-violet-500/15 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-violet-300">
                       {roleLabel(role)}
                     </span>
-                  </div>
-                  <div className="border-b border-white/10 px-3 py-2">
-                    <p className="px-2 pb-1 pt-1 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-slate-600">Demo role</p>
-                    <div className="grid grid-cols-1">
-                      {ALL_ROLES.map((r) => (
-                        <button
-                          key={r}
-                          type="button"
-                          onClick={() => {
-                            setUserOpen(false);
-                            setDemoRole(r);
-                          }}
-                          className={`flex items-center justify-between gap-2 rounded-xl px-2 py-1.5 text-left text-xs transition ${
-                            role === r ? 'bg-violet-500/10 text-violet-200' : 'text-slate-300 hover:bg-white/[0.06] hover:text-white'
-                          }`}
-                        >
-                          <span>{roleLabel(r)}</span>
-                          <span className="text-[0.55rem] font-semibold uppercase tracking-wider text-slate-600">{r}</span>
-                          {role === r ? <Check className="h-3 w-3 text-violet-300" size={12} /> : null}
-                        </button>
-                      ))}
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setUserOpen(false);
-                        clearDemoRole();
-                      }}
-                      className="mt-1 flex w-full items-center gap-2 rounded-xl px-2 py-1.5 text-left text-xs text-slate-400 transition hover:bg-white/[0.06] hover:text-white"
-                    >
-                      <RotateCcw className="h-3 w-3" size={12} /> Reset to account role
-                    </button>
                   </div>
                   <div className="p-2">
                     <Link href="/settings" onClick={() => setUserOpen(false)} className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs text-slate-300 transition hover:bg-white/[0.06] hover:text-white">

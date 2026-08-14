@@ -38,7 +38,7 @@ import {
   type LucideIcon
 } from 'lucide-react';
 import { currentUser, roleLabel } from '@/lib/mock-data';
-import { getClientRole, NAV_BY_ROLE, type NavItem } from '@/lib/role-access';
+import { demoAccountFor, getClientRole, NAV_BY_ROLE, type NavItem } from '@/lib/role-access';
 
 const ICONS: Record<string, LucideIcon> = {
   gauge: Gauge,
@@ -77,10 +77,13 @@ export default function AppSidebar() {
 
   useEffect(() => {
     const clientRole = getClientRole();
-    if (clientRole && clientRole !== currentUser.role) setRole(clientRole);
+    if (clientRole) setRole(clientRole);
   }, []);
 
   const navGroups = NAV_BY_ROLE[role] ?? NAV_BY_ROLE[currentUser.role];
+  const account = demoAccountFor(role);
+  const name = account?.name ?? currentUser.name;
+  const initials = account ? account.name.split(' ').map((p) => p[0]).join('') : currentUser.initials;
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
@@ -147,10 +150,10 @@ export default function AppSidebar() {
       <div className="hidden border-t border-white/10 px-6 py-4 lg:block">
         <div className="flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-400 text-xs font-bold text-white">
-            {currentUser.initials}
+            {initials}
           </div>
           <div className="min-w-0">
-            <p className="truncate text-xs font-semibold text-white">{currentUser.name}</p>
+            <p className="truncate text-xs font-semibold text-white">{name}</p>
             <p className="truncate text-[0.65rem] text-slate-500">{roleLabel(role)}</p>
           </div>
           <UserCog className="ml-auto h-4 w-4 text-slate-500" size={16} />

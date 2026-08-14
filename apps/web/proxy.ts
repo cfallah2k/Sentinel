@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { ALL_ROLES, canAccessRoute, DEFAULT_ROLE, DEMO_ROLE_COOKIE } from './lib/role-access';
-
-const SESSION_COOKIE = 'sentinel_session';
+import { canAccessRoute, DEFAULT_ROLE, decodeSessionRole, SESSION_COOKIE } from './lib/role-access';
 
 const PROTECTED_PREFIXES = [
   '/dashboard',
@@ -79,8 +77,7 @@ export function proxy(request: NextRequest) {
   const session = request.cookies.get(SESSION_COOKIE)?.value;
 
   if (session) {
-    const demoRole = request.cookies.get(DEMO_ROLE_COOKIE)?.value;
-    const role = demoRole && (ALL_ROLES as readonly string[]).includes(demoRole) ? demoRole : DEFAULT_ROLE;
+    const role = decodeSessionRole(session) ?? DEFAULT_ROLE;
     if (!canAccessRoute(role, pathname)) {
       const url = request.nextUrl.clone();
       url.pathname = '/403';

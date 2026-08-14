@@ -8,7 +8,59 @@ export type SentinelRole = (typeof ALL_ROLES)[number];
 
 export const DEFAULT_ROLE: SentinelRole = 'OWNER';
 
-export const DEMO_ROLE_COOKIE = 'sentinel_demo_role';
+export const SESSION_COOKIE = 'sentinel_session';
+
+// The role is encoded into the session cookie value (base64 of the role name) at
+// login time, so the header, sidebar and route guard always derive the same role
+// from a single source — a user can never present a different role than the one
+// they authenticated as.
+export function encodeSession(role: string): string {
+  if (typeof btoa === 'undefined') return role;
+  return btoa(role);
+}
+
+export function decodeSessionRole(token: string | undefined): SentinelRole | null {
+  if (!token) return null;
+  try {
+    const role = typeof atob === 'undefined' ? token : atob(token);
+    return (ALL_ROLES as readonly string[]).includes(role) ? (role as SentinelRole) : null;
+  } catch {
+    return null;
+  }
+}
+
+// ---------- Demo accounts (one per role) ----------
+
+export interface DemoAccount {
+  role: SentinelRole;
+  email: string;
+  password: string;
+  name: string;
+  title: string;
+  landing: string;
+}
+
+export const DEMO_PASSWORD = 'demo123';
+
+export const DEMO_CREDENTIALS: DemoAccount[] = [
+  { role: 'OWNER', email: 'owner@sentinel.dev', password: DEMO_PASSWORD, name: 'Alex Morgan', title: 'Owner & Operator', landing: '/dashboard' },
+  { role: 'ADMIN', email: 'admin@sentinel.dev', password: DEMO_PASSWORD, name: 'Jordan Lee', title: 'Administrator', landing: '/admin' },
+  { role: 'SECURITY_ANALYST', email: 'security@sentinel.dev', password: DEMO_PASSWORD, name: 'Maya Chen', title: 'Security Analyst', landing: '/incidents' },
+  { role: 'PRIVACY_OFFICER', email: 'privacy@sentinel.dev', password: DEMO_PASSWORD, name: 'Priya Raman', title: 'Privacy Officer', landing: '/ai-passports' },
+  { role: 'COMPLIANCE_OFFICER', email: 'compliance@sentinel.dev', password: DEMO_PASSWORD, name: 'Devon Clarke', title: 'Compliance Officer', landing: '/compliance-admin' },
+  { role: 'DEVELOPER', email: 'developer@sentinel.dev', password: DEMO_PASSWORD, name: 'Sam Whitfield', title: 'AI Developer', landing: '/gateway' },
+  { role: 'AUDITOR', email: 'auditor@sentinel.dev', password: DEMO_PASSWORD, name: 'Tara Osei', title: 'Auditor', landing: '/audit' },
+  { role: 'VIEWER', email: 'viewer@sentinel.dev', password: DEMO_PASSWORD, name: 'Nadia Haddad', title: 'Viewer', landing: '/dashboard' }
+];
+
+export function findDemoAccount(email: string, password: string): DemoAccount | null {
+  const normalized = email.trim().toLowerCase();
+  return DEMO_CREDENTIALS.find((a) => a.email === normalized && a.password === password) ?? null;
+}
+
+export function demoAccountFor(role: string): DemoAccount | null {
+  return DEMO_CREDENTIALS.find((a) => a.role === role) ?? null;
+}
 
 // Route access map: every protected prefix lists the roles allowed to see it.
 // Anything not listed is shared (allowed for every role).
@@ -236,21 +288,11 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
   ]
 };
 
-// ---------- Client-side helpers (demo role switcher) ----------
+// ---------- Client-side helper (role from the active session) ----------
 
 export function getClientRole(): SentinelRole | null {
   if (typeof document === 'undefined') return null;
-  const match = document.cookie.match(/(?:^|; )sentinel_demo_role=([^;]+)/);
+  const match = document.cookie.match(/(?:^|; )sentinel_session=([^;]+)/);
   if (!match) return null;
-  return (ALL_ROLES as readonly string[]).includes(match[1]) ? (match[1] as SentinelRole) : null;
-}
-
-export function setDemoRole(role: string) {
-  document.cookie = `${DEMO_ROLE_COOKIE}=${role};path=/;max-age=86400;SameSite=Lax`;
-  window.location.reload();
-}
-
-export function clearDemoRole() {
-  document.cookie = `${DEMO_ROLE_COOKIE}=;path=/;max-age=0;SameSite=Lax`;
-  window.location.reload();
+  return decodeSessionRole(decodeURIComponent(match[1]));
 }
