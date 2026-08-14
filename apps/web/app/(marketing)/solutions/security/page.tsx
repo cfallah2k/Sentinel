@@ -1,5 +1,6 @@
 import { AlertTriangle, Eye, Gauge, ShieldCheck, Siren, Zap } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveCycle, LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import StatsBand from '@/components/marketing/stats-band';
 import CtaSection from '@/components/marketing/cta-section';
@@ -63,17 +64,28 @@ export default function SecuritySolutionPage() {
       >
         <div className="flex flex-col gap-3">
           {threats.map(({ label, detail }) => (
-            <div key={label} className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] px-4 py-3 shadow-panel backdrop-blur-xl">
+            <div key={label} className="flex items-center justify-between gap-3 rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] px-4 py-3 shadow-panel backdrop-blur-xl">
               <div>
                 <p className="text-xs font-semibold text-white sm:text-sm">{label}</p>
                 <p className="text-[0.65rem] text-slate-500">{detail}</p>
               </div>
-              <span className="inline-flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.2em] text-emerald-300">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                Monitored
-              </span>
+              <LiveCycle
+                states={[
+                  { label: 'Monitored', tone: 'text-emerald-300' },
+                  { label: 'Inspecting', tone: 'text-sky-300' },
+                  { label: 'Blocked', tone: 'text-rose-300' }
+                ]}
+              />
             </div>
           ))}
+          <LiveTicker
+            items={[
+              'simulated · prompt-injection test · blocked · evt-…',
+              'simulated · shadow AI surfaced · unregistered system',
+              'simulated · exfiltration attempt · redacted mid-flight',
+              'simulated · key anomaly · escalated to SOC'
+            ]}
+          />
         </div>
       </MarketingHero>
 

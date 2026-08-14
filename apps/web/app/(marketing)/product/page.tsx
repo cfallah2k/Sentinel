@@ -12,6 +12,7 @@ import {
   Workflow
 } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveCycle, LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -74,9 +75,28 @@ const capabilities = [
 ];
 
 const visualRows = [
-  { label: 'Request evaluated', value: 'policy: pol-1', tone: 'text-emerald-300' },
-  { label: 'Decision', value: 'Blocked — PII to unapproved provider', tone: 'text-rose-300' },
-  { label: 'Audit event', value: 'evt-8f21a9 · captured', tone: 'text-sentinel-300' }
+  {
+    label: 'Request evaluated',
+    states: [
+      { label: 'policy: pol-1', tone: 'text-emerald-300' },
+      { label: 'policy: pol-9', tone: 'text-emerald-300' }
+    ]
+  },
+  {
+    label: 'Decision',
+    states: [
+      { label: 'Blocked — PII to unapproved provider', tone: 'text-rose-300' },
+      { label: 'Allowed — policy: pol-1', tone: 'text-emerald-300' },
+      { label: 'Redacted — PII masked', tone: 'text-cyan-300' }
+    ]
+  },
+  {
+    label: 'Audit event',
+    states: [
+      { label: 'evt-8f21a9 · captured', tone: 'text-sentinel-300' },
+      { label: 'evt-9c04b1 · captured', tone: 'text-sentinel-300' }
+    ]
+  }
 ];
 
 export default function ProductPage() {
@@ -100,9 +120,9 @@ export default function ProductPage() {
             </div>
             <div className="space-y-2 rounded-[1.25rem] border border-white/10 bg-slate-900/90 p-3.5 shadow-glow">
               {visualRows.map((row) => (
-                <div key={row.label} className="flex items-center justify-between rounded-2xl bg-slate-950/90 px-3.5 py-2.5 text-xs sm:text-sm">
+                <div key={row.label} className="flex items-center justify-between gap-3 rounded-2xl bg-slate-950/90 px-3.5 py-2.5 text-xs sm:text-sm">
                   <span className="text-slate-300">{row.label}</span>
-                  <span className={row.tone}>{row.value}</span>
+                  <LiveCycle states={row.states} />
                 </div>
               ))}
             </div>
@@ -118,6 +138,13 @@ export default function ProductPage() {
                 </div>
               ))}
             </div>
+            <LiveTicker
+              items={[
+                'simulated · Atlas Support Copilot · gateway evaluate · allow',
+                'simulated · evt-8f21a9 · decision captured with policy, reason, context',
+                'simulated · sensitive flow classified · redacted before provider call'
+              ]}
+            />
           </div>
         </div>
       </MarketingHero>

@@ -22,6 +22,7 @@ import {
   Workflow,
   Zap
 } from 'lucide-react';
+import { LiveCycle, LiveTicker } from '@/components/marketing/live-hero';
 
 const K = ({ children }: { children: ReactNode }) => <span className="text-sky-300">{children}</span>;
 const S = ({ children }: { children: ReactNode }) => <span className="text-emerald-300">{children}</span>;
@@ -209,7 +210,7 @@ export default function DevelopersPage() {
               Read the docs
             </Link>
           </div>
-          <div className="grid gap-2 text-xs text-slate-400 sm:grid-cols-3 sm:gap-3 sm:text-sm">
+          <div className="grid grid-cols-3 gap-2 text-xs text-slate-400 sm:gap-3 sm:text-sm">
             <span>OpenAI-compatible API</span>
             <span>Policy-first enforcement</span>
             <span>Audit events on every call</span>
@@ -227,10 +228,38 @@ export default function DevelopersPage() {
           </div>
           <div className="mt-3 space-y-3">
             {[
-              { label: 'App calls /api/gateway/evaluate', state: 'Inbound', tone: 'text-sentinel-300' },
-              { label: 'Detectors classify payload', state: 'Classified', tone: 'text-sky-300' },
-              { label: 'Policy engine returns decision', state: 'allow', tone: 'text-emerald-300' },
-              { label: 'Sanitized request forwarded to model', state: 'Sent', tone: 'text-slate-400' }
+              {
+                label: 'App calls /api/gateway/evaluate',
+                states: [
+                  { label: 'Inbound', tone: 'text-sentinel-300' },
+                  { label: 'Queued', tone: 'text-amber-300' },
+                  { label: 'Inbound', tone: 'text-sentinel-300' }
+                ]
+              },
+              {
+                label: 'Detectors classify payload',
+                states: [
+                  { label: 'Classified', tone: 'text-sky-300' },
+                  { label: 'Redacted', tone: 'text-cyan-300' },
+                  { label: 'Classified', tone: 'text-sky-300' }
+                ]
+              },
+              {
+                label: 'Policy engine returns decision',
+                states: [
+                  { label: 'allow', tone: 'text-emerald-300' },
+                  { label: 'redact', tone: 'text-cyan-300' },
+                  { label: 'deny', tone: 'text-rose-300' }
+                ]
+              },
+              {
+                label: 'Sanitized request forwarded to model',
+                states: [
+                  { label: 'Sent', tone: 'text-slate-400' },
+                  { label: 'Forwarded', tone: 'text-emerald-300' },
+                  { label: 'Held', tone: 'text-amber-300' }
+                ]
+              }
             ].map((row, i) => (
               <div key={row.label} className="flex items-center gap-2.5">
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 bg-slate-950/90 text-[0.6rem] font-bold text-slate-400">
@@ -239,15 +268,22 @@ export default function DevelopersPage() {
                 <div className="min-w-0 flex-1 rounded-2xl border border-white/10 bg-slate-950/90 px-3.5 py-2.5">
                   <p className="truncate text-xs text-slate-200">{row.label}</p>
                 </div>
-                <span className={`whitespace-nowrap rounded-full bg-white/5 px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] ${row.tone}`}>
-                  {row.state}
-                </span>
+                <LiveCycle states={row.states} />
               </div>
             ))}
           </div>
           <div className="mt-3 rounded-[1.25rem] border border-emerald-500/25 bg-emerald-500/10 px-3.5 py-2.5 text-xs text-emerald-300">
             Audit event evt_… written with decision, rule, and context for every interaction.
           </div>
+          <LiveTicker
+            className="mt-2.5"
+            items={[
+              'simulated · req #1042 · allow · ~18ms · evt-1a2b3c',
+              'simulated · req #1043 · deny · PII to unapproved provider',
+              'simulated · req #1044 · redact · API key masked · evt-4d5e6f',
+              'simulated · req #1045 · allow · policy pol-7 · ~21ms'
+            ]}
+          />
         </div>
       </section>
 

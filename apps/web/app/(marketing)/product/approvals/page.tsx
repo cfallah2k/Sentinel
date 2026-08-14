@@ -1,5 +1,6 @@
 import { CheckCircle2, Clock, FileStack, History, UserCheck, XCircle } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveCycle, LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -72,10 +73,25 @@ export default function ApprovalsPage() {
                       {id} · {type} · {risk} risk
                     </p>
                   </div>
-                  <span className={`shrink-0 text-[0.6rem] font-semibold uppercase tracking-[0.2em] ${tone}`}>{status}</span>
+                  <LiveCycle
+                    states={[
+                      { label: status, tone },
+                      { label: 'Pending', tone: 'text-amber-300' },
+                      { label: 'Approved', tone: 'text-emerald-300' },
+                      { label: 'Denied', tone: 'text-rose-300' }
+                    ]}
+                  />
                 </div>
               </div>
             ))}
+            <LiveTicker
+              items={[
+                'simulated · AP-221 · awaiting approval · SLA 4h',
+                'simulated · AP-218 · approved by sarah@corp · recorded',
+                'simulated · AP-222 · denied · missing business case',
+                'simulated · AP-219 · decision captured · audit ready'
+              ]}
+            />
           </div>
         </div>
       </MarketingHero>

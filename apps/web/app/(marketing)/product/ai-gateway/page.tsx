@@ -1,5 +1,6 @@
 import { Check, Gauge, ShieldCheck, ShieldHalf, Timer, Workflow, Zap } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -76,6 +77,15 @@ export default function AiGatewayPage() {
           <pre className="mt-4 overflow-x-auto rounded-[1.25rem] bg-slate-900/95 px-5 py-5 text-xs leading-6 text-slate-200 sm:text-sm">
             <code>{code}</code>
           </pre>
+          <LiveTicker
+            className="mt-4"
+            items={[
+              'simulated · req #1042 · allow · ~18ms · evt-1a2b3c',
+              'simulated · req #1043 · deny · PII to unapproved provider',
+              'simulated · req #1044 · redact · API key masked · evt-4d5e6f',
+              'simulated · req #1045 · allow · policy pol-7 · ~21ms'
+            ]}
+          />
           <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
             {[
               { label: 'Latency', value: 'Design target' },

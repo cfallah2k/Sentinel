@@ -3,6 +3,7 @@ import SiteFooter from '../components/site-footer';
 import SiteHeader from '../components/site-header';
 import MarketingDataVisual from '../components/marketing-data-visual';
 import MarketingFeatureCard from '../components/marketing-feature-card';
+import { LiveCycle, LiveTicker } from '../components/marketing/live-hero';
 
 const featureCards = [
   {
@@ -66,7 +67,7 @@ export default function HomePage() {
                 Request a demo
               </Link>
             </div>
-            <div className="grid gap-2 text-xs text-slate-400 sm:grid-cols-3 sm:gap-3 sm:text-sm">
+            <div className="grid grid-cols-3 gap-2 text-xs text-slate-400 sm:gap-3 sm:text-sm">
               <span>Policy coverage for AI / ML</span>
               <span>Continuous risk detection</span>
               <span>Audit-ready reporting</span>
@@ -83,10 +84,35 @@ export default function HomePage() {
                 </span>
               </div>
               <div className="grid gap-2.5 rounded-[1.25rem] border border-white/10 bg-slate-900/90 p-3.5 shadow-glow sm:rounded-[1.5rem] sm:gap-3 sm:p-4">
-                {['Policy breach', 'Sensitive flow', 'AI provider risk'].map((item) => (
-                  <div key={item} className="flex items-center justify-between rounded-2xl bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-200 sm:text-sm">
-                    <span>{item}</span>
-                    <span className="text-sentinel-300">Tracked</span>
+                {[
+                  {
+                    label: 'Policy breach',
+                    states: [
+                      { label: 'Scanning', tone: 'text-amber-300' },
+                      { label: 'Tracked', tone: 'text-sentinel-300' },
+                      { label: 'Blocked', tone: 'text-rose-300' }
+                    ]
+                  },
+                  {
+                    label: 'Sensitive flow',
+                    states: [
+                      { label: 'Classifying', tone: 'text-sky-300' },
+                      { label: 'Tracked', tone: 'text-sentinel-300' },
+                      { label: 'Redacted', tone: 'text-cyan-300' }
+                    ]
+                  },
+                  {
+                    label: 'AI provider risk',
+                    states: [
+                      { label: 'Evaluating', tone: 'text-amber-300' },
+                      { label: 'Tracked', tone: 'text-sentinel-300' },
+                      { label: 'Allowed', tone: 'text-emerald-300' }
+                    ]
+                  }
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center justify-between gap-3 rounded-2xl bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-200 sm:text-sm">
+                    <span>{item.label}</span>
+                    <LiveCycle states={item.states} />
                   </div>
                 ))}
               </div>
@@ -100,6 +126,14 @@ export default function HomePage() {
                   <p className="mt-2 text-sm font-semibold text-white sm:text-base">Full audit trail</p>
                 </div>
               </div>
+              <LiveTicker
+                items={[
+                  'simulated · evt-2f8a1 · policy breach blocked before model call',
+                  'simulated · evt-4b7c3 · sensitive flow classified and redacted',
+                  'simulated · evt-9d1e5 · provider risk evaluated against allowlist',
+                  'simulated · evt-6a2f8 · audit event written for every decision'
+                ]}
+              />
             </div>
           </div>
         </div>

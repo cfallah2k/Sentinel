@@ -1,5 +1,6 @@
 import { Eye, Fingerprint, Filter, ScanSearch, ShieldHalf, Tag } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -76,6 +77,14 @@ export default function DataClassificationPage() {
                 </div>
               </div>
             ))}
+            <LiveTicker
+              items={[
+                'simulated · detector.pii · matches today · 0',
+                'simulated · detector.secret · scan complete · snapshot saved',
+                'simulated · detector.payment · 0 matches · idle',
+                'simulated · redaction test · API key masked before model call'
+              ]}
+            />
           </div>
         </div>
       </MarketingHero>

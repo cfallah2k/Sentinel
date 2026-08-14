@@ -1,5 +1,6 @@
 import { BadgeCheck, CalendarClock, FileSearch, Fingerprint, GitBranch, ScrollText } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -75,6 +76,14 @@ export default function AiPassportPage() {
               <p className="font-semibold text-white">Attestation</p>
               <p className="mt-1 text-slate-500">Recertified 13 Aug 2026 · next review 13 Nov 2026</p>
             </div>
+            <LiveTicker
+              items={[
+                'simulated · attestation.snapshot · recertified 13 Aug 2026',
+                'simulated · passport.field.updated · owner → data-eng',
+                'simulated · review.scheduled · next review 13 Nov 2026',
+                'simulated · control.snapshot · evidence linked · evt-…'
+              ]}
+            />
           </div>
         </div>
       </MarketingHero>

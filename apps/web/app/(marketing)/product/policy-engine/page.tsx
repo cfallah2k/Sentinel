@@ -1,5 +1,6 @@
 import { FlaskConical, GitBranch, ShieldHalf, SlidersHorizontal, TestTube, Workflow } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -71,6 +72,15 @@ export default function PolicyEnginePage() {
           <pre className="mt-4 overflow-x-auto rounded-[1.25rem] bg-slate-900/95 px-5 py-5 text-xs leading-6 text-slate-200 sm:text-sm">
             <code>{policy}</code>
           </pre>
+          <LiveTicker
+            className="mt-4"
+            items={[
+              'simulated · eval pol-1 · shadow · allow · 14ms',
+              'simulated · eval pol-1 · shadow · deny · 9ms',
+              'simulated · drift detection · snapshot saved',
+              'simulated · eval pol-9 · shadow · redact · 12ms'
+            ]}
+          />
           <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
             {stats.map(({ label, value }) => (
               <div key={label} className="rounded-2xl bg-slate-950/90 p-3 text-center">

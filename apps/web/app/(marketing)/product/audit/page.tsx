@@ -1,5 +1,6 @@
 import { CalendarClock, Download, FileSearch, Lock, ScrollText, ShieldCheck } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -77,6 +78,15 @@ export default function AuditPage() {
               </div>
             ))}
           </div>
+          <LiveTicker
+            className="mt-2.5"
+            items={[
+              'simulated · evt-9d1e5f · policy.pol-9.updated · admin@corp',
+              'simulated · evt-6a2f8b · gateway.evaluate · 12ms · allow',
+              'simulated · evt-3c4b7a · approval.request.created · ops@corp',
+              'simulated · evt-7e8f0c · incident.assigned · analyst@corp'
+            ]}
+          />
         </div>
       </MarketingHero>
 

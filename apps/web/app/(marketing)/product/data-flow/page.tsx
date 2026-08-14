@@ -1,5 +1,6 @@
 import { Boxes, GitMerge, Map, Network, Radar, Route } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveCycle, LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -66,12 +67,27 @@ export default function DataFlowPage() {
             {flows.map(({ path, category, decision, tone }) => (
               <div key={path} className="rounded-2xl bg-slate-950/90 px-3.5 py-2.5">
                 <p className="truncate text-xs text-slate-200 sm:text-sm">{path}</p>
-                <div className="mt-1 flex items-center justify-between text-[0.6rem] uppercase tracking-[0.2em] text-slate-500">
+                <div className="mt-1 flex items-center justify-between gap-2 text-[0.6rem] uppercase tracking-[0.2em] text-slate-500">
                   <span>{category}</span>
-                  <span className={tone}>{decision}</span>
+                  <LiveCycle
+                    states={[
+                      { label: decision, tone },
+                      { label: 'Allowed', tone: 'text-emerald-300' },
+                      { label: 'Redacted', tone: 'text-cyan-300' },
+                      { label: 'Blocked', tone: 'text-rose-300' }
+                    ]}
+                  />
                 </div>
               </div>
             ))}
+            <LiveTicker
+              items={[
+                'simulated · flows-atlas-copilot → provider-eu · classified',
+                'simulated · pii.redacted · masked before inference',
+                'simulated · flow.blocked · policy deny · evt-…',
+                'simulated · trace.recorded · source to inference · evt-…'
+              ]}
+            />
             <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               {[
                 { label: 'Flows active', value: '0' },

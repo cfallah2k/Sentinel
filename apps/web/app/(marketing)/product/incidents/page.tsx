@@ -1,5 +1,6 @@
 import { AlertTriangle, Clock, Radio, ShieldHalf, Siren, Timeline } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveCycle, LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -74,11 +75,26 @@ export default function IncidentsPage() {
                   </div>
                   <div className="flex shrink-0 items-center gap-3">
                     <span className={`text-[0.6rem] font-semibold uppercase tracking-[0.2em] ${tone}`}>{severity}</span>
-                    <span className="text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-slate-400">{status}</span>
+                    <LiveCycle
+                      states={[
+                        { label: status, tone: 'text-slate-400' },
+                        { label: 'Triaging', tone: 'text-amber-300' },
+                        { label: 'Open', tone: 'text-rose-300' },
+                        { label: 'Resolved', tone: 'text-emerald-300' }
+                      ]}
+                    />
                   </div>
                 </div>
               </div>
             ))}
+            <LiveTicker
+              items={[
+                'simulated · INC-14 · triage assigned · SLA clock running',
+                'simulated · INC-12 · remediated · evidence captured',
+                'simulated · INC-15 · auto-detected · PII block',
+                'simulated · INC-11 · resolved · audit event written'
+              ]}
+            />
             <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               {[
                 { label: 'MTTR', value: '0' },

@@ -1,5 +1,6 @@
 import { Boxes, GitBranch, Radar, Scale, ShieldCheck, Workflow } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
+import { LiveTicker } from '@/components/marketing/live-hero';
 import FeatureGrid from '@/components/marketing/feature-grid';
 import Steps from '@/components/marketing/steps';
 import CtaSection from '@/components/marketing/cta-section';
@@ -78,6 +79,14 @@ export default function AiGovernancePage() {
                 <div className="h-full w-[0%] rounded-full bg-gradient-to-r from-sentinel-500 to-cyan-400" />
               </div>
             </div>
+            <LiveTicker
+              items={[
+                'simulated · control GRD-04 · in progress · evidence pending',
+                'simulated · assessment.due · Nigeria DPA · controls 0/0 mapped',
+                'simulated · evidence.captured · audit ready · evt-…',
+                'simulated · posture.snapshot · saved to registry'
+              ]}
+            />
           </div>
         </div>
       </MarketingHero>
