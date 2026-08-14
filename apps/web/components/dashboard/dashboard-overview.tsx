@@ -7,6 +7,7 @@ import { BarSeries, DonutChart, MultiArea } from '@/components/ui/charts';
 import { Badge, toneForStatus } from '@/components/ui/badge';
 import { DataTable, type Column } from '@/components/ui/data-table';
 import { ProgressBar } from '@/components/ui/progress';
+import ThreatLens from './threat-lens';
 import {
   aiSystems,
   approvals,
@@ -138,6 +139,10 @@ export function DashboardOverview({
           spark={dailySeries.map((d) => d.riskScore)}
           sub="Across 6 frameworks"
         />
+      </div>
+
+      <div className="mt-8">
+        <ThreatLens />
       </div>
 
       <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">

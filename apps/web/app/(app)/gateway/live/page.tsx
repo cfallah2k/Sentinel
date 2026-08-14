@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { ModuleNav } from '@/components/governance/module-nav';
 import { RequestTable } from '@/components/enforcement/tables';
 import { fmt, gatewayNavItems } from '@/components/enforcement/helpers';
+import ThreatLens from '@/components/dashboard/threat-lens';
 import { gatewayRequests } from '@/lib/mock-data';
 
 export default function Page() {
@@ -31,6 +32,7 @@ export default function Page() {
         </span>
         <span className="text-[0.65rem] uppercase tracking-wider text-slate-500">Auto-refresh every 5 seconds</span>
       </div>
+      <ThreatLens />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard label="Last Hour" value={lastHour} icon={Activity} accent="sky" />
         <StatCard label="In Flight" value={Math.round(lastHour * 0.06)} icon={Radio} accent="cyan" />
