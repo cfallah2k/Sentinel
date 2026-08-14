@@ -1,4 +1,4 @@
-import LegalDoc from '@/components/marketing/legal-doc';
+import LegalDoc, { LEGAL_NAV } from '@/components/marketing/legal-doc';
 import CtaSection from '@/components/marketing/cta-section';
 
 const sections = [
@@ -62,6 +62,8 @@ export default function SecurityPage() {
         updated="July 1, 2026"
         intro="Security is the product. This policy documents how we handle vulnerability disclosure, what we commit to operationally, and how our posture is verified — so your auditors can rely on it."
         sections={sections}
+        nav={LEGAL_NAV}
+        activeNav="Security policy"
       />
       <CtaSection
         eyebrow="Want the full picture?"

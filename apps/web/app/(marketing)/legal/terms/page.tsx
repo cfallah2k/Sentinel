@@ -1,4 +1,4 @@
-import LegalDoc from '@/components/marketing/legal-doc';
+import LegalDoc, { LEGAL_NAV } from '@/components/marketing/legal-doc';
 import CtaSection from '@/components/marketing/cta-section';
 
 const sections = [
@@ -68,6 +68,8 @@ export default function TermsPage() {
         updated="July 1, 2026"
         intro="These terms govern access to and use of the Sentinel platform. They cover the service we provide, your responsibilities as a customer, and the commitments that keep AI governance trustworthy."
         sections={sections}
+        nav={LEGAL_NAV}
+        activeNav="Terms of service"
       />
       <CtaSection
         eyebrow="Negotiating terms?"

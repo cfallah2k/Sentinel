@@ -1,4 +1,4 @@
-import LegalDoc from '@/components/marketing/legal-doc';
+import LegalDoc, { LEGAL_NAV } from '@/components/marketing/legal-doc';
 import CtaSection from '@/components/marketing/cta-section';
 
 const sections = [
@@ -63,6 +63,8 @@ export default function PrivacyPage() {
         updated="July 1, 2026"
         intro="Sentinel processes two kinds of data: the account information you give us, and the governance data your organization generates using the platform. This policy explains both — and the boundaries between them."
         sections={sections}
+        nav={LEGAL_NAV}
+        activeNav="Privacy policy"
       />
       <CtaSection
         eyebrow="Questions?"

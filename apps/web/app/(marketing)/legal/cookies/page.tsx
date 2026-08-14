@@ -1,4 +1,4 @@
-import LegalDoc from '@/components/marketing/legal-doc';
+import LegalDoc, { LEGAL_NAV } from '@/components/marketing/legal-doc';
 import CtaSection from '@/components/marketing/cta-section';
 
 const sections = [
@@ -52,6 +52,8 @@ export default function CookiesPage() {
         updated="July 1, 2026"
         intro="Sentinel uses a small, transparent set of cookies to operate the platform, remember your preferences, and understand aggregate usage. This policy explains what we store, why, and how you control it."
         sections={sections}
+        nav={LEGAL_NAV}
+        activeNav="Cookie policy"
       />
       <CtaSection
         eyebrow="Questions?"
