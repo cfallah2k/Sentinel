@@ -35,6 +35,7 @@ const PROTECTED_PREFIXES = [
 
 const PUBLIC_PATHS = new Set([
   '/',
+  '/splash',
   '/login',
   '/register',
   '/forgot-password',

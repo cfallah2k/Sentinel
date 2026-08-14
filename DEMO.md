@@ -7,10 +7,8 @@ your role's access map is redirected to `/403`.
 
 ## Logging in
 
-1. Open the app and go to **`/login`**.
-2. Either:
-   - **One-click**: press any of the eight "Demo accounts" cards on the login page, or
-   - **Manual**: enter one of the emails below with the shared password.
+1. Open the app — a branded splash screen shows briefly and takes you to **`/login`**.
+2. Enter one of the emails below with the shared password (all accounts use **`demo123`**).
 
 | # | Role | Email | Password | Signs in as | Landing page |
 |---|------|-------|----------|-------------|--------------|
@@ -23,7 +21,7 @@ your role's access map is redirected to `/403`.
 | 7 | **Auditor** | `auditor@sentinel.dev` | `demo123` | Tara Osei | `/audit` |
 | 8 | **Viewer** | `viewer@sentinel.dev` | `demo123` | Nadia Haddad | `/dashboard` |
 
-All accounts share the password **`demo123`**.
+All accounts share the password **`demo123`** — type it in with the email on the sign-in form; there is no other login path.
 
 ## How the isolation works
 
