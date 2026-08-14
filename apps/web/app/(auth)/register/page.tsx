@@ -69,11 +69,11 @@ export default function RegisterPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
+      <div className="w-full max-w-3xl rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
         <h1 className="text-2xl font-semibold tracking-tight text-white">Create your workspace</h1>
         <p className="mt-1.5 text-sm text-slate-400">Tell us a little about your organization so we can tailor your governance plane.</p>
 
-        <form onSubmit={submit} className="mt-6 space-y-4">
+        <form onSubmit={submit} className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
           <div>
             <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
               Full name <span className="text-sentinel-300">*</span>
@@ -144,49 +144,47 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <div>
-              <label htmlFor="country" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Country <span className="text-sentinel-300">*</span>
-              </label>
-              <div className="relative">
-                <Globe2 className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" size={16} />
-                <select
-                  id="country"
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
-                  className={`${selectCls} ${country ? '' : 'text-slate-500'}`}
-                >
-                  <option value="" disabled className="bg-slate-950 text-slate-500">Select country</option>
-                  {countries.map((c) => (
-                    <option key={c} value={c} className="bg-slate-950 text-white">{c}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="sector" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Sector <span className="text-sentinel-300">*</span>
-              </label>
-              <div className="relative">
-                <ShieldAlert className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" size={16} />
-                <select
-                  id="sector"
-                  value={sector}
-                  onChange={(e) => setSector(e.target.value)}
-                  className={`${selectCls} ${sector ? '' : 'text-slate-500'}`}
-                >
-                  <option value="" disabled className="bg-slate-950 text-slate-500">Select sector</option>
-                  {sectors.map((s) => (
-                    <option key={s} value={s} className="bg-slate-950 text-white">{s}</option>
-                  ))}
-                </select>
-              </div>
+          <div>
+            <label htmlFor="country" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
+              Country <span className="text-sentinel-300">*</span>
+            </label>
+            <div className="relative">
+              <Globe2 className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" size={16} />
+              <select
+                id="country"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                className={`${selectCls} ${country ? '' : 'text-slate-500'}`}
+              >
+                <option value="" disabled className="bg-slate-950 text-slate-500">Select country</option>
+                {countries.map((c) => (
+                  <option key={c} value={c} className="bg-slate-950 text-white">{c}</option>
+                ))}
+              </select>
             </div>
           </div>
 
           <div>
+            <label htmlFor="sector" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
+              Sector <span className="text-sentinel-300">*</span>
+            </label>
+            <div className="relative">
+              <ShieldAlert className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" size={16} />
+              <select
+                id="sector"
+                value={sector}
+                onChange={(e) => setSector(e.target.value)}
+                className={`${selectCls} ${sector ? '' : 'text-slate-500'}`}
+              >
+                <option value="" disabled className="bg-slate-950 text-slate-500">Select sector</option>
+                {sectors.map((s) => (
+                  <option key={s} value={s} className="bg-slate-950 text-white">{s}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div className="sm:col-span-2">
             <label htmlFor="referral" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
               Where did you hear about us?
             </label>
@@ -206,7 +204,7 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          <div>
+          <div className="sm:col-span-2">
             <label htmlFor="reg-password" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
               Password <span className="text-sentinel-300">*</span>
             </label>
@@ -233,7 +231,7 @@ export default function RegisterPage() {
           </div>
 
           {error ? (
-            <p className="flex items-center gap-2 rounded-2xl border border-rose-500/25 bg-rose-500/10 px-4 py-2.5 text-xs text-rose-300">
+            <p className="flex items-center gap-2 rounded-2xl border border-rose-500/25 bg-rose-500/10 px-4 py-2.5 text-xs text-rose-300 sm:col-span-2">
               <ShieldAlert className="h-3.5 w-3.5 shrink-0" size={14} /> {error}
             </p>
           ) : null}
@@ -241,12 +239,12 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-sentinel-500 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-sentinel-400 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-sentinel-500 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-sentinel-400 disabled:cursor-not-allowed disabled:opacity-60 sm:col-span-2"
           >
             {loading ? 'Creating workspace...' : 'Create workspace'}
           </button>
 
-          <p className="text-center text-[0.65rem] leading-4 text-slate-500">
+          <p className="text-center text-[0.65rem] leading-4 text-slate-500 sm:col-span-2">
             By creating an account you agree to the <Link href="/terms" className="text-slate-400 underline underline-offset-2 hover:text-white">Terms of Service</Link> and{' '}
             <Link href="/privacy" className="text-slate-400 underline underline-offset-2 hover:text-white">Privacy Policy</Link>.
           </p>

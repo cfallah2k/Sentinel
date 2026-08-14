@@ -30,7 +30,7 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={submit} className="space-y-4">
+    <form onSubmit={submit} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       <div>
         <label htmlFor="email" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
           Work email
@@ -81,7 +81,7 @@ function LoginForm() {
       </div>
 
       {error ? (
-        <p className="flex items-center gap-2 rounded-2xl border border-rose-500/25 bg-rose-500/10 px-4 py-2.5 text-xs text-rose-300">
+        <p className="flex items-center gap-2 rounded-2xl border border-rose-500/25 bg-rose-500/10 px-4 py-2.5 text-xs text-rose-300 sm:col-span-2">
           <ShieldAlert className="h-3.5 w-3.5 shrink-0" size={14} /> {error}
         </p>
       ) : null}
@@ -89,12 +89,12 @@ function LoginForm() {
       <button
         type="submit"
         disabled={loading}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-sentinel-500 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-sentinel-400 disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-sentinel-500 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-sentinel-400 disabled:cursor-not-allowed disabled:opacity-60 sm:col-span-2"
       >
         {loading ? 'Signing in...' : 'Sign in to Sentinel'}
       </button>
 
-      <p className="text-center text-xs text-slate-500">
+      <p className="text-center text-xs text-slate-500 sm:col-span-2">
         Protected by enterprise-grade encryption and audit logging.
       </p>
     </form>
@@ -114,7 +114,7 @@ export default function LoginPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
+      <div className="w-full max-w-2xl rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
         <h1 className="text-2xl font-semibold tracking-tight text-white">Welcome back</h1>
         <p className="mt-1.5 text-sm text-slate-400">Sign in to your Sentinel control plane.</p>
         <div className="mt-6">

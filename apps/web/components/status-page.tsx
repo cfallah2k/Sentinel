@@ -31,7 +31,7 @@ export function StatusPage({
     <div className="relative flex min-h-[75vh] items-center justify-center overflow-hidden px-4 py-16">
       <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-[44rem] -translate-x-1/2 rounded-full bg-sentinel-500/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 right-[-6rem] h-80 w-80 rounded-full bg-violet-500/10 blur-3xl" />
-      <div className="relative flex max-w-xl flex-col items-center text-center">
+      <div className="relative flex w-full max-w-2xl flex-col items-center text-center">
         <Badge label={badge} tone={tone} />
         <div className="mt-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-white/10 bg-white/5 shadow-panel">
           <Icon className="h-9 w-9 text-sentinel-300" size={36} />

@@ -82,7 +82,7 @@ export default function MfaVerifyPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
+      <div className="w-full max-w-2xl rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
         <h1 className="text-2xl font-semibold tracking-tight text-white">Confirm it&apos;s you</h1>
         <p className="mt-1.5 text-sm text-slate-400">
           Enter the 6-digit code from your authenticator app or phone.

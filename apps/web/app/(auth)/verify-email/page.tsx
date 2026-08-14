@@ -42,7 +42,7 @@ export default function VerifyEmailPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
+      <div className="w-full max-w-2xl rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
         <div className="flex flex-col items-center py-2 text-center">
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-sentinel-500/15">
             <MailCheck className="h-7 w-7 text-sentinel-300" size={28} />

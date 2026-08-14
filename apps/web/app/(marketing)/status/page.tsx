@@ -41,7 +41,7 @@ export default function StatusPage() {
 
   return (
     <div className="space-y-16 lg:space-y-24">
-      <section className="mx-auto max-w-4xl text-center">
+      <section className="mx-auto max-w-7xl text-center">
         <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-emerald-300">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
           {overall}
@@ -63,7 +63,7 @@ export default function StatusPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl space-y-3">
+      <section className="mx-auto max-w-7xl space-y-3">
         {services.map((service) => {
           const style = statusStyles[service.status];
           return (
@@ -104,7 +104,7 @@ export default function StatusPage() {
         </p>
       </section>
 
-      <section className="mx-auto max-w-4xl space-y-6">
+      <section className="mx-auto max-w-7xl space-y-6">
         <div className="text-center">
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Recent incidents</p>
           <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Incident history</h2>

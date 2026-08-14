@@ -88,7 +88,7 @@ export default function MfaSetupPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
+      <div className="w-full max-w-2xl rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
         {step === 'method' ? (
           <>
             <h1 className="text-2xl font-semibold tracking-tight text-white">Set up MFA</h1>

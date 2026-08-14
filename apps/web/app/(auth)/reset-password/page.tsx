@@ -63,7 +63,7 @@ export default function ResetPasswordPage() {
           </div>
         </div>
 
-        <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
+        <div className="w-full max-w-2xl rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
           <div className="flex flex-col items-center py-2 text-center">
             <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/15">
               <CheckCircle2 className="h-7 w-7 text-emerald-400" size={28} />
@@ -97,11 +97,11 @@ export default function ResetPasswordPage() {
         </div>
       </div>
 
-      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
+      <div className="w-full max-w-2xl rounded-3xl border border-white/10 bg-[var(--surface)] p-6 shadow-panel sm:p-8 backdrop-blur-xl">
         <h1 className="text-2xl font-semibold tracking-tight text-white">Choose a new password</h1>
         <p className="mt-1.5 text-sm text-slate-400">Minimum 12 characters with mixed case, a number, and a symbol.</p>
 
-        <form onSubmit={submit} className="mt-6 space-y-4">
+        <form onSubmit={submit} className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
           <div>
             <label htmlFor="rp-password" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-400">
               New password
@@ -166,7 +166,7 @@ export default function ResetPasswordPage() {
           </div>
 
           {error ? (
-            <p className="flex items-center gap-2 rounded-2xl border border-rose-500/25 bg-rose-500/10 px-4 py-2.5 text-xs text-rose-300">
+            <p className="flex items-center gap-2 rounded-2xl border border-rose-500/25 bg-rose-500/10 px-4 py-2.5 text-xs text-rose-300 sm:col-span-2">
               <ShieldAlert className="h-3.5 w-3.5 shrink-0" size={14} /> {error}
             </p>
           ) : null}
@@ -174,7 +174,7 @@ export default function ResetPasswordPage() {
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-sentinel-500 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-sentinel-400 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-sentinel-500 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-sentinel-400 disabled:cursor-not-allowed disabled:opacity-60 sm:col-span-2"
           >
             {loading ? 'Updating password...' : 'Update password'}
           </button>
