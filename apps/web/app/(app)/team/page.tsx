@@ -5,7 +5,7 @@ import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { DataTable, type Column } from '@/components/ui/data-table';
 import { Badge, toneForStatus } from '@/components/ui/badge';
-import { teamMembers, invitations, rolePermissions, approvals, currentOrg } from '@/lib/mock-data';
+import { teamMembers, invitations, rolePermissions, assignableRoleOptions, roleLabel, approvals, currentOrg } from '@/lib/mock-data';
 import { serviceAccounts } from '@/components/platform/developer-data';
 
 type Row = {
@@ -51,7 +51,7 @@ export default function Page() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5">
         <StatCard label="Members" value={teamMembers.length} icon={Users} accent="sky" sub={`${currentOrg.seats} seats on plan`} />
         <StatCard label="Invitations" value={invitations.filter((i) => i.status === 'Pending').length} icon={UserPlus} accent="amber" sub="Awaiting acceptance" />
-        <StatCard label="Roles" value={Object.keys(rolePermissions).length} icon={ShieldCheck} accent="cyan" sub="Predefined scopes" />
+        <StatCard label="Seat Roles" value={assignableRoleOptions.length} icon={ShieldCheck} accent="cyan" sub="Assignable to members" />
         <StatCard label="Service Accounts" value={serviceAccounts.length} icon={KeyRound} accent="violet" sub="Machine identities" />
         <StatCard label="Access Requests" value={approvals.filter((a) => a.status === 'Pending').length} icon={Fingerprint} accent="rose" sub="Pending review" />
       </div>
@@ -65,11 +65,14 @@ export default function Page() {
 
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-2">
         <Card>
-          <CardHeader title="Role inventory" subtitle="Permissions granted to each role" action={<Link href="/team/roles" className="text-xs font-semibold text-sentinel-300 hover:text-sentinel-400">Manage roles</Link>} />
+          <CardHeader title="Role inventory" subtitle="Seat roles assigned to members · account roles owned by the account" action={<Link href="/team/roles" className="text-xs font-semibold text-sentinel-300 hover:text-sentinel-400">Manage roles</Link>} />
           <CardBody className="space-y-3">
             {Object.entries(rolePermissions).map(([role, perms]) => (
-              <Link key={role} href={`/team/roles/${role.toLowerCase()}`} className="flex items-center justify-between rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3 transition hover:bg-white/[0.05]">
-                <span className="text-xs font-semibold text-slate-200">{role}</span>
+              <Link key={role} href={`/team/roles/${role.toLowerCase()}`} className="flex items-center justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3 transition hover:bg-white/[0.05]">
+                <span className="flex min-w-0 items-center gap-2">
+                  <span className="truncate text-xs font-semibold text-slate-200">{roleLabel(role)}</span>
+                  <Badge label={assignableRoleOptions.includes(role as (typeof assignableRoleOptions)[number]) ? 'Seat' : 'Account'} tone={assignableRoleOptions.includes(role as (typeof assignableRoleOptions)[number]) ? 'blue' : 'violet'} />
+                </span>
                 <span className="text-[0.65rem] text-slate-500">{perms.length} permissions</span>
               </Link>
             ))}

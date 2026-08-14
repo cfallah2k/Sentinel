@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Bell, ChevronDown, LogOut, Search, Settings2, UserCircle2 } from 'lucide-react';
-import { currentOrg, currentUser, notifications } from '@/lib/mock-data';
+import { currentOrg, currentUser, notifications, roleLabel } from '@/lib/mock-data';
 
 export default function AppTopbar() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -101,7 +101,7 @@ export default function AppTopbar() {
                     <p className="text-xs font-semibold text-white">{currentUser.name}</p>
                     <p className="truncate text-[0.65rem] text-slate-500">{currentUser.email}</p>
                     <span className="mt-2 inline-block rounded-full bg-violet-500/15 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-violet-300">
-                      {currentUser.role}
+                      {roleLabel(currentUser.role)}
                     </span>
                   </div>
                   <div className="p-2">

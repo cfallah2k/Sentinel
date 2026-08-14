@@ -3,7 +3,7 @@ import { PageHeader } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { rolePermissions, roleOptions } from '@/lib/mock-data';
+import { rolePermissions, roleOptions, roleLabel } from '@/lib/mock-data';
 
 export default function Page() {
   const perms = [...new Set(Object.values(rolePermissions).flat())].sort();
@@ -19,7 +19,7 @@ export default function Page() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         <StatCard label="Permissions" value={perms.length} icon={ShieldCheck} accent="sky" sub="Unique capabilities" />
-        <StatCard label="Roles" value={roleOptions.length} icon={ShieldCheck} accent="cyan" sub="Assignable roles" />
+        <StatCard label="Roles" value={roleOptions.length} icon={ShieldCheck} accent="cyan" sub="Account + seat roles" />
         <StatCard label="Coverage" value="100%" icon={ShieldCheck} accent="green" sub="All perms assigned" />
       </div>
 
@@ -32,7 +32,7 @@ export default function Page() {
                 <tr className="border-b border-white/10">
                   <th className="px-4 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-slate-500">Permission</th>
                   {roleOptions.map((r) => (
-                    <th key={r} className="px-3 py-3 text-center text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-slate-500">{r}</th>
+                    <th key={r} className="px-3 py-3 text-center text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-slate-500">{roleLabel(r)}</th>
                   ))}
                 </tr>
               </thead>

@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
-import { ArrowLeft, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, Building2, ShieldCheck, Users } from 'lucide-react';
 import Link from 'next/link';
 import { PageHeader } from '@/components/ui/page-header';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
-import { teamMembers, rolePermissions, roleOptions } from '@/lib/mock-data';
+import { teamMembers, rolePermissions, roleOptions, roleLabel, roleDescriptions, isAccountRole } from '@/lib/mock-data';
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -13,6 +13,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
   const perms = rolePermissions[role] ?? [];
   const members = teamMembers.filter((m) => m.role === role);
+  const accountLevel = isAccountRole(role);
 
   return (
     <div className="space-y-6">
@@ -21,9 +22,14 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
       </Link>
       <PageHeader
         eyebrow="Platform"
-        title={role}
-        description={`Capabilities granted to the ${role} role.`}
-        actions={<Badge label={`${members.length} members`} tone="blue" />}
+        title={roleLabel(role)}
+        description={roleDescriptions[role] ?? `Capabilities granted to the ${role} role.`}
+        actions={
+          <div className="flex items-center gap-2">
+            <Badge label={accountLevel ? 'Account-level' : 'Seat'} tone={accountLevel ? 'violet' : 'blue'} />
+            <Badge label={`${members.length} members`} tone="slate" />
+          </div>
+        }
       />
 
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
@@ -60,7 +66,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
               ))
             ) : (
               <p className="rounded-2xl border border-dashed border-white/10 px-4 py-8 text-center text-xs text-slate-500">
-                No members currently assigned
+                {accountLevel ? 'This role belongs to the account itself and has no seats.' : 'No members currently assigned'}
               </p>
             )}
           </CardBody>
@@ -74,7 +80,12 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
             <div className="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3">
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-slate-500">Scope</p>
               <p className="mt-1 flex items-center gap-1.5 text-sm text-slate-200">
-                <ShieldCheck className="h-3.5 w-3.5 text-sentinel-300" /> Organization-wide
+                {accountLevel ? (
+                  <Building2 className="h-3.5 w-3.5 text-violet-300" />
+                ) : (
+                  <ShieldCheck className="h-3.5 w-3.5 text-sentinel-300" />
+                )}
+                {accountLevel ? 'Account-level' : 'Seat role inside the account'}
               </p>
             </div>
             <div className="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3">
@@ -82,8 +93,10 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
               <p className="mt-1 text-sm text-slate-200">{perms.length}</p>
             </div>
             <div className="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3">
-              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-slate-500">Last Updated</p>
-              <p className="mt-1 text-sm text-slate-200">2026-08-01</p>
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-slate-500">Assigned</p>
+              <p className="mt-1 flex items-center gap-1.5 text-sm text-slate-200">
+                <Users className="h-3.5 w-3.5 text-slate-400" /> {members.length} member{members.length === 1 ? '' : 's'}
+              </p>
             </div>
           </div>
         </CardBody>

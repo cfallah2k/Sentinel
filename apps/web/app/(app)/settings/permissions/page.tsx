@@ -3,7 +3,7 @@ import { PageHeader } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { rolePermissions, roleOptions } from '@/lib/mock-data';
+import { rolePermissions, roleOptions, roleLabel } from '@/lib/mock-data';
 
 export default function Page() {
   const perms = [...new Set(Object.values(rolePermissions).flat())].sort();
@@ -33,7 +33,7 @@ export default function Page() {
                   <p className="font-mono text-xs text-slate-200">{p}</p>
                   <div className="mt-2 flex flex-wrap gap-1">
                     {holders.map((h) => (
-                      <Badge key={h} label={h} tone="blue" />
+                      <Badge key={h} label={roleLabel(h)} tone="blue" />
                     ))}
                   </div>
                 </div>

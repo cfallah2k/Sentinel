@@ -25,7 +25,7 @@ import {
 import Link from 'next/link';
 import { PageHeader } from '@/components/ui/page-header';
 import { Card, CardBody } from '@/components/ui/card';
-import { currentOrg, currentUser } from '@/lib/mock-data';
+import { currentOrg, currentUser, roleLabel } from '@/lib/mock-data';
 
 const sections = [
   { label: 'General', description: 'Organization name, slug and region', href: '/settings/general', icon: Settings2 },
@@ -59,7 +59,7 @@ export default function Page() {
       <PageHeader
         eyebrow="Platform"
         title="Settings"
-        description={`Configuration for ${currentOrg.name} — ${currentUser.role}.`}
+        description={`Configuration for ${currentOrg.name} — ${roleLabel(currentUser.role)}.`}
       />
 
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">

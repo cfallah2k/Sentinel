@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { OnboardingShell, inputCls, labelCls } from '@/components/onboarding/onboarding-shell';
-import { currentUser, roleOptions } from '@/lib/mock-data';
+import { currentUser, accountRoleOptions, roleLabel } from '@/lib/mock-data';
 
 export default function Page() {
   const [name, setName] = useState(currentUser.name);
@@ -34,8 +34,8 @@ export default function Page() {
         <div>
           <label className={labelCls}>Default role</label>
           <select value={role} onChange={(e) => setRole(e.target.value)} className={`${inputCls} mt-2 appearance-none`}>
-            {roleOptions.map((r) => (
-              <option key={r} value={r} className="bg-slate-950">{r.replace(/_/g, ' ')}</option>
+            {accountRoleOptions.map((r) => (
+              <option key={r} value={r} className="bg-slate-950">{roleLabel(r)}</option>
             ))}
           </select>
         </div>

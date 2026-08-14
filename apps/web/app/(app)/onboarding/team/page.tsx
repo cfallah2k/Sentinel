@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Mail, Trash2, UserPlus } from 'lucide-react';
 import { OnboardingShell, inputCls, labelCls } from '@/components/onboarding/onboarding-shell';
-import { roleOptions } from '@/lib/mock-data';
+import { assignableRoleOptions, roleLabel } from '@/lib/mock-data';
 
 interface Invite {
   id: number;
@@ -58,8 +58,8 @@ export default function Page() {
                 onChange={(e) => update(r.id, { role: e.target.value })}
                 className={`${inputCls} mt-2 appearance-none`}
               >
-                {roleOptions.map((o) => (
-                  <option key={o} value={o} className="bg-slate-950">{o.replace(/_/g, ' ')}</option>
+                {assignableRoleOptions.map((o) => (
+                  <option key={o} value={o} className="bg-slate-950">{roleLabel(o)}</option>
                 ))}
               </select>
             </div>

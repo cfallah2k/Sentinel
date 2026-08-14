@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { PageHeader } from '@/components/ui/page-header';
 import { Badge } from '@/components/ui/badge';
 import { SectionCard, Field, TextInput, TextAreaInput, SaveButton } from '@/components/platform/settings-form';
-import { currentOrg, currentUser } from '@/lib/mock-data';
+import { currentOrg, currentUser, roleLabel } from '@/lib/mock-data';
 
 export default function Page() {
   const [description, setDescription] = useState('Nexora Industries builds AI-powered financial services. Sentinel governs all AI traffic across 12 production systems.');
@@ -56,7 +56,7 @@ export default function Page() {
                 <p className="text-sm font-semibold text-white">{currentUser.name}</p>
                 <p className="text-[0.65rem] text-slate-500">{currentUser.email} · {currentUser.title}</p>
               </div>
-              <Badge label={currentUser.role} tone="blue" />
+              <Badge label={roleLabel(currentUser.role)} tone="blue" />
             </div>
           </SectionCard>
         </div>

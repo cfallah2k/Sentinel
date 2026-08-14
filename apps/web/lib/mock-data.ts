@@ -241,6 +241,7 @@ export const currentOrg = {
   seats: 42,
   region: 'US-East (Virginia)',
   industry: 'Financial Services',
+  accountType: 'corporate' as 'corporate' | 'government',
   created: '2024-03-12',
   trial: false
 };
@@ -255,7 +256,46 @@ export const currentUser = {
   lastLogin: '2026-08-13T09:42:00Z'
 };
 
-export const roleOptions = ['OWNER', 'ADMIN', 'SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'DEVELOPER', 'AUDITOR', 'VIEWER'];
+// Account-level roles belong to the account itself (the government agency or the
+// private organization that purchased Sentinel). They are not assignable seats.
+export const accountRoleOptions = ['OWNER', 'ADMIN'] as const;
+
+// Assignable seat roles are the roles members within the account are invited into.
+export const assignableRoleOptions = ['SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'DEVELOPER', 'AUDITOR', 'VIEWER'] as const;
+
+export const roleOptions = [...accountRoleOptions, ...assignableRoleOptions];
+
+export const roleDescriptions: Record<string, string> = {
+  OWNER: 'The account itself — holds the subscription and full control over billing, settings, and role assignment.',
+  ADMIN: 'Account administrator — manages settings, team, and policies on behalf of the account owner.',
+  SECURITY_ANALYST: 'Monitors incidents, gateway traffic, and risk signals. Responds to security events and reviews approvals.',
+  PRIVACY_OFFICER: 'Owns privacy controls: data classification, retention, and privacy policy management.',
+  COMPLIANCE_OFFICER: 'Owns compliance programs: frameworks, audit readiness, policy coverage, and regulatory reporting.',
+  DEVELOPER: 'Builds and operates AI integrations: registry entries, API keys, gateway access, and application logs.',
+  AUDITOR: 'Read-only evidence role: full audit log, reports, and export for internal or regulatory review.',
+  VIEWER: 'Read-only dashboard visibility for stakeholders who need to see status without acting.'
+};
+
+// B2G accounts show government-friendly labels for the same seat roles.
+export const governmentRoleLabels: Record<string, string> = {
+  SECURITY_ANALYST: 'Security Officer',
+  PRIVACY_OFFICER: 'Privacy Officer',
+  COMPLIANCE_OFFICER: 'Compliance Officer',
+  DEVELOPER: 'Systems Developer',
+  AUDITOR: 'Records Auditor',
+  VIEWER: 'Observer'
+};
+
+export function roleLabel(role: string): string {
+  if (currentOrg.accountType === 'government') {
+    return governmentRoleLabels[role] ?? role;
+  }
+  return role;
+}
+
+export function isAccountRole(role: string): boolean {
+  return (accountRoleOptions as readonly string[]).includes(role);
+}
 
 // ---------- Providers ----------
 
