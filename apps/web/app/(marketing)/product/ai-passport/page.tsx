@@ -54,7 +54,7 @@ export default function AiPassportPage() {
         eyebrow="Product · AI Passports"
         title="Every AI system, documented like a citizen."
         description="An AI passport is the single record of what a system is, what it touches, who owns it, and how it is governed — continuously updated by the platform, not by a quarterly spreadsheet."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Governance overview', href: '/product/ai-governance' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -110,7 +110,7 @@ export default function AiPassportPage() {
         eyebrow="AI Passports"
         title="Kill the AI inventory spreadsheet."
         description="Your registry updates itself with every request the gateway sees."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Explore data flows', href: '/product/data-flow' }}
       />
     </div>

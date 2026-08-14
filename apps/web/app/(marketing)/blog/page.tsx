@@ -171,7 +171,7 @@ export default function BlogPage() {
         eyebrow="Never miss a post"
         title="Get governance insights in your inbox."
         description="One email a month on policy engines, classification, and the regulations shaping AI."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Browse resources', href: '/resources' }}
       />
     </div>

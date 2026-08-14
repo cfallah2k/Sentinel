@@ -125,7 +125,7 @@ export default function AboutPage() {
       <CtaSection
         eyebrow="Join the mission"
         title="Govern AI with the same rigor you apply to your infrastructure."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Explore careers', href: '/careers' }}
       />
 

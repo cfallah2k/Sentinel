@@ -53,7 +53,7 @@ export default function PrivacySolutionPage() {
         eyebrow="Solution · Privacy"
         title="Privacy programs that survive contact with AI."
         description="Sentinel gives privacy teams the classification, redaction, and lineage to keep personal data out of models — and the evidence to prove it to regulators."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Read privacy policy', href: '/legal/privacy' }}
       >
         <div className="flex flex-col gap-3">
@@ -101,7 +101,7 @@ export default function PrivacySolutionPage() {
         eyebrow="Privacy"
         title="Keep personal data out of the model — by policy, not by prayer."
         description="Classification runs on every request; minimization is enforced, measured, and documented."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'See classification', href: '/product/data-classification' }}
       />
     </div>

@@ -69,7 +69,7 @@ export default function DevelopersSolutionPage() {
         title="Governance that ships in the same pipeline as your code."
         description="Policy as code, an OpenAI-compatible gateway, and SDKs for the languages you already use — built for engineers who hate governance theater."
         primary={{ label: 'Read the docs', href: '/docs' }}
-        secondary={{ label: 'Start free trial', href: '/register' }}
+        secondary={{ label: 'Request a demo', href: '/request-demo' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/95 p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
           <div className="pointer-events-none absolute -right-16 top-10 h-24 w-24 rounded-full bg-cyan-400/15 blur-3xl" />
@@ -104,7 +104,7 @@ export default function DevelopersSolutionPage() {
         eyebrow="Developers"
         title="Govern without slowing the build."
         description="Wire Sentinel into your stack in an afternoon — and never think about it again until an auditor asks."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Browse integrations', href: '/integrations' }}
       />
     </div>

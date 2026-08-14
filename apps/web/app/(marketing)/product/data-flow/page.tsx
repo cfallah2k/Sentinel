@@ -52,7 +52,7 @@ export default function DataFlowPage() {
         eyebrow="Product · Data Flow Governance"
         title="Follow every byte that touches a model."
         description="Sentinel maps data movement across your entire AI estate — where it came from, what was classified, what the policy decided, and where it ended up."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Meet classification', href: '/product/data-classification' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -126,7 +126,7 @@ export default function DataFlowPage() {
         eyebrow="Data flows"
         title="See where your data actually goes."
         description="Map every AI boundary in one graph, with decisions that never surprise you."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Explore approvals', href: '/product/approvals' }}
       />
     </div>

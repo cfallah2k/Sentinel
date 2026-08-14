@@ -72,7 +72,10 @@ export default function StatusPage() {
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-start gap-3.5">
-                  <span className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full ${style.dot} shadow-glow`} />
+                  <span className="relative mt-1.5 flex h-2.5 w-2.5 shrink-0">
+                    <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-50 ${style.dot}`} />
+                    <span className={`relative inline-flex h-2.5 w-2.5 rounded-full ${style.dot} shadow-glow`} />
+                  </span>
                   <div>
                     <h2 className="text-sm font-semibold text-white sm:text-base">{service.name}</h2>
                     <p className="mt-0.5 text-xs text-slate-500">{service.description}</p>

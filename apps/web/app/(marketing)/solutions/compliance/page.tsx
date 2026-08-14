@@ -43,7 +43,7 @@ export default function ComplianceSolutionPage() {
         eyebrow="Solution · Compliance & Regulation"
         title="Walk into every audit with evidence that writes itself."
         description="For compliance officers in regulated industries, Sentinel turns daily AI operations into continuous, verifiable control evidence — for the frameworks your auditors actually cite."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'See framework coverage', href: '/compliance' }}
       >
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -91,7 +91,7 @@ export default function ComplianceSolutionPage() {
         eyebrow="Compliance"
         title="Close your compliance gaps before the audit calendar does."
         description="Get framework mapping, live evidence, and gap tracking in one workspace."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Visit trust center', href: '/trust' }}
       />
     </div>

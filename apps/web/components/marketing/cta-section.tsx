@@ -12,7 +12,7 @@ export default function CtaSection({
   eyebrow,
   title,
   description,
-  primary = { label: 'Start free trial', href: '/register' },
+  primary = { label: 'Request a demo', href: '/request-demo' },
   secondary = { label: 'Talk to sales', href: '/contact' }
 }: CtaSectionProps) {
   return (

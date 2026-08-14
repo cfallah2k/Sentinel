@@ -52,7 +52,7 @@ export default function AiGovernancePage() {
         eyebrow="Product · AI Governance"
         title="Govern AI like you govern everything else."
         description="A single control plane that connects what your AI systems are, what they are allowed to do, and what auditors can prove — one loop, one source of truth."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'See the registry', href: '/product/ai-passport' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -113,7 +113,7 @@ export default function AiGovernancePage() {
         eyebrow="AI Governance"
         title="One loop from registration to audit."
         description="See the whole estate governed in one place, with evidence that writes itself."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Meet AI passports', href: '/product/ai-passport' }}
       />
     </div>

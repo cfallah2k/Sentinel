@@ -170,15 +170,15 @@ export default function RequestDemoPage() {
             </ul>
           </div>
           <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">
-            <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Prefer to explore alone?</p>
+            <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Prefer to see it in action?</p>
             <p className="mt-3 text-sm leading-7 text-slate-400">
-              Create a free workspace and run the gateway against your own providers in under an hour.
+              Try the live playground and watch Sentinel detect, redact, and block before any model sees a single byte.
             </p>
             <a
-              href="/register"
+              href="/playground"
               className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-sentinel-300 transition hover:text-sentinel-200 sm:text-sm"
             >
-              Start free trial
+              Try the live playground
             </a>
           </div>
         </div>

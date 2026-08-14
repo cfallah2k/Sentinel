@@ -49,7 +49,7 @@ export default function ResourcesPage() {
         eyebrow="Resources"
         title="Playbooks, guides, and references for AI governance teams."
         description="Practical material for AI governance teams — playbooks, guides, and references you can take to your next architecture review."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Read the blog', href: '/blog' }}
       />
 
@@ -144,8 +144,8 @@ export default function ResourcesPage() {
       <CtaSection
         eyebrow="Going deeper?"
         title="Try the patterns in a live workspace."
-        description="Every guide in this library maps to features you can test today, free."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        description="Every guide in this library maps to features you can test today."
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Request a demo', href: '/request-demo' }}
       />
     </div>

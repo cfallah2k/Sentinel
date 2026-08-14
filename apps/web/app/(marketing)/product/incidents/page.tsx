@@ -52,7 +52,7 @@ export default function IncidentsPage() {
         eyebrow="Product · Incidents"
         title="AI incidents, handled with the rigor they deserve."
         description="When policy is violated or data leaks, Sentinel gives your team the full picture — severity, SLA, context, and remediation paths — in one queue."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Read the audit trail', href: '/product/audit' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -133,7 +133,7 @@ export default function IncidentsPage() {
         eyebrow="Incidents"
         title="Your AI estate never sleeps. Neither does your response."
         description="Get detection, escalation, and evidence in one incident loop."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'See policy engine', href: '/product/policy-engine' }}
       />
     </div>

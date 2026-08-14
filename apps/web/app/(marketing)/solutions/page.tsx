@@ -64,7 +64,7 @@ export default function SolutionsPage() {
         eyebrow="Solutions"
         title="Governance shaped for the way your team works."
         description="Sentinel adapts to your role, your industry, and your regulatory reality — one platform, six working perspectives."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Talk to an expert', href: '/contact' }}
       >
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -108,7 +108,7 @@ export default function SolutionsPage() {
         title="Tell us about your stack and obligations."
         description="We will map the right path across product, integrations, and compliance in a 30-minute call."
         primary={{ label: 'Request a demo', href: '/request-demo' }}
-        secondary={{ label: 'Start free trial', href: '/register' }}
+        secondary={{ label: 'Request a demo', href: '/request-demo' }}
       />
     </div>
   );

@@ -179,7 +179,7 @@ export default function TrustPage() {
         title="Request the full trust pack."
         description="Our compliance roadmap, DPA, security whitepaper, and architecture documentation — shared within one business day."
         primary={{ label: 'Request documents', href: '/contact' }}
-        secondary={{ label: 'Start free trial', href: '/register' }}
+        secondary={{ label: 'Request a demo', href: '/request-demo' }}
       />
     </div>
   );

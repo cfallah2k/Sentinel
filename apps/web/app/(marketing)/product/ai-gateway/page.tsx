@@ -68,7 +68,7 @@ export default function AiGatewayPage() {
         eyebrow="Product · AI Gateway"
         title="The gateway that sees every AI request."
         description="Sentinel sits between your applications and every model provider. Each request is evaluated against policy, inspected for sensitive data, and recorded to the audit trail — before the model ever sees it."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Gateway docs', href: '/docs' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/95 p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -138,7 +138,7 @@ export default function AiGatewayPage() {
         title="See it in action — no setup required."
         description="Type a prompt in the playground and watch Sentinel detect, redact, and block before the model ever sees it."
         primary={{ label: 'Try the live playground', href: '/playground' }}
-        secondary={{ label: 'Start free trial', href: '/register' }}
+        secondary={{ label: 'Request a demo', href: '/request-demo' }}
       />
     </div>
   );

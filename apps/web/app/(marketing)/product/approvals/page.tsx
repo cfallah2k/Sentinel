@@ -52,7 +52,7 @@ export default function ApprovalsPage() {
         eyebrow="Product · Approvals"
         title="Human judgment where it matters, automation everywhere else."
         description="Sentinel gates high-risk AI actions behind approval workflows with full context, SLA tracking, and an immutable record — so risk decisions are made by people and proven to auditors."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'See incident handling', href: '/product/incidents' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -118,7 +118,7 @@ export default function ApprovalsPage() {
         eyebrow="Approvals"
         title="Give risky AI actions a human conscience."
         description="Approval flows run natively — or route into the tools your team already lives in."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Read the audit trail', href: '/product/audit' }}
       />
     </div>

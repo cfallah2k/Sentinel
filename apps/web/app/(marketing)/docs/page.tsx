@@ -172,8 +172,8 @@ export default function DocsPage() {
       <CtaSection
         eyebrow="Still exploring?"
         title="Get hands-on with Sentinel in minutes."
-        description="Create a free workspace, connect a provider, and enforce your first policy today."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        description="Create a workspace, connect a provider, and enforce your first policy today."
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Talk to an engineer', href: '/contact' }}
       />
     </div>

@@ -53,7 +53,7 @@ export default function DataClassificationPage() {
         eyebrow="Product · Data Classification"
         title="Know exactly what flows through your AI stack."
         description="Sentinel classifies sensitive data at the gateway and across your data sources — then redacts, blocks, or quarantines it before it reaches a model."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Trace data flows', href: '/product/data-flow' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -111,7 +111,7 @@ export default function DataClassificationPage() {
         eyebrow="Classification"
         title="Stop sensitive data at the door of your models."
         description="Turn detection into policy in minutes — with zero code changes in your applications."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Read the policy engine', href: '/product/policy-engine' }}
       />
     </div>

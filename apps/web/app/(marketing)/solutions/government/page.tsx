@@ -104,7 +104,7 @@ export default function GovernmentSolutionPage() {
         title="Deploy AI the public can audit."
         description="Registry, classification, and reporting built for the public sector — from day one."
         primary={{ label: 'Talk to our team', href: '/contact' }}
-        secondary={{ label: 'Start free trial', href: '/register' }}
+        secondary={{ label: 'Request a demo', href: '/request-demo' }}
       />
     </div>
   );

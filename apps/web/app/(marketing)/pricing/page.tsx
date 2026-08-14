@@ -13,7 +13,7 @@ const plans = [
     tagline: 'For teams starting their AI governance journey',
     monthly: 99,
     annual: 79,
-    cta: { label: 'Start 7-day free trial', href: '/register' },
+    cta: { label: 'Request a demo', href: '/request-demo' },
     features: [
       '3 AI providers',
       '10 active policies',
@@ -27,7 +27,7 @@ const plans = [
     tagline: 'For scaling AI deployments',
     monthly: 249,
     annual: 199,
-    cta: { label: 'Start free trial', href: '/register' },
+    cta: { label: 'Request a demo', href: '/request-demo' },
     highlighted: true,
     features: [
       'Unlimited providers',
@@ -58,9 +58,9 @@ const plans = [
 
 const faqItems = [
   {
-    question: 'How does the 7-day free trial work?',
+    question: 'How do I get started?',
     answer:
-      'Every plan starts with a 7-day free trial — full access to the gateway, policy engine, classification, and audit trail. No credit card required to start, and you can upgrade, downgrade, or cancel at any time during the trial.'
+      'Request a demo and our team will walk you through the gateway, policy engine, classification, and audit trail against your own use cases — with a security review for enterprise teams. No credit card or setup required to get started.'
   },
   {
     question: 'What counts as a request?',
@@ -97,9 +97,9 @@ export default function PricingPage() {
       <MarketingHero
         eyebrow="Pricing"
         title="Governance that pays for itself with the first blocked leak."
-        description="Start with a 7-day free trial, scale with volume. Every plan includes the gateway, policy engine, classification, and audit trail."
-        primary={{ label: 'Start 7-day free trial', href: '/register' }}
-        secondary={{ label: 'Request a demo', href: '/request-demo' }}
+        description="Request a demo, then scale with volume. Every plan includes the gateway, policy engine, classification, and audit trail."
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
+        secondary={{ label: 'Talk to sales', href: '/contact' }}
       />
 
       <section className="space-y-8">
@@ -186,7 +186,7 @@ export default function PricingPage() {
         title="Get a custom quote for your AI estate."
         description="Tell us about your providers, request volume, and compliance obligations — we will size the right tier."
         primary={{ label: 'Talk to sales', href: '/contact' }}
-        secondary={{ label: 'Start 7-day free trial', href: '/register' }}
+        secondary={{ label: 'Request a demo', href: '/request-demo' }}
       />
     </div>
   );

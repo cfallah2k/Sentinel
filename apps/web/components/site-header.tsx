@@ -183,10 +183,10 @@ export default function SiteHeader() {
               Sign in
             </Link>
             <Link
-              href="/register"
+              href="/request-demo"
               className="rounded-full bg-sentinel-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-sentinel-500/20 transition hover:bg-sentinel-400"
             >
-              Start free
+              Request a demo
             </Link>
           </div>
           <button
@@ -269,11 +269,11 @@ export default function SiteHeader() {
                       Sign in
                     </Link>
                     <Link
-                      href="/register"
+                      href="/request-demo"
                       className="rounded-2xl bg-sentinel-500 px-4 py-3.5 text-center text-sm font-semibold text-white shadow-glow transition hover:bg-sentinel-400"
                       onClick={() => setMobileOpen(false)}
                     >
-                      Start free
+                      Request a demo
                     </Link>
                   </div>
                 </div>

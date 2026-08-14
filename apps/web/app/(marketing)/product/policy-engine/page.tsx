@@ -63,7 +63,7 @@ export default function PolicyEnginePage() {
         eyebrow="Product · Policy Engine"
         title="Policy as code. Enforcement as reflex."
         description="Author governance rules in a declarative DSL, test them in shadow mode, and enforce them at the gateway in milliseconds — with every decision logged."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Gateway reference', href: '/product/ai-gateway' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/95 p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -114,7 +114,7 @@ export default function PolicyEnginePage() {
         eyebrow="Policy engine"
         title="Put your governance rules where your traffic flows."
         description="Deploy your first policy in minutes — with every decision recorded as audit evidence."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'See classification', href: '/product/data-classification' }}
       />
     </div>

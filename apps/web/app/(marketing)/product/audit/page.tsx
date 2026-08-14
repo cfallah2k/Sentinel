@@ -53,7 +53,7 @@ export default function AuditPage() {
         eyebrow="Product · Audit"
         title="An audit trail that answers before you ask."
         description="Every AI interaction, policy change, and approval decision lands in an immutable, searchable event log — with exports your auditors can verify without pulling teeth."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'See compliance mapping', href: '/compliance' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/95 p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -112,7 +112,7 @@ export default function AuditPage() {
         eyebrow="Audit"
         title="Walk into your next audit already prepared."
         description="Evidence that collects itself while you ship AI features."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Explore incidents', href: '/product/incidents' }}
       />
     </div>

@@ -60,11 +60,11 @@ export default function HomePage() {
               Sentinel is the modern control plane for AI data governance, policy enforcement, and audit-ready trust &mdash; built for African enterprises and designed for the continent&apos;s regulatory landscape.
             </p>
             <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
-              <Link href="/register" className="inline-flex w-full items-center justify-center rounded-full bg-sentinel-500 px-5 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400 sm:w-auto sm:text-sm">
-                Start free trial
+              <Link href="/request-demo" className="inline-flex w-full items-center justify-center rounded-full bg-sentinel-500 px-5 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400 sm:w-auto sm:text-sm">
+                Request a demo
               </Link>
               <Link href="/contact" className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-xs font-semibold text-white text-opacity-90 transition hover:bg-white/10 sm:w-auto sm:text-sm">
-                Request a demo
+                Talk to sales
               </Link>
             </div>
             <div className="grid grid-cols-3 gap-2 text-xs text-slate-400 sm:gap-3 sm:text-sm">
@@ -170,8 +170,8 @@ export default function HomePage() {
               <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Bring policy, data, and audit into one elegant control plane.</h2>
             </div>
             <div className="flex flex-col gap-2.5 sm:flex-row sm:gap-3">
-              <Link href="/register" className="inline-flex w-full items-center justify-center rounded-full bg-sentinel-500 px-5 py-2.5 text-xs font-semibold text-white shadow-glow hover:bg-sentinel-400 sm:w-auto sm:text-sm">
-                Start free trial
+              <Link href="/request-demo" className="inline-flex w-full items-center justify-center rounded-full bg-sentinel-500 px-5 py-2.5 text-xs font-semibold text-white shadow-glow hover:bg-sentinel-400 sm:w-auto sm:text-sm">
+                Request a demo
               </Link>
               <Link href="/contact" className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-xs font-semibold text-white text-opacity-90 transition hover:bg-white/10 sm:w-auto sm:text-sm">
                 Talk to sales

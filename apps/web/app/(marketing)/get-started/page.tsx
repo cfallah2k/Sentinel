@@ -8,7 +8,7 @@ const phases = [
     icon: Rocket,
     title: 'Create your workspace',
     description: 'Sign up, verify your work email, and invite your first governance team members.',
-    steps: ['Create a free workspace', 'Invite security and data teams', 'Choose your region'],
+    steps: ['Create a workspace', 'Invite security and data teams', 'Choose your region'],
     duration: '5 minutes'
   },
   {
@@ -62,7 +62,7 @@ export default function GetStartedPage() {
         eyebrow="Get started"
         title="From zero to governed AI in under an hour."
         description="A step-by-step path from creating your workspace to enforcing your first policy — with live audit evidence the whole way."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Read the docs', href: '/docs' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/95 p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">

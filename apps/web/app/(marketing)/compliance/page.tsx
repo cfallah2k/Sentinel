@@ -56,7 +56,7 @@ export default function CompliancePage() {
         eyebrow="Compliance"
         title="Turn compliance from a quarterly scramble into a continuous process."
         description="Sentinel maps governance controls to live AI telemetry, so evidence for Nigeria\u2019s Data Protection Act, Ghana\u2019s Data Protection Act, Kenya\u2019s Data Protection Act, SOC 2, and ISO 27001 is ready when you are."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'See the trust center', href: '/trust' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -169,7 +169,7 @@ export default function CompliancePage() {
         eyebrow="Audit-ready by design"
         title="See your compliance posture change in minutes, not quarters."
         description="Bring policy, evidence, and audit reporting into one continuous loop."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Request a demo', href: '/request-demo' }}
       />
     </div>

@@ -59,7 +59,7 @@ export default function SecuritySolutionPage() {
         eyebrow="Solution · Security"
         title="The SOC view of every model call."
         description="Sentinel gives security teams gateway-level enforcement, anomaly detection, and AI-aware incident response — so AI risk lands in your existing operations, not in a binder."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'View security posture', href: '/security' }}
       >
         <div className="flex flex-col gap-3">
@@ -121,7 +121,7 @@ export default function SecuritySolutionPage() {
         eyebrow="Security"
         title="Extend your zero-trust perimeter to every model."
         description="Gateway enforcement, incident response, and SIEM integration — out of the box."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'See incident response', href: '/product/incidents' }}
       />
     </div>

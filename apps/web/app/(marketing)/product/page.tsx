@@ -106,7 +106,7 @@ export default function ProductPage() {
         eyebrow="Product"
         title="One control plane for every AI data path."
         description="Sentinel connects the gateway, policy engine, classification, and audit trail into a single loop — so governance is enforced where AI happens and proven where auditors look."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Read the docs', href: '/docs' }}
       >
         <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
@@ -188,7 +188,7 @@ export default function ProductPage() {
         eyebrow="See it in action"
         title="Route your first governed request today."
         description="Free tier includes the gateway, three policies, and seven days of audit retention."
-        primary={{ label: 'Start free trial', href: '/register' }}
+        primary={{ label: 'Request a demo', href: '/request-demo' }}
         secondary={{ label: 'Explore integrations', href: '/integrations' }}
       />
     </div>
