@@ -23,7 +23,7 @@ const features = [
   {
     icon: Scale,
     title: 'Framework mapping',
-    description: 'Controls map to SOC 2, ISO 27001, NIST AI RMF, GDPR, and the EU AI Act with live evidence.'
+    description: 'Controls map to Nigeria\u2019s Data Protection Act, Ghana\u2019s Data Protection Act, Kenya\u2019s Data Protection Act, GDPR, and the AU Malabo Convention with live evidence.'
   },
   {
     icon: ShieldCheck,
@@ -38,10 +38,10 @@ const features = [
 ];
 
 const pillars = [
-  { label: 'Registry', value: '12 systems', tone: 'bg-sky-400' },
-  { label: 'Policy coverage', value: '100%', tone: 'bg-emerald-400' },
-  { label: 'Risk reviewed', value: '6 assessments', tone: 'bg-amber-400' },
-  { label: 'Framework status', value: 'On track', tone: 'bg-emerald-400' }
+  { label: 'Registry', value: '0 systems', tone: 'bg-sky-400' },
+  { label: 'Policy coverage', value: '0%', tone: 'bg-emerald-400' },
+  { label: 'Risk reviewed', value: '0 assessments', tone: 'bg-amber-400' },
+  { label: 'Framework status', value: 'Roadmap', tone: 'bg-amber-400' }
 ];
 
 export default function AiGovernancePage() {
@@ -71,11 +71,11 @@ export default function AiGovernancePage() {
             </div>
             <div className="rounded-2xl border border-white/10 bg-slate-950/85 p-3.5">
               <div className="flex items-center justify-between text-xs text-slate-300">
-                <span>NIST AI RMF — GOVERN 1.1</span>
-                <span className="text-emerald-300">Implemented</span>
+                <span>Nigeria DPA — lawful processing controls</span>
+                <span className="text-amber-300">In progress</span>
               </div>
               <div className="mt-2.5 h-1.5 overflow-hidden rounded-full bg-slate-800">
-                <div className="h-full w-[82%] rounded-full bg-gradient-to-r from-sentinel-500 to-cyan-400" />
+                <div className="h-full w-[0%] rounded-full bg-gradient-to-r from-sentinel-500 to-cyan-400" />
               </div>
             </div>
           </div>

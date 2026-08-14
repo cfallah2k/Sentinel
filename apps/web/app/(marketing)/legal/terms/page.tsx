@@ -36,9 +36,9 @@ const sections = [
   {
     heading: 'Availability and support',
     paragraphs: [
-      'Enterprise agreements include a 99.9% uptime SLA with service credits. Standard plans receive best-effort availability and email support.',
+      'Sentinel is in early access. Standard plans receive best-effort availability and email support; availability commitments, if any, are defined per agreement rather than assumed.',
       'Planned maintenance is announced at least 24 hours in advance and scheduled for low-traffic windows where possible.',
-      'Support severity levels and response times are defined in your agreement; the status page publishes live operational state.'
+      'Support severity levels and response times are defined in your agreement; the status page publishes operational state.'
     ]
   },
   {

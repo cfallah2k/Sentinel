@@ -28,7 +28,7 @@ const features = [
   {
     icon: Building2,
     title: 'Procurement-friendly',
-    description: 'SOC 2 Type II, ISO 27001, DPA, security reviews, and signed audit evidence for every acquisition.'
+    description: 'DPA, security reviews, and signed audit evidence for every acquisition — with SOC 2 Type II and ISO 27001 on our compliance roadmap.'
   },
   {
     icon: ShieldCheck,
@@ -38,24 +38,24 @@ const features = [
 ];
 
 const stats = [
-  { value: '140+', label: 'Enterprise customers' },
-  { value: '18', label: 'Countries served' },
-  { value: '99.99%', label: 'Gateway uptime SLA' },
+  { value: '0', label: 'Enterprise customers' },
+  { value: '1', label: 'Market — Africa' },
+  { value: '2026', label: 'Founded' },
   { value: '24/7', label: 'Security monitoring' }
 ];
 
 const useCases = [
   {
-    title: 'A global bank',
-    detail: 'Fraud-scoring copilot governed under EU AI Act Tier 2 with region-pinned evidence.'
+    title: 'Example — a pan-African bank',
+    detail: 'Fraud-scoring copilot governed under Nigeria\u2019s Data Protection Act with region-pinned evidence for West African regulators.'
   },
   {
-    title: 'A healthcare network',
-    detail: 'PHI classifiers redacting every patient mention before it reaches external models.'
+    title: 'Example — a Nigerian health network',
+    detail: 'Patient-data classifiers redacting every personal mention before it reaches external models under Nigeria\u2019s Data Protection Act.'
   },
   {
-    title: 'A SaaS scale-up',
-    detail: 'Copilot shipped to 2,000 customers with SOC 2 evidence generated continuously.'
+    title: 'Example — an East African fintech',
+    detail: 'Credit-scoring model governed under Kenya\u2019s Data Protection Act with continuous audit evidence.'
   }
 ];
 

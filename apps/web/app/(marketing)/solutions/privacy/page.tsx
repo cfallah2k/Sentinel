@@ -40,7 +40,7 @@ const features = [
 const stats = [
   { value: '18', label: 'Privacy detectors' },
   { value: '100%', label: 'Traffic inspected' },
-  { value: '72%', label: 'Exposure reduction' },
+  { value: '0%', label: 'Exposure reduction (live)' },
   { value: '0', label: 'Data sold' }
 ];
 

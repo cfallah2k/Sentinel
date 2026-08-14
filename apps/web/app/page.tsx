@@ -27,8 +27,8 @@ const featureCards = [
 
 const trustPoints = [
   {
-    title: 'Global compliance stack',
-    description: 'Support GDPR, CCPA, SOC 2, and enterprise compliance across hybrid AI deployments.'
+    title: 'Africa-first compliance stack',
+    description: 'Built around Nigeria\u2019s Data Protection Act, Ghana\u2019s Data Protection Act, Côte d\u2019Ivoire\u2019s and Senegal\u2019s data protection laws, Kenya\u2019s Data Protection Act, and the AU Malabo Convention \u2014 with GDPR where it applies.'
   },
   {
     title: 'AI lifecycle observability',
@@ -38,13 +38,6 @@ const trustPoints = [
     title: 'Fast policy orchestration',
     description: 'Launch governance rules across systems in minutes, not weeks.'
   }
-];
-
-const trustStats = [
-  { label: 'AI workflows protected', value: '2.7k' },
-  { label: 'Policy rules deployed', value: '1.4k' },
-  { label: 'Risk events reviewed', value: '10.2k' },
-  { label: 'Audit reports generated', value: '12m+' }
 ];
 
 export default function HomePage() {
@@ -63,7 +56,7 @@ export default function HomePage() {
               Give AI the policy guardrails it needs, without slowing your business down.
             </h1>
             <p className="max-w-2xl text-sm leading-7 text-slate-300 sm:text-base lg:leading-8">
-              Sentinel is the modern control plane for AI data governance, policy enforcement, and audit-ready trust across cloud, SaaS, and multi-national enterprise systems.
+              Sentinel is the modern control plane for AI data governance, policy enforcement, and audit-ready trust &mdash; built for African enterprises and designed for the continent&apos;s regulatory landscape.
             </p>
             <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
               <Link href="/register" className="inline-flex w-full items-center justify-center rounded-full bg-sentinel-500 px-5 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400 sm:w-auto sm:text-sm">
@@ -86,14 +79,14 @@ export default function HomePage() {
               <div className="flex items-center justify-between gap-3 rounded-[1.25rem] border border-white/10 bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-300 sm:rounded-[1.5rem] sm:text-sm">
                 <span>Sentinel AI traffic lens</span>
                 <span className="whitespace-nowrap rounded-full bg-sentinel-500/15 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-sentinel-200">
-                  Real-time
+                  Preview
                 </span>
               </div>
               <div className="grid gap-2.5 rounded-[1.25rem] border border-white/10 bg-slate-900/90 p-3.5 shadow-glow sm:rounded-[1.5rem] sm:gap-3 sm:p-4">
                 {['Policy breach', 'Sensitive flow', 'AI provider risk'].map((item) => (
                   <div key={item} className="flex items-center justify-between rounded-2xl bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-200 sm:text-sm">
                     <span>{item}</span>
-                    <span className="text-sentinel-300">Active</span>
+                    <span className="text-sentinel-300">Tracked</span>
                   </div>
                 ))}
               </div>
@@ -104,7 +97,7 @@ export default function HomePage() {
                 </div>
                 <div className="rounded-[1.25rem] border border-white/10 bg-slate-950/85 p-3.5 sm:rounded-[1.5rem] sm:p-4">
                   <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-500">Risk</p>
-                  <p className="mt-2 text-sm font-semibold text-white sm:text-base">99.99% visibility</p>
+                  <p className="mt-2 text-sm font-semibold text-white sm:text-base">Full audit trail</p>
                 </div>
               </div>
             </div>
@@ -123,31 +116,16 @@ export default function HomePage() {
           ))}
         </div>
 
-        <section className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-6">
-          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
-            <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Enterprise readiness</p>
-            <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Designed for AI security teams who move fast and need absolute trust.</h2>
-            <div className="mt-6 space-y-3.5">
-              {trustPoints.map((point) => (
-                <div key={point.title} className="rounded-[1.25rem] border border-white/10 bg-slate-950/90 p-4 sm:rounded-[1.5rem]">
-                  <h3 className="text-sm font-semibold text-white sm:text-base">{point.title}</h3>
-                  <p className="mt-2 text-xs leading-6 text-slate-300 sm:text-sm">{point.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
-            <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Trusted at scale</p>
-            <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Operational visibility meets governance precision.</h2>
-            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {trustStats.map((stat) => (
-                <div key={stat.label} className="rounded-[1.25rem] bg-slate-950/90 p-4 text-xs text-slate-300 sm:rounded-[1.5rem] sm:text-sm">
-                  <p className="text-xl font-semibold text-white sm:text-2xl">{stat.value}</p>
-                  <p className="mt-1.5 uppercase tracking-[0.3em] text-slate-500">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+        <section className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Enterprise readiness</p>
+          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Designed for AI security teams who move fast and need absolute trust.</h2>
+          <div className="mt-6 grid gap-3.5 md:grid-cols-3">
+            {trustPoints.map((point) => (
+              <div key={point.title} className="rounded-[1.25rem] border border-white/10 bg-slate-950/90 p-4 sm:rounded-[1.5rem]">
+                <h3 className="text-sm font-semibold text-white sm:text-base">{point.title}</h3>
+                <p className="mt-2 text-xs leading-6 text-slate-300 sm:text-sm">{point.description}</p>
+              </div>
+            ))}
           </div>
         </section>
 

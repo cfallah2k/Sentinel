@@ -17,7 +17,7 @@ const trustPillars = [
   {
     icon: BadgeCheck,
     title: 'Compliance',
-    description: 'Independent audits and framework mapping turn governance into verifiable, exportable evidence.',
+    description: 'A compliance roadmap mapped to the frameworks African enterprises are held to — Nigeria\u2019s Data Protection Act, Ghana\u2019s Data Protection Act, Kenya\u2019s Data Protection Act, and more — turning governance into exportable evidence.',
     links: [
       { label: 'Compliance overview', href: '/compliance' },
       { label: 'Framework coverage', href: '/compliance' },
@@ -37,30 +37,35 @@ const trustPillars = [
   {
     icon: Fingerprint,
     title: 'Reliability',
-    description: 'A control plane designed for 99.99% availability with transparent incident reporting.',
+    description: 'A control plane designed for availability with transparent incident reporting from day one.',
     links: [
       { label: 'System status', href: '/status' },
-      { label: 'Uptime history', href: '/status' },
+      { label: 'Status history', href: '/status' },
       { label: 'Service agreement', href: '/legal/terms' }
     ]
   }
 ];
 
 const certifications = [
-  { name: 'SOC 2 Type II', detail: 'AICPA — audited annually', icon: ShieldCheck },
-  { name: 'ISO/IEC 27001', detail: 'Certified information security management', icon: Globe2 },
-  { name: 'GDPR', detail: 'EU data protection alignment', icon: FileText },
-  { name: 'EU AI Act', detail: 'Tier 2 obligation mapping', icon: FileKey2 },
-  { name: 'NIST AI RMF', detail: 'Govern, map, measure, manage', icon: Wifi }
+  { name: 'Nigeria Data Protection Act', detail: 'Nigeria — alignment roadmap', icon: ShieldCheck },
+  { name: 'Ghana Data Protection Act', detail: 'Ghana — alignment roadmap', icon: Globe2 },
+  { name: 'Côte d\u2019Ivoire Law 2013-450', detail: 'Côte d\u2019Ivoire — alignment roadmap', icon: FileText },
+  { name: 'Senegal Law 2008-12', detail: 'Senegal — alignment roadmap', icon: FileKey2 },
+  { name: 'Kenya Data Protection Act', detail: 'Kenya — alignment roadmap', icon: Wifi },
+  { name: 'ECOWAS Supplementary Act', detail: 'Regional personal data protection', icon: ShieldCheck },
+  { name: 'AU Malabo Convention', detail: 'Continental data protection & cybersecurity', icon: Globe2 },
+  { name: 'SOC 2 Type II', detail: 'AICPA — program in progress', icon: FileText },
+  { name: 'ISO/IEC 27001', detail: 'ISMS program — planned', icon: Globe2 },
+  { name: 'GDPR', detail: 'Where it applies to your processing', icon: FileText }
 ];
 
 const documentList = [
-  { name: 'SOC 2 Type II report', detail: 'Latest audit period', icon: FileText },
-  { name: 'ISO 27001 certificate', detail: 'Valid through 2027', icon: FileKey2 },
-  { name: 'Data processing addendum (DPA)', detail: 'Signed, latest revision', icon: Fingerprint },
+  { name: 'Data processing addendum (DPA)', detail: 'Template — latest revision', icon: Fingerprint },
   { name: 'Security whitepaper', detail: 'Architecture and controls', icon: Lock },
-  { name: 'Subprocessor list', detail: 'Current list, July 2026', icon: Globe2 },
-  { name: 'Vulnerability disclosure policy', detail: 'Responsible disclosure program', icon: ShieldCheck }
+  { name: 'Vulnerability disclosure policy', detail: 'Responsible disclosure program', icon: ShieldCheck },
+  { name: 'SOC 2 Type II report', detail: 'Published when our first audit completes', icon: FileText },
+  { name: 'ISO 27001 certificate', detail: 'Published when certification is issued', icon: FileKey2 },
+  { name: 'Subprocessor list', detail: 'Published when hosting providers are signed', icon: Globe2 }
 ];
 
 export default function TrustPage() {
@@ -69,7 +74,7 @@ export default function TrustPage() {
       <MarketingHero
         eyebrow="Trust center"
         title="Security, compliance, and privacy — documented and verifiable."
-        description="Everything your risk and procurement teams need to evaluate Sentinel: certifications, audit reports, policies, and live platform status in one place."
+        description="Everything your risk and procurement teams need to evaluate Sentinel: our compliance roadmap, security policies, and live platform status in one place."
         primary={{ label: 'Request audit reports', href: '/contact' }}
         secondary={{ label: 'View system status', href: '/status' }}
       >
@@ -78,23 +83,23 @@ export default function TrustPage() {
           <div className="relative space-y-3">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Trust snapshot</p>
             {[
-              { label: 'SOC 2 Type II', value: 'Certified', tone: 'bg-emerald-400' },
-              { label: 'ISO 27001', value: 'Certified', tone: 'bg-emerald-400' },
-              { label: 'GDPR', value: 'Aligned', tone: 'bg-emerald-400' },
-              { label: 'EU AI Act', value: 'Mapped', tone: 'bg-emerald-400' },
-              { label: 'Gateway uptime', value: '99.99%', tone: 'bg-emerald-400' }
+              { label: 'Nigeria DPA alignment', value: 'In progress', tone: 'bg-amber-400' },
+              { label: 'Ghana DPA alignment', value: 'In progress', tone: 'bg-amber-400' },
+              { label: 'Kenya DPA alignment', value: 'Planned', tone: 'bg-slate-400' },
+              { label: 'SOC 2 Type II', value: 'In progress', tone: 'bg-amber-400' },
+              { label: 'Gateway uptime', value: 'Measured at launch', tone: 'bg-slate-400' }
             ].map((item) => (
               <div key={item.label} className="flex items-center justify-between rounded-2xl bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-200 sm:text-sm">
                 <span>{item.label}</span>
-                <span className="inline-flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.2em] text-emerald-300">
+                <span className="inline-flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.2em] text-slate-300">
                   <span className={`h-1.5 w-1.5 rounded-full ${item.tone}`} />
                   {item.value}
                 </span>
               </div>
             ))}
             <div className="rounded-2xl border border-white/10 bg-slate-950/85 p-3.5 text-xs text-slate-300">
-              <p className="text-sm font-semibold text-white">Audit evidence on demand</p>
-              <p className="mt-1 text-slate-500">Shared under NDA with enterprise customers</p>
+              <p className="text-sm font-semibold text-white">Evidence on request</p>
+              <p className="mt-1 text-slate-500">Sentinel is in early access — published documents come as programs complete</p>
             </div>
           </div>
         </div>
@@ -126,9 +131,13 @@ export default function TrustPage() {
 
       <section className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
         <div className="text-center">
-          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Certifications</p>
-          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Independently verified</h2>
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Compliance roadmap</p>
+          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">The frameworks we are aligning to</h2>
         </div>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-xs leading-6 text-slate-400 sm:text-sm">
+          Sentinel is an early-stage company founded in 2026. We do not claim certifications we have not earned — this
+          roadmap reflects the frameworks we are actively mapping controls against.
+        </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           {certifications.map(({ name, detail, icon: Icon }) => (
             <div key={name} className="flex items-center gap-3 rounded-full border border-white/10 bg-slate-950/90 px-5 py-3">
@@ -168,7 +177,7 @@ export default function TrustPage() {
       <CtaSection
         eyebrow="For your risk team"
         title="Request the full trust pack."
-        description="SOC 2 report, ISO certificate, DPA, and security whitepaper — shared under NDA within one business day."
+        description="Our compliance roadmap, DPA, security whitepaper, and architecture documentation — shared within one business day."
         primary={{ label: 'Request documents', href: '/contact' }}
         secondary={{ label: 'Start free trial', href: '/register' }}
       />

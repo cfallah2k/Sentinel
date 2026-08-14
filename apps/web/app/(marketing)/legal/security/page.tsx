@@ -30,8 +30,8 @@ const sections = [
   {
     heading: 'Audits and verification',
     paragraphs: [
-      'Sentinel undergoes annual SOC 2 Type II audits and maintains ISO/IEC 27001 certification, both available to customers under NDA.',
-      'Independent penetration tests are performed at least annually against the platform, with findings tracked to remediation.',
+      'Sentinel is working toward SOC 2 Type II and ISO/IEC 27001 certification as part of our compliance roadmap. Until certifications are issued, customers may request our security documentation and a controls review.',
+      'Independent penetration testing is planned at launch and annually thereafter, with findings tracked to remediation.',
       'Customers may request a security review or security questionnaire; enterprise agreements include a dedicated review workflow with our security team.'
     ]
   },

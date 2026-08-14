@@ -134,10 +134,6 @@ export default function SiteFooter() {
                 <a href="/legal/cookies" className="transition-colors hover:text-white">Cookies</a>
                 <a href="/legal/security" className="transition-colors hover:text-white">Security</a>
               </nav>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                All systems operational
-              </span>
             </div>
           </div>
           <p className="text-center text-xs text-slate-500 lg:text-right">

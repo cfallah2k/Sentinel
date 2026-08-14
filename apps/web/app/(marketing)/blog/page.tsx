@@ -4,9 +4,9 @@ import MarketingHero from '@/components/marketing/hero';
 import CtaSection from '@/components/marketing/cta-section';
 
 const featured = {
-  title: 'The EU AI Act explained: what enterprises need before 2027',
+  title: 'Nigeria, Ghana & Kenya: the data protection stack African AI teams can\u2019t ignore',
   description:
-    'Tiered obligations, transparency requirements, and the role of policy engines in demonstrating compliance. A practical breakdown for security and data teams.',
+    'Forty-plus African countries now enforce data protection laws and the AU\u2019s Malabo Convention is in force. A practical breakdown of the frameworks Sentinel is mapping controls against — and what they mean for AI deployments.',
   category: 'Compliance',
   readTime: '9 min read',
   date: 'Aug 6, 2026',
@@ -42,8 +42,8 @@ const posts = [
     href: '/resources'
   },
   {
-    title: 'Building an audit trail your SOC 2 auditor will love',
-    description: 'Immutable logs, evidence collection, and the telemetry that makes control testing painless.',
+    title: 'Building an audit trail your data protection officer will love',
+    description: 'Immutable logs, evidence collection, and the telemetry that makes regulatory inspection painless.',
     category: 'Compliance',
     readTime: '5 min read',
     date: 'Jul 9, 2026',
@@ -81,7 +81,7 @@ export default function BlogPage() {
         description="Deep dives on policy engines, data classification, audit engineering, and the regulations shaping enterprise AI — written by the team building Sentinel."
       >
         <div className="flex flex-col gap-3">
-          {['AI governance', 'Policy engineering', 'EU AI Act', 'Data classification'].map((topic) => (
+          {['AI governance', 'Policy engineering', 'Nigeria & Ghana DPA', 'Data classification'].map((topic) => (
             <div
               key={topic}
               className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-[var(--surface-strong)] px-4 py-3 text-xs text-slate-300 shadow-panel backdrop-blur-xl sm:text-sm"
@@ -114,7 +114,7 @@ export default function BlogPage() {
             </Link>
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {['Policy engine', 'EU AI Act', 'Audit trail', 'Classification'].map((label) => (
+            {['Policy engine', 'Nigeria & Ghana DPA', 'Audit trail', 'Classification'].map((label) => (
               <div key={label} className="rounded-[1.25rem] border border-white/10 bg-slate-950/90 p-4">
                 <p className="text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">Featured</p>
                 <p className="mt-2 text-sm font-semibold text-white">{label}</p>

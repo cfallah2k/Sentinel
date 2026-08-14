@@ -108,9 +108,9 @@ export default function ProductPage() {
             </div>
             <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               {[
-                { label: 'Policies', value: '1.4k' },
-                { label: 'Flows traced', value: '2.7k' },
-                { label: 'Evidence', value: '12m+' }
+                { label: 'Policies', value: '0' },
+                { label: 'Flows traced', value: '0' },
+                { label: 'Evidence', value: '0' }
               ].map((item) => (
                 <div key={item.label} className="rounded-2xl bg-slate-950/85 p-3 text-center">
                   <p className="text-sm font-semibold text-white sm:text-base">{item.value}</p>

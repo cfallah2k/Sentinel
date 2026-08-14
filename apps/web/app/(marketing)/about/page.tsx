@@ -6,10 +6,10 @@ import CtaSection from '@/components/marketing/cta-section';
 import FeatureGrid from '@/components/marketing/feature-grid';
 
 const stats = [
-  { value: '2023', label: 'Founded' },
-  { value: '2.7k+', label: 'AI workflows protected' },
-  { value: '140+', label: 'Enterprise customers' },
-  { value: '12m+', label: 'Audit events tracked' }
+  { value: '2026', label: 'Founded' },
+  { value: '0', label: 'Production workflows' },
+  { value: '0', label: 'Enterprise customers' },
+  { value: '0', label: 'Audit events tracked' }
 ];
 
 const values = [
@@ -36,10 +36,9 @@ const values = [
 ];
 
 const milestones = [
-  { year: '2023', title: 'Sentinel is founded', description: 'Built to solve a simple problem: AI was moving faster than the guardrails around it.' },
-  { year: '2024', title: 'First enterprise deployments', description: 'Gateway and policy engine go live with financial services and healthcare customers.' },
-  { year: '2025', title: 'AI Passports and classification', description: 'Introduced registry-driven governance with live data classification across hybrid estates.' },
-  { year: '2026', title: 'EU AI Act readiness', description: 'Delivered compliance mapping for the EU AI Act, NIST AI RMF, and a global trust center.' }
+  { year: '2026', title: 'Sentinel is founded in Monrovia, Liberia', description: 'Built to solve a simple problem: AI was moving faster than the guardrails around it — and African enterprises were adopting AI without a governance layer built for them.' },
+  { year: '2026', title: 'Africa-first compliance roadmap', description: 'Designing control mappings for Nigeria\u2019s Data Protection Act, Ghana\u2019s Data Protection Act, Côte d\u2019Ivoire\u2019s and Senegal\u2019s data protection laws, Kenya\u2019s Data Protection Act, and the AU Malabo Convention.' },
+  { year: '2026', title: 'Early access program', description: 'Opening the platform to pilot customers across financial services, healthcare, and public sector as production data begins to flow.' }
 ];
 
 export default function AboutPage() {
@@ -58,10 +57,10 @@ export default function AboutPage() {
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Company snapshot</p>
             <div className="grid grid-cols-2 gap-2.5">
               {[
-                { label: 'Employees', value: '86' },
-                { label: 'Markets', value: '18' },
-                { label: 'Engineers', value: '61%' },
-                { label: 'Customers', value: '140+' }
+                { label: 'Employees', value: '0' },
+                { label: 'Market', value: 'Africa' },
+                { label: 'Engineers', value: '0%' },
+                { label: 'Customers', value: '0' }
               ].map((item) => (
                 <div key={item.label} className="rounded-[1.25rem] bg-slate-950/90 p-4">
                   <p className="text-lg font-semibold text-white">{item.value}</p>
@@ -90,13 +89,14 @@ export default function AboutPage() {
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Our story</p>
           <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">From AI adoption chaos to a single control plane</h2>
           <p className="mt-4 text-sm leading-7 text-slate-400">
-            We watched enterprises adopt LLMs at a staggering pace — and lose sight of what data was going where, who
-            approved which model, and what was being recorded for auditors. Sentinel was born to give security and
-            data teams a single source of truth for AI governance.
+            We watched enterprises across Africa adopt LLMs at a staggering pace — and lose sight of what data was going
+            where, who approved which model, and what was being recorded for auditors. Sentinel was born to give security
+            and data teams a single source of truth for AI governance — built in Africa, for African regulations.
           </p>
           <p className="mt-4 text-sm leading-7 text-slate-400">
-            Today Sentinel sits in front of AI providers, policy engines, and classification pipelines for some of the
-            world&apos;s most regulated organizations — turning AI risk into a managed, measurable discipline.
+            With 40+ African countries now enforcing data protection laws and the AU&apos;s Malabo Convention in force,
+            the continent needs governance infrastructure that speaks its own regulatory language. That is the gap
+            Sentinel is built to fill — starting with pilot deployments as production data begins to flow.
           </p>
         </div>
         <div className="space-y-3">

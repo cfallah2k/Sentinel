@@ -13,12 +13,12 @@ const features = [
   {
     icon: FileCheck2,
     title: 'Framework playbooks',
-    description: 'Pre-built control mappings for SOC 2, ISO 27001, GDPR, HIPAA, NIST AI RMF, and the EU AI Act.'
+    description: 'Pre-built control mappings for Nigeria\u2019s Data Protection Act, Ghana\u2019s Data Protection Act, Kenya\u2019s Data Protection Act, GDPR, and the AU Malabo Convention — with SOC 2 and ISO 27001 on our roadmap.'
   },
   {
     icon: Sparkles,
-    title: 'EU AI Act readiness',
-    description: 'Tier mapping, transparency obligations, and documentation for high-risk AI systems — enforced, not aspirational.'
+    title: 'African & EU AI readiness',
+    description: 'Obligation mapping for the AU Continental AI Strategy, the EU AI Act where it applies, and emerging national AI laws across the continent.'
   },
   {
     icon: BadgeCheck,
@@ -28,13 +28,13 @@ const features = [
 ];
 
 const stats = [
-  { value: '6+', label: 'Frameworks mapped' },
-  { value: '100%', label: 'Control-to-telemetry' },
+  { value: '0', label: 'Frameworks certified' },
+  { value: '24/7', label: 'Control-to-telemetry' },
   { value: '90d', label: 'Evidence retention' },
   { value: '0', label: 'Manual harvests' }
 ];
 
-const frameworks = ['SOC 2 Type II', 'ISO/IEC 27001', 'GDPR', 'HIPAA', 'NIST AI RMF', 'EU AI Act', 'CCPA', 'DPDP'];
+const frameworks = ['Nigeria Data Protection Act', 'Ghana Data Protection Act', 'Côte d\u2019Ivoire Law 2013-450', 'Senegal Law 2008-12', 'Kenya Data Protection Act', 'ECOWAS Supplementary Act', 'AU Malabo Convention', 'GDPR', 'SOC 2 Type II', 'ISO 27001', 'EU AI Act'];
 
 export default function ComplianceSolutionPage() {
   return (
@@ -76,8 +76,8 @@ export default function ComplianceSolutionPage() {
             answer: 'Exports are signed and scoped, so external auditors from Big Four firms to federal reviewers can verify the trail without new tooling.'
           },
           {
-            question: 'How fast is EU AI Act mapping?',
-            answer: 'Obligation mapping is pre-built for Tier 1 and Tier 2 systems; you attach systems and the platform tracks documentation readiness.'
+            question: 'How fast is framework mapping?',
+            answer: 'Nigeria and Ghana Data Protection Act playbooks are first on our roadmap, with Kenya DPA and the ECOWAS framework to follow; you attach systems and the platform tracks documentation readiness as controls come online.'
           }
         ].map(({ question, answer }) => (
           <div key={question} className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-6">

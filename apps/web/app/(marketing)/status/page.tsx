@@ -1,24 +1,22 @@
 import { Activity, CheckCircle2, Clock, ExternalLink, Radio } from 'lucide-react';
-import Link from 'next/link';
 import CtaSection from '@/components/marketing/cta-section';
 
 interface StatusItem {
   name: string;
   description: string;
   status: 'Operational' | 'Degraded' | 'Maintenance' | 'Outage';
-  uptime: number;
 }
 
 const services: StatusItem[] = [
-  { name: 'AI Gateway', description: 'Policy evaluation and request proxying', status: 'Operational', uptime: 99.99 },
-  { name: 'Policy Engine', description: 'Rule evaluation and decision API', status: 'Operational', uptime: 99.99 },
-  { name: 'Classification', description: 'Detector pipelines and redaction', status: 'Operational', uptime: 99.97 },
-  { name: 'Audit & Events', description: 'Event ingestion and audit log writes', status: 'Operational', uptime: 99.99 },
-  { name: 'Registry & Passports', description: 'AI systems, applications, and providers', status: 'Operational', uptime: 99.95 },
-  { name: 'Reports', description: 'Scheduled report generation', status: 'Degraded', uptime: 99.12 },
-  { name: 'Dashboard', description: 'Web application and APIs', status: 'Operational', uptime: 99.98 },
-  { name: 'Notifications', description: 'Alerts, webhooks, and escalations', status: 'Operational', uptime: 99.93 },
-  { name: 'Integrations', description: 'SIEM and identity provider connectors', status: 'Maintenance', uptime: 98.84 }
+  { name: 'AI Gateway', description: 'Policy evaluation and request proxying', status: 'Operational' },
+  { name: 'Policy Engine', description: 'Rule evaluation and decision API', status: 'Operational' },
+  { name: 'Classification', description: 'Detector pipelines and redaction', status: 'Operational' },
+  { name: 'Audit & Events', description: 'Event ingestion and audit log writes', status: 'Operational' },
+  { name: 'Registry & Passports', description: 'AI systems, applications, and providers', status: 'Operational' },
+  { name: 'Reports', description: 'Scheduled report generation', status: 'Operational' },
+  { name: 'Dashboard', description: 'Web application and APIs', status: 'Operational' },
+  { name: 'Notifications', description: 'Alerts, webhooks, and escalations', status: 'Operational' },
+  { name: 'Integrations', description: 'SIEM and identity provider connectors', status: 'Operational' }
 ];
 
 const statusStyles: Record<StatusItem['status'], { label: string; dot: string; badge: string }> = {
@@ -28,12 +26,13 @@ const statusStyles: Record<StatusItem['status'], { label: string; dot: string; b
   Outage: { label: 'Outage', dot: 'bg-rose-400', badge: 'border-rose-500/30 bg-rose-500/10 text-rose-300' }
 };
 
-const incidents = [
-  { title: 'Reports generation delayed during batch window', status: 'Monitoring', severity: 'Degraded', time: 'Resolved in 1h 12m', date: 'Aug 11, 2026' },
-  { title: 'Gateway latency spike in US-East', status: 'Resolved', severity: 'Operational', time: 'Resolved in 24m', date: 'Aug 4, 2026' },
-  { title: 'Classification index rebuild', status: 'Completed', severity: 'Maintenance', time: 'Completed in 18m', date: 'Jul 27, 2026' },
-  { title: 'Audit ingestion backpressure', status: 'Resolved', severity: 'Degraded', time: 'Resolved in 41m', date: 'Jul 15, 2026' }
-];
+const incidents: {
+  title: string;
+  status: string;
+  severity: StatusItem['status'];
+  time: string;
+  date: string;
+}[] = [];
 
 export default function StatusPage() {
   const operationalCount = services.filter((s) => s.status === 'Operational').length;
@@ -51,7 +50,7 @@ export default function StatusPage() {
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-400 sm:text-base">
           Live status for the gateway, policy engine, classification, audit, and reporting services.
-          {operationalCount} of {services.length} services are operational right now.
+          {operationalCount} of {services.length} services report as operational right now.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs text-slate-500">
           <span className="inline-flex items-center gap-1.5">
@@ -80,13 +79,6 @@ export default function StatusPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="hidden h-1.5 w-24 overflow-hidden rounded-full bg-slate-800 sm:block">
-                    <div
-                      className="h-full rounded-full bg-gradient-to-r from-sentinel-500 to-cyan-400"
-                      style={{ width: `${Math.min(service.uptime, 100)}%` }}
-                    />
-                  </div>
-                  <span className="w-16 text-right text-xs font-semibold text-slate-300">{service.uptime.toFixed(2)}%</span>
                   <span className={`rounded-full border px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.2em] ${style.badge}`}>
                     {style.label}
                   </span>
@@ -96,11 +88,8 @@ export default function StatusPage() {
           );
         })}
         <p className="pt-2 text-center text-xs leading-6 text-slate-500">
-          Uptime reflects the trailing 90 days. Service-level targets are documented in our{' '}
-          <Link href="/legal/terms" className="text-sentinel-300 transition hover:text-sentinel-200">
-            service agreement
-          </Link>
-          .
+          Sentinel is in early access. Availability commitments for production use are documented per agreement; this
+          page will reflect measured uptime once production services are live.
         </p>
       </section>
 
@@ -109,7 +98,12 @@ export default function StatusPage() {
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Recent incidents</p>
           <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Incident history</h2>
         </div>
-        <div className="space-y-3">
+        {incidents.length === 0 ? (
+          <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 text-center text-sm text-slate-400 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem]">
+            No incidents reported. Sentinel is in early access — this history begins when production services go live.
+          </div>
+        ) : (
+          <div className="space-y-3">
           {incidents.map((incident) => {
             const style = statusStyles[incident.severity as keyof typeof statusStyles];
             return (
@@ -132,7 +126,8 @@ export default function StatusPage() {
               </div>
             );
           })}
-        </div>
+          </div>
+        )}
       </section>
 
       <CtaSection

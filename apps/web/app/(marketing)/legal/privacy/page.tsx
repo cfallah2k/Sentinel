@@ -24,6 +24,7 @@ const sections = [
     heading: 'Legal bases for processing',
     paragraphs: [
       'Where the GDPR applies, we rely on the following bases: performance of the service contract, legitimate interests in security and improvement, and consent where we request it.',
+      'For customer workspaces in Africa, processing is aligned with the data protection laws of the relevant jurisdiction — including Nigeria\u2019s Data Protection Act, Ghana\u2019s Data Protection Act, Côte d\u2019Ivoire\u2019s and Senegal\u2019s data protection laws, Kenya\u2019s Data Protection Act, and the ECOWAS framework — and with the AU Malabo Convention.',
       'For customer workspaces, we act as a processor of service data and a controller of account data. Our DPA defines the respective roles for enterprise agreements.',
       'We honor data subject requests made directly to us, and we provide tools to export and delete governance data within your workspace.'
     ]
@@ -40,8 +41,8 @@ const sections = [
     heading: 'Security and residency',
     paragraphs: [
       'All data is encrypted in transit with TLS 1.3 and at rest with AES-256. Access is governed by role-based controls and enforced MFA.',
-      'Workspaces are hosted in the region selected at signup: US-East, EU-Central, or APAC-Southeast.',
-      'Enterprise customers may configure dedicated key management and extended retention to meet local regulatory requirements.'
+      'Workspaces are hosted in the region selected at signup: Africa (Nigeria), US-East, or EU-Central.',
+      'Enterprise customers may configure dedicated key management and extended retention to meet local regulatory requirements, including data residency needs under Nigeria\u2019s and Ghana\u2019s data protection laws and other African frameworks.'
     ]
   },
   {

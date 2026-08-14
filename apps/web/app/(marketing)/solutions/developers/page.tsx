@@ -38,8 +38,8 @@ const features = [
 ];
 
 const stats = [
-  { value: '<50ms', label: 'Evaluation latency' },
-  { value: '4', label: 'Official SDKs' },
+  { value: '<50ms', label: 'Evaluation target' },
+  { value: '0', label: 'SDKs shipped' },
   { value: '100%', label: 'API coverage' },
   { value: '0', label: 'Code changes required' }
 ];

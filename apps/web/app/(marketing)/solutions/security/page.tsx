@@ -39,9 +39,9 @@ const features = [
 
 const stats = [
   { value: '100%', label: 'Request inspection' },
-  { value: '38ms', label: 'Median decision' },
+  { value: '<50ms', label: 'Decision target' },
   { value: '24/7', label: 'Monitoring' },
-  { value: '82%', label: 'Auto-detection' }
+  { value: '0%', label: 'Auto-detection (live)' }
 ];
 
 const threats = [

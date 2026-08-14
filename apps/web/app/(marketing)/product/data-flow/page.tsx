@@ -74,9 +74,9 @@ export default function DataFlowPage() {
             ))}
             <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               {[
-                { label: 'Flows active', value: '2.7k' },
-                { label: 'Sensitive', value: '184' },
-                { label: 'Blocked', value: '26' }
+                { label: 'Flows active', value: '0' },
+                { label: 'Sensitive', value: '0' },
+                { label: 'Blocked', value: '0' }
               ].map((item) => (
                 <div key={item.label} className="rounded-2xl bg-slate-950/85 p-3 text-center">
                   <p className="text-sm font-semibold text-white">{item.value}</p>

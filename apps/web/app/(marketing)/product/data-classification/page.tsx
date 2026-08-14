@@ -38,11 +38,11 @@ const features = [
 ];
 
 const detectors = [
-  { name: 'PII', matches: '4.8k/24h', blocked: '214', tone: 'bg-sky-400' },
-  { name: 'Financial', matches: '3.4k/24h', blocked: '176', tone: 'bg-amber-400' },
-  { name: 'Employee', matches: '1.5k/24h', blocked: '77', tone: 'bg-slate-400' },
-  { name: 'Health (PHI)', matches: '517/24h', blocked: '43', tone: 'bg-rose-400' },
-  { name: 'Biometric', matches: '98/24h', blocked: '12', tone: 'bg-cyan-400' }
+  { name: 'PII', matches: '0/24h', blocked: '0', tone: 'bg-sky-400' },
+  { name: 'Financial', matches: '0/24h', blocked: '0', tone: 'bg-amber-400' },
+  { name: 'Employee', matches: '0/24h', blocked: '0', tone: 'bg-slate-400' },
+  { name: 'Health (PHI)', matches: '0/24h', blocked: '0', tone: 'bg-rose-400' },
+  { name: 'Biometric', matches: '0/24h', blocked: '0', tone: 'bg-cyan-400' }
 ];
 
 export default function DataClassificationPage() {
@@ -59,9 +59,9 @@ export default function DataClassificationPage() {
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.22),_transparent_45%)]" />
           <div className="relative space-y-2.5">
             <div className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-300 sm:text-sm">
-              <span className="font-semibold text-white">Detector activity</span>
+              <span className="font-semibold text-white">Detector activity — 24h</span>
               <span className="rounded-full bg-sentinel-500/15 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-sentinel-200">
-                24h
+                Demo
               </span>
             </div>
             {detectors.map(({ name, matches, blocked, tone }) => (

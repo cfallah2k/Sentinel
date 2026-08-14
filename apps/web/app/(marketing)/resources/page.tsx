@@ -7,8 +7,8 @@ const featuredGuides = [
   {
     icon: ScrollText,
     kind: 'Guide',
-    title: 'The enterprise playbook for EU AI Act compliance',
-    description: 'A phased approach to tier mapping, transparency obligations, and audit readiness before enforcement deadlines.',
+    title: 'The playbook for Nigeria, Ghana & Kenya data protection compliance',
+    description: 'A phased approach to control mapping, evidence collection, and audit readiness for AI deployments across African jurisdictions.',
     readTime: '24 pages',
     href: '/get-started'
   },
@@ -34,7 +34,7 @@ const allResources = [
   { title: 'Data classification catalog for LLM pipelines', kind: 'Guide', format: 'PDF', date: 'Aug 2026' },
   { title: 'Incident response runbook for AI data exposures', kind: 'Runbook', format: 'PDF', date: 'Jul 2026' },
   { title: 'Choosing an AI governance platform: RFP questions', kind: 'Checklist', format: 'DOCX', date: 'Jul 2026' },
-  { title: 'SOC 2 evidence automation for AI systems', kind: 'Whitepaper', format: 'PDF', date: 'Jun 2026' },
+  { title: 'Evidence automation for AI audits across African markets', kind: 'Whitepaper', format: 'PDF', date: 'Jun 2026' },
   { title: 'Redaction strategies for sensitive tokens', kind: 'Guide', format: 'PDF', date: 'Jun 2026' },
   { title: 'AI passport schema reference', kind: 'Reference', format: 'JSON', date: 'May 2026' },
   { title: 'Self-hosted LLM governance field guide', kind: 'Guide', format: 'PDF', date: 'May 2026' },
@@ -48,7 +48,7 @@ export default function ResourcesPage() {
       <MarketingHero
         eyebrow="Resources"
         title="Playbooks, guides, and references for AI governance teams."
-        description="Practical material built from production deployments — not theory. Take them to your next architecture review."
+        description="Practical material for AI governance teams — playbooks, guides, and references you can take to your next architecture review."
         primary={{ label: 'Start free trial', href: '/register' }}
         secondary={{ label: 'Read the blog', href: '/blog' }}
       />

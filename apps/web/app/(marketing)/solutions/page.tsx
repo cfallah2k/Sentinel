@@ -9,35 +9,35 @@ const solutions = [
     description: 'Govern AI across business units, regions, and legacy systems without slowing innovation.',
     href: '/solutions/enterprise',
     icon: Building2,
-    stat: '2.7k+ workflows protected'
+    stat: 'Early access — 0 deployments'
   },
   {
     title: 'Regulated & compliance-led',
-    description: 'Continuous evidence for SOC 2, ISO 27001, GDPR, HIPAA, and the EU AI Act.',
+    description: 'Continuous evidence for Nigeria\u2019s Data Protection Act, Ghana\u2019s Data Protection Act, Kenya\u2019s Data Protection Act, and GDPR where it applies.',
     href: '/solutions/compliance',
     icon: ShieldCheck,
-    stat: '6+ frameworks mapped'
+    stat: 'Africa-first mapping'
   },
   {
     title: 'Security teams',
     description: 'Gateway enforcement, incident response, and audit trails for security operations.',
     href: '/solutions/security',
     icon: Lock,
-    stat: '99.99% visibility'
+    stat: 'Zero-trust by design'
   },
   {
     title: 'Privacy programs',
     description: 'Data minimization, classification, and redaction that keep personal data inside policy.',
     href: '/solutions/privacy',
     icon: Users,
-    stat: '18 detectors tuned'
+    stat: '18 detector patterns'
   },
   {
     title: 'Developers',
     description: 'Policy as code, SDKs, and an OpenAI-compatible gateway that fits existing pipelines.',
     href: '/solutions/developers',
     icon: Terminal,
-    stat: '<50ms evaluation'
+    stat: 'Sub-50ms design target'
   },
   {
     title: 'Government',

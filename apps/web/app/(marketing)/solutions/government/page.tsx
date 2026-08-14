@@ -39,7 +39,7 @@ const features = [
 
 const stats = [
   { value: '24/7', label: 'Service monitoring' },
-  { value: '100%', label: 'Systems registered' },
+  { value: '0%', label: 'Systems registered (live)' },
   { value: '5', label: 'Tier risk model' },
   { value: '60d', label: 'Publication cycles' }
 ];

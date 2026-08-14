@@ -48,9 +48,9 @@ const plans = [
     features: [
       'Everything in Growth',
       'Custom retention & residency',
-      'EU AI Act & framework mapping',
+      'Nigeria, Ghana & framework mapping',
       'Dedicated support manager',
-      '99.9% uptime SLA',
+      'Availability SLA in contract',
       'Security review & DPA'
     ]
   }
@@ -80,12 +80,12 @@ const faqItems = [
   {
     question: 'What about data residency and retention?',
     answer:
-      'Workspaces are hosted in the region you choose at signup. Audit retention is configurable on Growth and Enterprise, and Enterprise supports custom retention windows to meet regulatory requirements.'
+      'Workspaces are hosted in the region you choose at signup — including our Africa region (Nigeria). Audit retention is configurable on Growth and Enterprise, and Enterprise supports custom retention windows to meet regulatory requirements.'
   },
   {
     question: 'Is a security review available?',
     answer:
-      'Enterprise customers receive access to our trust center, SOC 2 Type II report, ISO 27001 certificate, DPA, and a dedicated security review process with their procurement team.'
+      'Enterprise customers receive access to our trust center, compliance roadmap, DPA, and a dedicated security review process with their procurement team.'
   }
 ];
 

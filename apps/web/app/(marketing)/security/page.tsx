@@ -7,7 +7,7 @@ import Link from 'next/link';
 const stats = [
   { value: 'AES-256', label: 'Encryption at rest' },
   { value: 'TLS 1.3', label: 'Encryption in transit' },
-  { value: '99.99%', label: 'Gateway uptime' },
+  { value: '2026', label: 'Company founded' },
   { value: '24/7', label: 'Security monitoring' }
 ];
 
@@ -38,17 +38,18 @@ const pillars = [
     title: 'Secure by design',
     description:
       'Sentinel follows an SDLC with code reviews, dependency scanning, and independent penetration testing. Security architecture is documented for customer review.',
-    points: ['Annual penetration tests', 'Dependency and CVE scanning', 'Immutable audit logs']
+    points: ['Penetration testing at launch', 'Dependency and CVE scanning', 'Immutable audit logs']
   }
 ];
 
 const certifications = [
-  { name: 'SOC 2 Type II', detail: 'AICPA, audited annually', href: '/trust' },
-  { name: 'ISO/IEC 27001', detail: 'Certified ISMS', href: '/trust' },
-  { name: 'GDPR', detail: 'EU data protection alignment', href: '/trust' },
-  { name: 'EU AI Act', detail: 'Obligation mapping', href: '/trust' },
-  { name: 'NIST AI RMF', detail: 'Framework mapping', href: '/trust' },
-  { name: 'HIPAA', detail: 'Covered entity controls', href: '/trust' }
+  { name: 'Nigeria Data Protection Act', detail: 'Nigeria — alignment roadmap', href: '/trust' },
+  { name: 'Ghana Data Protection Act', detail: 'Ghana — alignment roadmap', href: '/trust' },
+  { name: 'Côte d\u2019Ivoire Law 2013-450', detail: 'Côte d\u2019Ivoire — alignment roadmap', href: '/trust' },
+  { name: 'Senegal Law 2008-12', detail: 'Senegal — alignment roadmap', href: '/trust' },
+  { name: 'Kenya DPA', detail: 'Kenya — alignment roadmap', href: '/trust' },
+  { name: 'SOC 2 Type II', detail: 'AICPA — program in progress', href: '/trust' },
+  { name: 'ISO/IEC 27001', detail: 'ISMS program — planned', href: '/trust' }
 ];
 
 const badgeItems = [
@@ -64,7 +65,7 @@ export default function SecurityPage() {
       <MarketingHero
         eyebrow="Security"
         title="A control plane that practices what it enforces."
-        description="Sentinel is built on zero-trust principles, encrypted by default, and verified by independent audits. Our security posture is your compliance evidence."
+        description="Sentinel is built on zero-trust principles, encrypted by default, and working toward independent verification. Our security posture is your compliance evidence."
         primary={{ label: 'Visit trust center', href: '/trust' }}
         secondary={{ label: 'Report a vulnerability', href: '/legal/security' }}
       >
@@ -76,7 +77,7 @@ export default function SecurityPage() {
               { label: 'Encryption at rest', value: 'AES-256', tone: 'bg-emerald-400' },
               { label: 'Encryption in transit', value: 'TLS 1.3', tone: 'bg-emerald-400' },
               { label: 'MFA enforcement', value: 'Required', tone: 'bg-emerald-400' },
-              { label: 'Pen test cadence', value: 'Annual', tone: 'bg-emerald-400' }
+              { label: 'Pen test cadence', value: 'At launch', tone: 'bg-amber-400' }
             ].map((item) => (
               <div key={item.label} className="flex items-center justify-between rounded-2xl bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-200 sm:text-sm">
                 <span>{item.label}</span>
@@ -87,8 +88,8 @@ export default function SecurityPage() {
               </div>
             ))}
             <div className="rounded-2xl border border-white/10 bg-slate-950/85 p-3.5">
-              <p className="text-sm font-semibold text-white">SOC 2 Type II report</p>
-              <p className="mt-1 text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">Available on request</p>
+              <p className="text-sm font-semibold text-white">SOC 2 Type II — program in progress</p>
+              <p className="mt-1 text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">Published when the audit completes</p>
             </div>
           </div>
         </div>
@@ -126,9 +127,12 @@ export default function SecurityPage() {
 
       <section className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
         <div className="text-center">
-          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Certifications & frameworks</p>
-          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Verified, not just claimed</h2>
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Frameworks</p>
+          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Alignment we are working toward</h2>
         </div>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-xs leading-6 text-slate-400 sm:text-sm">
+          Founded in 2026, Sentinel only claims what it has earned. These frameworks are on our compliance roadmap.
+        </p>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {certifications.map((cert) => (
             <Link
@@ -161,7 +165,7 @@ export default function SecurityPage() {
       <CtaSection
         eyebrow="Security reviews"
         title="Send us your security questionnaire."
-        description="Enterprise customers get access to our SOC 2 report, ISO certificate, DPA, and dedicated security review support."
+        description="Enterprise customers get access to our security documentation, DPA, compliance roadmap, and dedicated security review support."
         primary={{ label: 'Request access', href: '/contact' }}
         secondary={{ label: 'Read legal security', href: '/legal/security' }}
       />

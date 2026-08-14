@@ -9,7 +9,7 @@ const countries = [
   'United States', 'Canada', 'United Kingdom', 'Germany', 'France', 'Netherlands',
   'Switzerland', 'Sweden', 'Norway', 'Denmark', 'Finland', 'Ireland', 'Australia',
   'New Zealand', 'Japan', 'Singapore', 'South Korea', 'United Arab Emirates',
-  'Saudi Arabia', 'South Africa', 'Brazil', 'Mexico', 'India', 'Nigeria', 'Kenya', 'Other'
+  'Saudi Arabia', 'Nigeria', 'Ghana', 'Côte d\u2019Ivoire', 'Senegal', 'Brazil', 'Mexico', 'India', 'Kenya', 'Other'
 ];
 
 const sectors = [

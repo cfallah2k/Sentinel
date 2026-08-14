@@ -41,7 +41,7 @@ const incidents = [
   { id: 'inc-1042', title: 'PII transmitted to unapproved provider', severity: 'Critical', status: 'Investigating', tone: 'text-rose-300', sla: 'SLA 4h' },
   { id: 'inc-1041', title: 'Financial data exposure in staging agent', severity: 'High', status: 'Open', tone: 'text-amber-300', sla: 'SLA 8h' },
   { id: 'inc-1040', title: 'Anomalous embedding extraction pattern', severity: 'Medium', status: 'Investigating', tone: 'text-sky-300', sla: 'SLA 24h' },
-  { id: 'inc-1039', title: 'Health data crossing EU boundary', severity: 'High', status: 'Open', tone: 'text-amber-300', sla: 'SLA 8h' }
+  { id: 'inc-1039', title: 'Health data crossing national boundary', severity: 'High', status: 'Open', tone: 'text-amber-300', sla: 'SLA 8h' }
 ];
 
 export default function IncidentsPage() {
@@ -58,9 +58,9 @@ export default function IncidentsPage() {
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.22),_transparent_45%)]" />
           <div className="relative space-y-2.5">
             <div className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-300 sm:text-sm">
-              <span className="font-semibold text-white">Incident queue</span>
+              <span className="font-semibold text-white">Incident queue — simulated preview</span>
               <span className="rounded-full bg-rose-500/15 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-rose-300">
-                3 open
+                Demo
               </span>
             </div>
             {incidents.map(({ id, title, severity, status, tone, sla }) => (
@@ -81,9 +81,9 @@ export default function IncidentsPage() {
             ))}
             <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               {[
-                { label: 'MTTR', value: '2.1h' },
-                { label: 'SLA met', value: '97%' },
-                { label: 'Auto-detected', value: '82%' }
+                { label: 'MTTR', value: '0' },
+                { label: 'SLA met', value: '0%' },
+                { label: 'Auto-detected', value: '0%' }
               ].map((item) => (
                 <div key={item.label} className="rounded-2xl bg-slate-950/85 p-3 text-center">
                   <p className="text-sm font-semibold text-white">{item.value}</p>

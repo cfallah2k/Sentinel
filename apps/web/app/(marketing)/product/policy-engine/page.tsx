@@ -50,9 +50,9 @@ policy "redact_financial_external" {
 }`;
 
 const stats = [
-  { label: 'Policies active', value: '1.4k' },
-  { label: 'Evaluations / day', value: '412k' },
-  { label: 'Enforcements / day', value: '61k' }
+  { label: 'Policies active', value: '0' },
+  { label: 'Evaluations / day', value: '0' },
+  { label: 'Enforcements / day', value: '0' }
 ];
 
 export default function PolicyEnginePage() {

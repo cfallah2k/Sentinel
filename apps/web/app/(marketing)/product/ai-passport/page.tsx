@@ -60,9 +60,9 @@ export default function AiPassportPage() {
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.22),_transparent_45%)]" />
           <div className="relative space-y-2.5">
             <div className="flex items-center justify-between rounded-[1.25rem] border border-white/10 bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-300 sm:text-sm">
-              <span className="font-semibold text-white">AI Passport</span>
-              <span className="rounded-full bg-emerald-500/15 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-emerald-300">
-                v3 · Approved
+              <span className="font-semibold text-white">AI Passport — example record</span>
+              <span className="rounded-full bg-sentinel-500/15 px-2.5 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-sentinel-200">
+                Demo
               </span>
             </div>
             {passportFields.map(({ label, value }) => (

@@ -78,9 +78,9 @@ export default function AiGatewayPage() {
           </pre>
           <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
             {[
-              { label: 'Latency', value: '38ms' },
+              { label: 'Latency', value: 'Design target' },
               { label: 'Evaluated', value: '100%' },
-              { label: 'Uptime', value: '99.99%' }
+              { label: 'Deployments', value: '0' }
             ].map((item) => (
               <div key={item.label} className="rounded-2xl bg-slate-950/90 p-3 text-center">
                 <p className="text-sm font-semibold text-white sm:text-base">{item.value}</p>

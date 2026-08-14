@@ -4,19 +4,24 @@ import StatsBand from '@/components/marketing/stats-band';
 import CtaSection from '@/components/marketing/cta-section';
 
 const stats = [
-  { value: '6+', label: 'Frameworks mapped' },
-  { value: '100%', label: 'Audit event coverage' },
+  { value: '0', label: 'Frameworks certified' },
+  { value: '0', label: 'Audit events (live)' },
   { value: '24/7', label: 'Continuous monitoring' },
   { value: '90d+', label: 'Evidence retention' }
 ];
 
 const frameworks = [
-  { name: 'SOC 2 Type II', standard: 'AICPA', status: 'Certified', progress: 82 },
-  { name: 'ISO/IEC 27001', standard: 'ISO', status: 'Certified', progress: 74 },
-  { name: 'NIST AI RMF', standard: 'NIST', status: 'Mapped', progress: 61 },
-  { name: 'GDPR', standard: 'EU', status: 'Aligned', progress: 88 },
-  { name: 'HIPAA', standard: 'HHS', status: 'Aligned', progress: 69 },
-  { name: 'EU AI Act', standard: 'EU', status: 'Mapped', progress: 47 }
+  { name: 'Nigeria Data Protection Act', standard: 'Nigeria', status: 'In progress', progress: 0 },
+  { name: 'Ghana Data Protection Act', standard: 'Ghana', status: 'In progress', progress: 0 },
+  { name: 'Côte d\u2019Ivoire Law 2013-450', standard: 'Côte d\u2019Ivoire', status: 'In progress', progress: 0 },
+  { name: 'Senegal Law 2008-12', standard: 'Senegal', status: 'Planned', progress: 0 },
+  { name: 'Kenya Data Protection Act', standard: 'Kenya', status: 'In progress', progress: 0 },
+  { name: 'ECOWAS Supplementary Act', standard: 'ECOWAS', status: 'Planned', progress: 0 },
+  { name: 'AU Malabo Convention', standard: 'African Union', status: 'Planned', progress: 0 },
+  { name: 'SOC 2 Type II', standard: 'AICPA', status: 'In progress', progress: 0 },
+  { name: 'ISO/IEC 27001', standard: 'ISO', status: 'Planned', progress: 0 },
+  { name: 'GDPR', standard: 'Where it applies', status: 'In progress', progress: 0 },
+  { name: 'EU AI Act', standard: 'Where it applies', status: 'Planned', progress: 0 }
 ];
 
 const controls = [
@@ -42,7 +47,7 @@ const controls = [
   }
 ];
 
-const badgeLabels = ['SOC 2 Type II', 'ISO 27001', 'GDPR', 'EU AI Act', 'NIST AI RMF', 'HIPAA', 'CCPA', 'DPDP'];
+const badgeLabels = ['Nigeria Data Protection Act', 'Ghana Data Protection Act', 'Côte d\u2019Ivoire Law 2013-450', 'Senegal Law 2008-12', 'Kenya Data Protection Act', 'ECOWAS Supplementary Act', 'AU Malabo Convention', 'GDPR', 'EU AI Act', 'SOC 2 Type II', 'ISO 27001'];
 
 export default function CompliancePage() {
   return (
@@ -50,7 +55,7 @@ export default function CompliancePage() {
       <MarketingHero
         eyebrow="Compliance"
         title="Turn compliance from a quarterly scramble into a continuous process."
-        description="Sentinel maps governance controls to live AI telemetry, so evidence for SOC 2, ISO 27001, GDPR, NIST AI RMF, and the EU AI Act is always audit-ready."
+        description="Sentinel maps governance controls to live AI telemetry, so evidence for Nigeria\u2019s Data Protection Act, Ghana\u2019s Data Protection Act, Kenya\u2019s Data Protection Act, SOC 2, and ISO 27001 is ready when you are."
         primary={{ label: 'Start free trial', href: '/register' }}
         secondary={{ label: 'See the trust center', href: '/trust' }}
       >
@@ -60,14 +65,14 @@ export default function CompliancePage() {
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Control readiness</p>
             <div className="space-y-2.5">
               {[
-                { name: 'CC6.1 Logical access', state: 'Passing', tone: 'bg-emerald-400' },
-                { name: 'CC7.2 Monitoring', state: 'Passing', tone: 'bg-emerald-400' },
-                { name: 'A.9.4.2 Secure log-on', state: 'Passing', tone: 'bg-emerald-400' },
-                { name: 'GOVERN 1.1 AI framework', state: 'Gap open', tone: 'bg-amber-400' }
+                { name: 'Nigeria DPA controls linked', state: '0', tone: 'bg-slate-400' },
+                { name: 'NDPA controls linked', state: '0', tone: 'bg-slate-400' },
+                { name: 'SOC 2 controls linked', state: '0', tone: 'bg-slate-400' },
+                { name: 'ISO 27001 controls linked', state: '0', tone: 'bg-slate-400' }
               ].map((control) => (
                 <div key={control.name} className="flex items-center justify-between rounded-2xl bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-200 sm:text-sm">
                   <span>{control.name}</span>
-                  <span className={`inline-flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.2em] ${control.state === 'Passing' ? 'text-emerald-300' : 'text-amber-300'}`}>
+                  <span className={`inline-flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.2em] text-slate-300`}>
                     <span className={`h-1.5 w-1.5 rounded-full ${control.tone}`} />
                     {control.state}
                   </span>
@@ -76,12 +81,12 @@ export default function CompliancePage() {
             </div>
             <div className="grid grid-cols-2 gap-2.5">
               <div className="rounded-2xl border border-white/10 bg-slate-950/85 p-3.5">
-                <p className="text-sm font-semibold text-white">68 controls</p>
-                <p className="mt-1 text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">SOC 2 Type II</p>
+                <p className="text-sm font-semibold text-white">0 certified</p>
+                <p className="mt-1 text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">Frameworks — roadmap active</p>
               </div>
               <div className="rounded-2xl border border-white/10 bg-slate-950/85 p-3.5">
-                <p className="text-sm font-semibold text-white">214 evidence items</p>
-                <p className="mt-1 text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">Linked to telemetry</p>
+                <p className="text-sm font-semibold text-white">0 items</p>
+                <p className="mt-1 text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">Evidence linked to live telemetry</p>
               </div>
             </div>
           </div>
@@ -91,7 +96,7 @@ export default function CompliancePage() {
       <section className="space-y-8">
         <div className="text-center">
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Framework coverage</p>
-          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Governance mapped to the standards that matter</h2>
+          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Governance mapped to the standards that matter in Africa</h2>
         </div>
         <StatsBand stats={stats} />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
@@ -144,8 +149,8 @@ export default function CompliancePage() {
 
       <section className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-8">
         <div className="text-center">
-          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Certifications & regulations</p>
-          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Compliance that speaks your auditors&apos; language</h2>
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Frameworks & regulations</p>
+          <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Compliance that speaks your regulators&apos; language</h2>
         </div>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           {badgeLabels.map((badge) => (

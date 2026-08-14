@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { CalendarDays, Check, Clock, Send, User } from 'lucide-react';
 import MarketingHero from '@/components/marketing/hero';
 
-const useCases = ['AI governance review', 'EU AI Act readiness', 'Incident response', 'Compliance automation', 'Gateway deployment', 'Other'];
+const useCases = ['AI governance review', 'Nigeria / Ghana DPA readiness', 'Incident response', 'Compliance automation', 'Gateway deployment', 'Other'];
 
 const inputStyles =
   'w-full rounded-2xl border border-white/10 bg-slate-950/90 px-4 py-3 text-sm text-white placeholder:text-slate-500 outline-none transition focus:border-sentinel-500/50 focus:ring-2 focus:ring-sentinel-500/20';
