@@ -1,15 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Bell, ChevronDown, LogOut, Search, Settings2, UserCircle2 } from 'lucide-react';
+import { Bell, Check, ChevronDown, LogOut, RotateCcw, Search, Settings2, UserCircle2 } from 'lucide-react';
 import { currentOrg, currentUser, notifications, roleLabel } from '@/lib/mock-data';
+import { ALL_ROLES, clearDemoRole, getClientRole, setDemoRole } from '@/lib/role-access';
 
 export default function AppTopbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [notifOpen, setNotifOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
+  const [role, setRole] = useState<string>(currentUser.role);
   const unread = notifications.filter((n) => n.unread).length;
+
+  useEffect(() => {
+    const clientRole = getClientRole();
+    if (clientRole && clientRole !== currentUser.role) setRole(clientRole);
+  }, []);
 
   return (
     <header className="sticky top-0 z-20 border-b border-white/10 bg-[var(--surface)] backdrop-blur-xl">
@@ -30,6 +37,10 @@ export default function AppTopbar() {
             <span className="text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400">{currentOrg.name}</span>
             <span className="rounded-full bg-sentinel-500/15 px-2 py-0.5 text-[0.6rem] font-bold text-sentinel-300">{currentOrg.plan}</span>
           </div>
+
+          <span className="hidden rounded-full border border-violet-500/25 bg-violet-500/10 px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-wider text-violet-300 sm:inline-block">
+            {roleLabel(role)}
+          </span>
 
           <div className="relative">
             <button
@@ -96,13 +107,45 @@ export default function AppTopbar() {
             {userOpen ? (
               <>
                 <div className="fixed inset-0 z-30" onClick={() => setUserOpen(false)} />
-                <div className="absolute right-0 z-40 mt-2 w-56 overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface-strong)] shadow-panel backdrop-blur-xl">
+                <div className="absolute right-0 z-40 mt-2 w-64 overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface-strong)] shadow-panel backdrop-blur-xl">
                   <div className="border-b border-white/10 px-5 py-3">
                     <p className="text-xs font-semibold text-white">{currentUser.name}</p>
                     <p className="truncate text-[0.65rem] text-slate-500">{currentUser.email}</p>
                     <span className="mt-2 inline-block rounded-full bg-violet-500/15 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-violet-300">
-                      {roleLabel(currentUser.role)}
+                      {roleLabel(role)}
                     </span>
+                  </div>
+                  <div className="border-b border-white/10 px-3 py-2">
+                    <p className="px-2 pb-1 pt-1 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-slate-600">Demo role</p>
+                    <div className="grid grid-cols-1">
+                      {ALL_ROLES.map((r) => (
+                        <button
+                          key={r}
+                          type="button"
+                          onClick={() => {
+                            setUserOpen(false);
+                            setDemoRole(r);
+                          }}
+                          className={`flex items-center justify-between gap-2 rounded-xl px-2 py-1.5 text-left text-xs transition ${
+                            role === r ? 'bg-violet-500/10 text-violet-200' : 'text-slate-300 hover:bg-white/[0.06] hover:text-white'
+                          }`}
+                        >
+                          <span>{roleLabel(r)}</span>
+                          <span className="text-[0.55rem] font-semibold uppercase tracking-wider text-slate-600">{r}</span>
+                          {role === r ? <Check className="h-3 w-3 text-violet-300" size={12} /> : null}
+                        </button>
+                      ))}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setUserOpen(false);
+                        clearDemoRole();
+                      }}
+                      className="mt-1 flex w-full items-center gap-2 rounded-xl px-2 py-1.5 text-left text-xs text-slate-400 transition hover:bg-white/[0.06] hover:text-white"
+                    >
+                      <RotateCcw className="h-3 w-3" size={12} /> Reset to account role
+                    </button>
                   </div>
                   <div className="p-2">
                     <Link href="/settings" onClick={() => setUserOpen(false)} className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-xs text-slate-300 transition hover:bg-white/[0.06] hover:text-white">

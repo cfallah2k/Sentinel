@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { ALL_ROLES, canAccessRoute, DEFAULT_ROLE, DEMO_ROLE_COOKIE } from './lib/role-access';
 
 const SESSION_COOKIE = 'sentinel_session';
 
@@ -77,7 +78,17 @@ export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const session = request.cookies.get(SESSION_COOKIE)?.value;
 
-  if (session) return NextResponse.next();
+  if (session) {
+    const demoRole = request.cookies.get(DEMO_ROLE_COOKIE)?.value;
+    const role = demoRole && (ALL_ROLES as readonly string[]).includes(demoRole) ? demoRole : DEFAULT_ROLE;
+    if (!canAccessRoute(role, pathname)) {
+      const url = request.nextUrl.clone();
+      url.pathname = '/403';
+      url.search = '';
+      return NextResponse.redirect(url);
+    }
+    return NextResponse.next();
+  }
 
   const isPublic = PUBLIC_PATHS.has(pathname) || PUBLIC_PATHS.has(`/${pathname.split('/')[1]}`) || pathname === '';
   if (isPublic) return NextResponse.next();
