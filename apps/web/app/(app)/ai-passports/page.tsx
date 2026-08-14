@@ -1,5 +1,5 @@
 import { BadgeCheck, Clock3, FileSearch, ShieldAlert } from 'lucide-react';
-import { PageHeader, SecondaryButton } from '@/components/ui/page-header';
+import { PageHeader, PrimaryButton, SecondaryButton } from '@/components/ui/page-header';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { StatCard } from '@/components/ui/stat-card';
 import { DonutChart } from '@/components/ui/charts';
@@ -21,7 +21,12 @@ export default function Page() {
         eyebrow="Data Intelligence"
         title="AI Passports"
         description="A passport is the data-handling declaration for every AI system: what it processes, where data lives, how long it is kept and who is accountable."
-        actions={<SecondaryButton href="/ai-passports/import">Import passports</SecondaryButton>}
+        actions={
+          <>
+            <PrimaryButton href="/ai-passports/create">Create passport</PrimaryButton>
+            <SecondaryButton href="/ai-passports/import">Import passports</SecondaryButton>
+          </>
+        }
       />
       <PassportNav active="Overview" />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">

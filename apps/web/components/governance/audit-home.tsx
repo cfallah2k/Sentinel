@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { Activity, CheckCircle2, FolderSearch, ShieldAlert, Download } from 'lucide-react';
-import { PageHeader } from '@/components/ui/page-header';
+import { PageHeader, SecondaryButton } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge, toneForStatus } from '@/components/ui/badge';
 import { DataTable } from '@/components/ui/data-table';
 import { AreaTrend, DonutChart } from '@/components/ui/charts';
+import ExportCsvButton from '@/components/ui/export-button';
 import { ModuleNav } from './module-nav';
 import { auditNavItems, eventSeries24h, resultDonut, countBy, logsFor } from './audit-helpers';
 
@@ -52,6 +53,23 @@ export default function AuditHome({ active }: { active: string }) {
         eyebrow="Governance"
         title="Audit Trail"
         description="Immutable event history across the control plane — policy changes, system approvals, data access and administrative actions."
+        actions={[
+          <ExportCsvButton
+            key="export"
+            label="Export"
+            filename="audit-trail"
+            rows={rows.map((r) => ({
+              id: r.id,
+              timestamp: r.timestamp,
+              actor: r.actor,
+              action: r.action,
+              resource: r.resource,
+              result: r.result,
+              ip: r.ip ?? ''
+            }))}
+          />,
+          <SecondaryButton key="configure" href="/audit/export">Configure Export</SecondaryButton>
+        ]}
       />
       <ModuleNav items={auditNavItems} active={active} />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">

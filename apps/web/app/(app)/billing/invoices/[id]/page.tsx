@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { Download, Printer } from 'lucide-react';
 import { PageHeader } from '@/components/ui/page-header';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge, toneForStatus } from '@/components/ui/badge';
+import InvoiceActions from '@/components/billing/invoice-actions';
 import { invoices, currentOrg } from '@/lib/mock-data';
 
 type Params = Promise<{ id: string }>;
@@ -27,12 +27,7 @@ export default async function Page({ params }: { params: Params }) {
         actions={
           <div className="flex items-center gap-2">
             <Badge label={invoice.status} tone={toneForStatus(invoice.status)} />
-            <button type="button" className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-slate-300 transition hover:bg-white/10">
-              <Printer className="h-3.5 w-3.5" /> Print
-            </button>
-            <button type="button" className="inline-flex items-center gap-1.5 rounded-full bg-sentinel-500 px-4 py-2 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400">
-              <Download className="h-3.5 w-3.5" /> Download PDF
-            </button>
+            <InvoiceActions number={invoice.number} amount={invoice.amount} date={invoice.date} />
           </div>
         }
       />

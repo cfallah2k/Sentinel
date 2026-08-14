@@ -1,8 +1,9 @@
-import { KeyRound, Plus } from 'lucide-react';
+import { KeyRound } from 'lucide-react';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge, toneForStatus } from '@/components/ui/badge';
 import { EntityHeader, DetailNav } from '@/components/registry/entity-header';
 import { ApiKeyTable } from '@/components/registry/related-tables';
+import IssueKeyButton from '@/components/registry/issue-key-button';
 import { keysFor } from '@/components/registry/helpers';
 import { appNav } from '@/components/registry/nav';
 import { applications } from '@/lib/mock-data';
@@ -39,12 +40,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           <ApiKeyTable rows={keys} />
         </CardBody>
       </Card>
-      <div className="flex items-center gap-3">
-        <button type="button" className="inline-flex items-center gap-2 rounded-full bg-sentinel-500 px-5 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400">
-          <Plus className="h-3.5 w-3.5" /> Issue New Key
-        </button>
-        <p className="text-[0.65rem] text-slate-500">New keys are shown once and stored encrypted.</p>
-      </div>
+      <IssueKeyButton appName={app.name} />
     </div>
   );
 }

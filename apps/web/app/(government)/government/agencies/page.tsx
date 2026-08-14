@@ -4,6 +4,7 @@ import { GovShell } from '@/components/government/page-shell';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge, type BadgeTone } from '@/components/ui/badge';
 import { DataTable, type Column } from '@/components/ui/data-table';
+import Link from 'next/link';
 import { riskTone } from '@/components/government/registry-table';
 import { Landmark, Radar, ShieldAlert, Users } from 'lucide-react';
 import { governmentAgencies, governmentRegistry } from '@/lib/mock-data';
@@ -13,7 +14,7 @@ type AgencyRow = (typeof governmentAgencies)[number];
 const agencyTone: Record<string, BadgeTone> = { Active: 'green', Review: 'amber', Pending: 'amber' };
 
 const columns: Column<AgencyRow>[] = [
-  { key: 'name', label: 'Agency', render: (r) => <span className="font-semibold text-white">{r.name}</span> },
+  { key: 'name', label: 'Agency', render: (r) => <Link href={`/government/agencies/${r.id}`} className="font-semibold text-white transition hover:text-sentinel-300">{r.name}</Link> },
   { key: 'type', label: 'Jurisdiction', render: (r) => <Badge label={r.type} tone={r.type === 'Federal' ? 'violet' : r.type === 'State' ? 'blue' : 'cyan'} /> },
   { key: 'systems', label: 'Systems Overseen', sortValue: (r) => r.systems, className: 'text-slate-400' },
   { key: 'status', label: 'Status', render: (r) => <Badge label={r.status} tone={agencyTone[r.status]} /> },

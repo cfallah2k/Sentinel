@@ -20,6 +20,8 @@ export default function Page() {
   const [from, setFrom] = useState('no-reply@nexora.io');
   const [secure, setSecure] = useState(true);
   const [digestEnabled, setDigestEnabled] = useState(true);
+  const [digestSchedule, setDigestSchedule] = useState('monday');
+  const [archiveBcc, setArchiveBcc] = useState(false);
 
   return (
     <div className="space-y-6">
@@ -56,10 +58,10 @@ export default function Page() {
         <SectionCard title="Delivery behavior" description="How email is sent and batched.">
           <div className="space-y-4">
             <Field label="Digest schedule">
-              <SelectInput value="monday" onChange={() => {}} options={[{ value: 'monday', label: 'Mondays 08:00' }, { value: 'friday', label: 'Fridays 08:00' }, { value: 'daily', label: 'Daily 08:00' }]} />
+              <SelectInput value={digestSchedule} onChange={setDigestSchedule} options={[{ value: 'monday', label: 'Mondays 08:00' }, { value: 'friday', label: 'Fridays 08:00' }, { value: 'daily', label: 'Daily 08:00' }]} />
             </Field>
             <Toggle label="Send weekly digest" hint="Summarizes incidents, approvals and usage" checked={digestEnabled} onChange={setDigestEnabled} />
-            <Toggle label="BCC compliance archive" hint="Archive every outbound email" checked={false} onChange={() => {}} />
+            <Toggle label="BCC compliance archive" hint="Archive every outbound email" checked={archiveBcc} onChange={setArchiveBcc} />
           </div>
         </SectionCard>
       </div>

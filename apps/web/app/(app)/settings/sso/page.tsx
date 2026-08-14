@@ -18,6 +18,9 @@ export default function Page() {
   const [jit, setJit] = useState(true);
   const [scim, setScim] = useState(true);
   const [defaultRole, setDefaultRole] = useState('VIEWER');
+  const [requireSso, setRequireSso] = useState(true);
+  const [apiKeySignin, setApiKeySignin] = useState(false);
+  const [blockUnknown, setBlockUnknown] = useState(true);
 
   return (
     <div className="space-y-6">
@@ -71,9 +74,9 @@ export default function Page() {
 
         <SectionCard title="Enforcement" description="How SSO applies to sign-in flows.">
           <div className="space-y-2.5">
-            <Toggle label="Require SSO for all members" hint="Password sign-in is disabled" checked onChange={() => {}} />
-            <Toggle label="Allow API key sign-in" hint="Machine access is unaffected by SSO" checked={false} onChange={() => {}} />
-            <Toggle label="Block sign-in from unknown IdP tenants" hint="Prevents token smuggling" checked onChange={() => {}} />
+            <Toggle label="Require SSO for all members" hint="Password sign-in is disabled" checked={requireSso} onChange={setRequireSso} />
+            <Toggle label="Allow API key sign-in" hint="Machine access is unaffected by SSO" checked={apiKeySignin} onChange={setApiKeySignin} />
+            <Toggle label="Block sign-in from unknown IdP tenants" hint="Prevents token smuggling" checked={blockUnknown} onChange={setBlockUnknown} />
           </div>
           <div className="mt-5 rounded-2xl border border-emerald-500/20 bg-emerald-500/5 px-4 py-3">
             <p className="text-xs text-slate-400">

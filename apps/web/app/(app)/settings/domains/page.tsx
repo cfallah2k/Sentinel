@@ -25,8 +25,17 @@ const domains: Row[] = [
 
 export default function Page() {
   const [domain, setDomain] = useState('');
+  const [rows, setRows] = useState<Row[]>(domains);
 
-  const rows: Row[] = domains;
+  const handleAdd = () => {
+    const value = domain.trim().toLowerCase();
+    if (!value) return;
+    setRows((prev) => [
+      ...prev,
+      { id: `dm-${Date.now()}`, domain: value, status: 'Pending', verified: '—', method: 'DNS TXT' }
+    ]);
+    setDomain('');
+  };
 
   const columns: Column<Row>[] = [
     { key: 'domain', label: 'Domain', render: (r) => <span className="font-mono text-slate-200">{r.domain}</span> },
@@ -44,8 +53,8 @@ export default function Page() {
       />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        <StatCard label="Verified" value={domains.filter((d) => d.status === 'Verified').length} icon={Globe} accent="green" sub="Accepting invites" />
-        <StatCard label="Pending" value={domains.filter((d) => d.status === 'Pending').length} icon={Globe} accent="amber" sub="Awaiting DNS" />
+        <StatCard label="Verified" value={rows.filter((d) => d.status === 'Verified').length} icon={Globe} accent="green" sub="Accepting invites" />
+        <StatCard label="Pending" value={rows.filter((d) => d.status === 'Pending').length} icon={Globe} accent="amber" sub="Awaiting DNS" />
         <StatCard label="Invite Policy" value="Verified only" icon={Globe} accent="sky" sub="Unverified rejected" />
       </div>
 
@@ -64,6 +73,7 @@ export default function Page() {
               <button
                 type="button"
                 disabled={!domain}
+                onClick={handleAdd}
                 className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-sentinel-500 px-4 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400 disabled:opacity-40"
               >
                 <Plus className="h-3.5 w-3.5" /> Add

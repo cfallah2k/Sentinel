@@ -1,11 +1,12 @@
 import { CheckCircle2, Clock, FileX2, Timer, XCircle } from 'lucide-react';
-import { PageHeader, PrimaryButton, SecondaryButton } from '@/components/ui/page-header';
+import { PageHeader, PrimaryButton } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { DonutChart } from '@/components/ui/charts';
 import { ModuleNav } from '@/components/governance/module-nav';
 import { ApprovalTable } from '@/components/enforcement/tables';
 import { approvalCounts, approvalNavItems, approvalStatusDonut } from '@/components/enforcement/helpers';
+import ExportCsvButton from '@/components/ui/export-button';
 import { approvals } from '@/lib/mock-data';
 
 export default function Page() {
@@ -19,7 +20,20 @@ export default function Page() {
         description="Human-in-the-loop decisions on high-risk AI access, data movement and exceptions."
         actions={[
           <PrimaryButton key="new" href="/approvals/create">New Request</PrimaryButton>,
-          <SecondaryButton key="export" href="/approvals">Export</SecondaryButton>
+          <ExportCsvButton
+            key="export"
+            label="Export"
+            filename="approvals"
+            rows={approvals.map((a) => ({
+              id: a.id,
+              requester: a.requester,
+              type: a.type,
+              status: a.status,
+              risk: a.risk,
+              requestedAt: a.requestedAt,
+              note: a.note
+            }))}
+          />
         ]}
       />
       <ModuleNav items={approvalNavItems} active="/approvals" />

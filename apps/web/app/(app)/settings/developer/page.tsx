@@ -13,6 +13,7 @@ export default function Page() {
   const [keyPrefix, setKeyPrefix] = useState('sn_nexora');
   const [keyRotation, setKeyRotation] = useState(true);
   const [ldap, setLdap] = useState(false);
+  const [liveCalls, setLiveCalls] = useState(false);
 
   return (
     <div className="space-y-6">
@@ -44,7 +45,7 @@ export default function Page() {
         <SectionCard title="Sandbox" description="Isolated environment for testing.">
           <div className="space-y-2.5">
             <Toggle label="Sandbox enabled" hint="Gateways can route to the sandbox tier" checked={sandbox} onChange={setSandbox} />
-            <Toggle label="Live provider calls" hint="Allow sandbox keys to reach real models" checked={false} onChange={() => {}} />
+            <Toggle label="Live provider calls" hint="Allow sandbox keys to reach real models" checked={liveCalls} onChange={setLiveCalls} />
             <Toggle label="LDAP / SCIM sync" hint="Provision developer identities" checked={ldap} onChange={setLdap} />
           </div>
           <div className="mt-5 rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3 text-xs text-slate-400">

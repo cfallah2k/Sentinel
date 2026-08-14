@@ -1,3 +1,5 @@
+'use client';
+
 import { Check } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
@@ -21,12 +23,14 @@ export function PlanCard({
   plan,
   current,
   featured,
-  actionHref
+  actionHref,
+  actionOnClick
 }: {
   plan: Plan;
   current?: boolean;
   featured?: boolean;
   actionHref?: string;
+  actionOnClick?: () => void;
 }) {
   return (
     <div
@@ -67,6 +71,14 @@ export function PlanCard({
           >
             Switch to {plan.name}
           </Link>
+        ) : actionOnClick ? (
+          <button
+            type="button"
+            onClick={actionOnClick}
+            className="block w-full rounded-full bg-sentinel-500 px-5 py-2.5 text-center text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400 sm:text-sm"
+          >
+            Switch to {plan.name}
+          </button>
         ) : null}
       </div>
     </div>

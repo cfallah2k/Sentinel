@@ -4,6 +4,7 @@ import { GovShell } from '@/components/government/page-shell';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge, type BadgeTone } from '@/components/ui/badge';
 import { DataTable, type Column } from '@/components/ui/data-table';
+import Link from 'next/link';
 import { Building2, Cpu, ShieldAlert, Users } from 'lucide-react';
 import { platformOrganizations } from '@/lib/mock-data';
 
@@ -12,7 +13,7 @@ type OrgRow = (typeof platformOrganizations)[number];
 const orgTone: Record<string, BadgeTone> = { Active: 'green', Trial: 'amber', Overdue: 'rose', Suspended: 'rose' };
 
 const columns: Column<OrgRow>[] = [
-  { key: 'name', label: 'Organization', render: (r) => <span className="font-semibold text-white">{r.name}</span> },
+  { key: 'name', label: 'Organization', render: (r) => <Link href={`/government/organizations/${r.id}`} className="font-semibold text-white transition hover:text-sentinel-300">{r.name}</Link> },
   { key: 'plan', label: 'Plan', render: (r) => <Badge label={r.plan} tone={r.plan === 'Enterprise' ? 'violet' : r.plan === 'Growth' ? 'blue' : 'slate'} /> },
   { key: 'users', label: 'Users', sortValue: (r) => r.users, className: 'text-slate-400' },
   { key: 'systems', label: 'Systems', sortValue: (r) => r.systems, className: 'text-slate-400' },

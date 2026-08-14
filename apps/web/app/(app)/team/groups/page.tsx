@@ -1,9 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import { Users } from 'lucide-react';
-import { PageHeader, PrimaryButton } from '@/components/ui/page-header';
+import { PageHeader } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
-import { Badge, toneForStatus } from '@/components/ui/badge';
-import { memberGroups } from '@/components/platform/team-data';
+import { Badge } from '@/components/ui/badge';
+import { memberGroups, type MemberGroup } from '@/components/platform/team-data';
+import QuickCreateModal from '@/components/ui/quick-create-modal';
 
 const typeTone: Record<string, 'blue' | 'green' | 'violet' | 'amber'> = {
   Security: 'blue',
@@ -13,7 +17,10 @@ const typeTone: Record<string, 'blue' | 'green' | 'violet' | 'amber'> = {
 };
 
 export default function Page() {
-  const totalMembers = memberGroups.reduce((a, g) => a + g.members, 0);
+  const [groups, setGroups] = useState<MemberGroup[]>(memberGroups);
+  const [createOpen, setCreateOpen] = useState(false);
+
+  const totalMembers = groups.reduce((a, g) => a + g.members, 0);
 
   return (
     <div className="space-y-8">
@@ -21,17 +28,25 @@ export default function Page() {
         eyebrow="Platform"
         title="Groups"
         description="Group members into teams for easier permission assignment and review."
-        actions={<PrimaryButton href="/team/groups">Create Group</PrimaryButton>}
+        actions={
+          <button
+            type="button"
+            onClick={() => setCreateOpen(true)}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-sentinel-500 px-5 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400 sm:text-sm"
+          >
+            Create Group
+          </button>
+        }
       />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        <StatCard label="Groups" value={memberGroups.length} icon={Users} accent="sky" sub="Organization teams" />
+        <StatCard label="Groups" value={groups.length} icon={Users} accent="sky" sub="Organization teams" />
         <StatCard label="Group Members" value={totalMembers} icon={Users} accent="cyan" sub="Across all groups" />
-        <StatCard label="SCIM Managed" value={memberGroups.filter((g) => g.managed).length} icon={Users} accent="green" sub="Provisioned via SSO" />
+        <StatCard label="SCIM Managed" value={groups.filter((g) => g.managed).length} icon={Users} accent="green" sub="Provisioned via SSO" />
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {memberGroups.map((g) => (
+        {groups.map((g) => (
           <Card key={g.id}>
             <CardHeader
               title={g.name}
@@ -58,6 +73,33 @@ export default function Page() {
           </Card>
         ))}
       </div>
+
+      <QuickCreateModal
+        open={createOpen}
+        onClose={() => setCreateOpen(false)}
+        title="Create group"
+        description="New groups start empty — add members from the group detail later."
+        fields={[
+          { name: 'name', label: 'Group name', placeholder: 'e.g. Platform Security' },
+          { name: 'type', label: 'Group type', type: 'select', options: ['Security', 'Data', 'Engineering', 'Executive'], defaultValue: 'Engineering' }
+        ]}
+        submitLabel="Create group"
+        onCreate={(values) => {
+          setGroups((prev) => [
+            ...prev,
+            {
+              id: `grp-${Date.now()}`,
+              name: values.name,
+              description: 'Newly created group',
+              type: values.type as MemberGroup['type'],
+              members: 0,
+              role: 'VIEWER',
+              managed: false,
+              createdAt: new Date().toISOString().slice(0, 10)
+            }
+          ]);
+        }}
+      />
     </div>
   );
 }

@@ -13,6 +13,9 @@ export default function Page() {
   const [sessionTimeout, setSessionTimeout] = useState('8');
   const [concurrentSessions, setConcurrentSessions] = useState(false);
   const [ipRestrictions, setIpRestrictions] = useState(false);
+  const [emailPassword, setEmailPassword] = useState(true);
+  const [ssoEnabled, setSsoEnabled] = useState(true);
+  const [passkeys, setPasskeys] = useState(false);
 
   return (
     <div className="space-y-6">
@@ -56,9 +59,9 @@ export default function Page() {
 
       <SectionCard title="Login methods" description="Which sign-in flows members can use.">
         <div className="space-y-2.5">
-          <Toggle label="Email + password" hint="Standard credential sign-in" checked onChange={() => {}} />
-          <Toggle label="SSO (SAML/OIDC)" hint="Okta, Azure AD and Google Workspace" checked onChange={() => {}} />
-          <Toggle label="Passkeys / WebAuthn" hint="Platform authenticators and security keys" checked={false} onChange={() => {}} />
+          <Toggle label="Email + password" hint="Standard credential sign-in" checked={emailPassword} onChange={setEmailPassword} />
+          <Toggle label="SSO (SAML/OIDC)" hint="Okta, Azure AD and Google Workspace" checked={ssoEnabled} onChange={setSsoEnabled} />
+          <Toggle label="Passkeys / WebAuthn" hint="Platform authenticators and security keys" checked={passkeys} onChange={setPasskeys} />
         </div>
       </SectionCard>
 

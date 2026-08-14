@@ -12,6 +12,8 @@ export default function Page() {
   const [defaultTimeout, setDefaultTimeout] = useState('30');
   const [corsOrigin, setCorsOrigin] = useState('https://app.nexora.io');
   const [v2Preview, setV2Preview] = useState(false);
+  const [strictValidation, setStrictValidation] = useState(true);
+  const [redactErrors, setRedactErrors] = useState(true);
   const [ipAllowlist, setIpAllowlist] = useState('10.0.0.0/8\n172.16.0.0/12');
 
   return (
@@ -61,8 +63,8 @@ export default function Page() {
       <SectionCard title="Versioning & previews" description="API surface controls.">
         <div className="space-y-2.5">
           <Toggle label="Enable v2 preview endpoints" hint="Opt into the streaming proxy and MCP surface" checked={v2Preview} onChange={setV2Preview} />
-          <Toggle label="Strict schema validation" hint="Reject unknown fields with 422 responses" checked onChange={() => {}} />
-          <Toggle label="Redact error internals" hint="Hide stack traces in error responses" checked onChange={() => {}} />
+          <Toggle label="Strict schema validation" hint="Reject unknown fields with 422 responses" checked={strictValidation} onChange={setStrictValidation} />
+          <Toggle label="Redact error internals" hint="Hide stack traces in error responses" checked={redactErrors} onChange={setRedactErrors} />
         </div>
       </SectionCard>
 

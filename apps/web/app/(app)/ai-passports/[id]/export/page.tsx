@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { StatCard } from '@/components/ui/stat-card';
 import { PassportHeader, PassportSubnav } from '@/components/data-intel/passport-shared';
 import { PassportActivity } from '@/components/data-intel/passport-shared';
+import PassportExportActions from '@/components/data-intel/passport-export-actions';
 import { resolvePassport } from '@/components/data-intel/derived';
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
@@ -38,7 +39,10 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                     <p className="text-[0.65rem] text-slate-400">{f.note}</p>
                   </div>
                 </div>
-                <Badge label="Available" tone="green" />
+                  <div className="flex items-center gap-2">
+                    <Badge label="Available" tone="green" />
+                    <PassportExportActions passportId={p.id} systemName={p.name} />
+                  </div>
               </div>
             ))}
           </CardBody>

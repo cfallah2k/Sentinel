@@ -7,16 +7,57 @@ import { Badge } from '@/components/ui/badge';
 import { SectionCard, Field, SelectInput } from '@/components/platform/settings-form';
 import { ProgressBar } from '@/components/ui/progress';
 
-const exports = [
+type ExportRow = {
+  id: string;
+  name: string;
+  type: string;
+  requested: string;
+  status: string;
+  size: string;
+};
+
+const initialExports: ExportRow[] = [
   { id: 'ex-1', name: 'audit-logs-2026-08.ndjson', type: 'NDJSON', requested: '2026-08-12 09:14', status: 'Ready', size: '4.2 MB' },
   { id: 'ex-2', name: 'org-config-2026-08.json', type: 'JSON', requested: '2026-08-11 16:02', status: 'Ready', size: '1.8 MB' },
   { id: 'ex-3', name: 'usage-2026-07.csv', type: 'CSV', requested: '2026-08-01 07:30', status: 'Ready', size: '860 KB' },
   { id: 'ex-4', name: 'full-export-2026-07.zip', type: 'ZIP', requested: '2026-07-28 11:45', status: 'Processing', size: '—' }
 ];
 
+function downloadExport(name: string) {
+  const blob = new Blob([`Sentinel export: ${name}\nGenerated ${new Date().toISOString()}\n`], {
+    type: 'application/octet-stream'
+  });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
 export default function Page() {
   const [scope, setScope] = useState('all');
   const [format, setFormat] = useState('zip');
+  const [exports, setExports] = useState<ExportRow[]>(initialExports);
+  const [requested, setRequested] = useState(false);
+
+  const handleRequest = () => {
+    const ext = format === 'ndjson' ? 'ndjson' : format;
+    setExports((prev) => [
+      {
+        id: `ex-${Date.now()}`,
+        name: `${scope}-${new Date().toISOString().slice(0, 10)}.${ext}`,
+        type: format.toUpperCase(),
+        requested: new Date().toLocaleString('en-US', { hour12: false }),
+        status: 'Processing',
+        size: '—'
+      },
+      ...prev
+    ]);
+    setRequested(true);
+  };
 
   return (
     <div className="space-y-8">
@@ -38,10 +79,14 @@ export default function Page() {
           </div>
           <button
             type="button"
+            onClick={handleRequest}
             className="mt-5 inline-flex items-center gap-2 rounded-full bg-sentinel-500 px-5 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400"
           >
             <Download className="h-4 w-4" /> Request export
           </button>
+          {requested ? (
+            <p className="mt-3 text-[0.65rem] font-semibold text-emerald-400">Export requested — you'll be emailed when it's ready.</p>
+          ) : null}
         </SectionCard>
 
         <SectionCard title="Current export" description="Active job progress.">
@@ -69,7 +114,17 @@ export default function Page() {
                   <p className="text-[0.65rem] text-slate-500">{e.requested} · {e.size}</p>
                 </div>
               </div>
-              <Badge label={e.status} tone={e.status === 'Ready' ? 'green' : 'amber'} />
+              {e.status === 'Ready' ? (
+                <button
+                  type="button"
+                  onClick={() => downloadExport(e.name)}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-sentinel-500/30 bg-sentinel-500/10 px-3 py-1.5 text-[0.65rem] font-semibold text-sentinel-300 transition hover:bg-sentinel-500/20"
+                >
+                  <Download className="h-3 w-3" size={12} /> Download
+                </button>
+              ) : (
+                <Badge label={e.status} tone={e.status === 'Ready' ? 'green' : 'amber'} />
+              )}
             </div>
           ))}
         </div>

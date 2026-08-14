@@ -1,9 +1,10 @@
 import { AlertTriangle, CheckCircle2, FileText, Scale, ShieldCheck } from 'lucide-react';
-import { PageHeader } from '@/components/ui/page-header';
+import { PageHeader, PrimaryButton } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge, toneForStatus } from '@/components/ui/badge';
 import { DataTable, type Column } from '@/components/ui/data-table';
+import ExportCsvButton from '@/components/ui/export-button';
 import FrameworkCard from '@/components/governance/framework-card';
 import {
   complianceFrameworks,
@@ -62,6 +63,15 @@ export default function Page() {
         eyebrow="Governance"
         title="Compliance Management"
         description="Framework coverage, control implementation, evidence collection and gap remediation across all standards."
+        actions={[
+          <ExportCsvButton
+            key="evidence"
+            label="Export evidence"
+            filename="compliance-evidence"
+            rows={complianceEvidence.map((e) => ({ id: e.id, title: e.title, type: e.type, uploadedBy: e.uploadedBy, date: e.date, status: e.status }))}
+          />,
+          <PrimaryButton key="assess" href="/risk/create-assessment">Run Assessment</PrimaryButton>
+        ]}
       />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard label="Frameworks" value={complianceFrameworks.length} delta={1} deltaLabel="added this year" icon={Scale} accent="violet" />

@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import { ArrowRightLeft, Search } from 'lucide-react';
+import Link from 'next/link';
 import { PageHeader } from '@/components/ui/page-header';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge, toneForStatus } from '@/components/ui/badge';
@@ -55,7 +56,7 @@ export default function Page() {
       body: (
         <div className="space-y-3">
           {systems.map((s) => (
-            <div key={s.id} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4">
+            <Link key={s.id} href={`/ai-systems/${s.id}`} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:border-sentinel-500/30 hover:bg-white/[0.04]">
               <div className="min-w-0">
                 <p className="text-xs font-semibold text-white">{s.name}</p>
                 <p className="mt-0.5 line-clamp-1 text-[0.65rem] text-slate-400">{s.purpose}</p>
@@ -66,7 +67,7 @@ export default function Page() {
                 <Badge label={s.status} tone={toneForStatus(s.status)} />
                 <Badge label={s.risk} tone={toneForStatus(s.risk)} />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )
@@ -78,14 +79,14 @@ export default function Page() {
       body: (
         <div className="space-y-3">
           {matchedPolicies.map((p) => (
-            <div key={p.id} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4">
+            <Link key={p.id} href={`/policies/${p.id}`} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:border-sentinel-500/30 hover:bg-white/[0.04]">
               <div className="min-w-0">
                 <p className="text-xs font-semibold text-white">{p.name}</p>
                 <p className="mt-0.5 line-clamp-1 text-[0.65rem] text-slate-400">{p.description}</p>
                 <p className="mt-0.5 text-[0.65rem] text-slate-500">{p.scope} · {p.decisions.join(' + ')}</p>
               </div>
               <Badge label={p.status} tone={toneForStatus(p.status)} />
-            </div>
+            </Link>
           ))}
         </div>
       )
@@ -97,7 +98,7 @@ export default function Page() {
       body: (
         <div className="space-y-3">
           {matchedIncidents.map((i) => (
-            <div key={i.id} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4">
+            <Link key={i.id} href={`/incidents/${i.id}`} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:border-sentinel-500/30 hover:bg-white/[0.04]">
               <div className="min-w-0">
                 <p className="text-xs font-semibold text-white">
                   <span className="font-mono text-sentinel-300">{i.id}</span> · {i.title}
@@ -110,7 +111,7 @@ export default function Page() {
                 <Badge label={i.severity} tone={toneForStatus(i.severity)} />
                 <Badge label={i.status} tone={toneForStatus(i.status)} />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )
@@ -122,7 +123,7 @@ export default function Page() {
       body: (
         <div className="space-y-3">
           {flows.map((f) => (
-            <div key={f.id} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4">
+            <Link key={f.id} href={`/data-flows/${f.id}`} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:border-sentinel-500/30 hover:bg-white/[0.04]">
               <div className="min-w-0">
                 <p className="flex items-center gap-1.5 text-xs font-semibold text-white">
                   {f.source}
@@ -135,7 +136,7 @@ export default function Page() {
                 <Badge label={f.decision} tone={toneForStatus(f.decision)} />
                 <Badge label={f.risk} tone={toneForStatus(f.risk)} />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )
@@ -147,7 +148,7 @@ export default function Page() {
       body: (
         <div className="space-y-3">
           {people.map((m) => (
-            <div key={m.id} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4">
+            <Link key={m.id} href={`/team/members/${m.id}`} className="flex items-start justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition hover:border-sentinel-500/30 hover:bg-white/[0.04]">
               <div className="min-w-0">
                 <p className="text-xs font-semibold text-white">{m.name}</p>
                 <p className="mt-0.5 text-[0.65rem] text-slate-400">{m.email}</p>
@@ -157,7 +158,7 @@ export default function Page() {
                 <Badge label={m.role.replace('_', ' ')} tone="slate" />
                 <Badge label={m.status} tone={toneForStatus(m.status)} />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )

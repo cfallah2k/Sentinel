@@ -1,11 +1,12 @@
 import { AlertCircle, CheckCircle2, Clock, PlusCircle, SearchCheck, ShieldAlert, Siren } from 'lucide-react';
-import { PageHeader, PrimaryButton, SecondaryButton } from '@/components/ui/page-header';
+import { PageHeader, PrimaryButton } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { BarSeries, DonutChart } from '@/components/ui/charts';
 import { ModuleNav } from '@/components/governance/module-nav';
 import { IncidentTable } from '@/components/enforcement/tables';
 import { incidentCounts, incidentNavItems, severityDonut } from '@/components/enforcement/helpers';
+import ExportCsvButton from '@/components/ui/export-button';
 import { dailySeries, incidents } from '@/lib/mock-data';
 
 export default function Page() {
@@ -19,7 +20,19 @@ export default function Page() {
         description="Security events across AI traffic — triage, investigate and resolve."
         actions={[
           <PrimaryButton key="report" href="/incidents/create">Report Incident</PrimaryButton>,
-          <SecondaryButton key="export" href="/incidents">Export</SecondaryButton>
+          <ExportCsvButton
+            key="export"
+            label="Export"
+            filename="incidents"
+            rows={incidents.map((i) => ({
+              id: i.id,
+              title: i.title,
+              severity: i.severity,
+              status: i.status,
+              system: i.systemId ?? '',
+              reported: i.openedAt
+            }))}
+          />
         ]}
       />
       <ModuleNav items={incidentNavItems} active="/incidents" />

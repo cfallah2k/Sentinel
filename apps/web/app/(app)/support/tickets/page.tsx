@@ -1,6 +1,6 @@
 import { Ticket } from 'lucide-react';
 import Link from 'next/link';
-import { PageHeader } from '@/components/ui/page-header';
+import { PageHeader, PrimaryButton } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { DataTable, type Column } from '@/components/ui/data-table';
@@ -39,6 +39,7 @@ export default function Page() {
         eyebrow="Support"
         title="Tickets"
         description="Track every request your organization has sent."
+        actions={<PrimaryButton href="/support/contact">New ticket</PrimaryButton>}
       />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">

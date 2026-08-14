@@ -63,7 +63,7 @@ export const systemsColumns: Column<AiSystemRow>[] = [
     key: 'name',
     label: 'System',
     render: (r) => (
-      <Link href={`/government/ai-systems/${r.id}`} className="font-semibold text-white transition hover:text-sentinel-300">
+      <Link href={`/government/ai-registry/${r.id}`} className="font-semibold text-white transition hover:text-sentinel-300">
         {r.name}
       </Link>
     )

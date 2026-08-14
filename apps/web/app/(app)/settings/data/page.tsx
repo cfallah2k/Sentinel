@@ -13,6 +13,7 @@ export default function Page() {
   const [minimizeData, setMinimizeData] = useState(true);
   const [pseudonymize, setPseudonymize] = useState(false);
   const [logContent, setLogContent] = useState(false);
+  const [customerKeys, setCustomerKeys] = useState(false);
 
   return (
     <div className="space-y-6">
@@ -28,7 +29,7 @@ export default function Page() {
           <div className="space-y-2.5">
             <Toggle label="Encrypt at rest" hint="AES-256 with per-org keys" checked={encryptAtRest} onChange={setEncryptAtRest} />
             <Toggle label="Encrypt in transit" hint="TLS 1.3 enforced" checked={encryptInTransit} onChange={setEncryptInTransit} />
-            <Toggle label="Customer-managed keys" hint="Bring your own KMS key" checked={false} onChange={() => {}} />
+            <Toggle label="Customer-managed keys" hint="Bring your own KMS key" checked={customerKeys} onChange={setCustomerKeys} />
           </div>
         </SectionCard>
 

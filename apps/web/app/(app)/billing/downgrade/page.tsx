@@ -1,10 +1,14 @@
-import { ArrowDown } from 'lucide-react';
+'use client';
+
+import { useState } from 'react';
+import { ArrowDown, CheckCircle2 } from 'lucide-react';
 import { PageHeader } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { PlanCard } from '@/components/platform/plan-card';
 import { billingPlans } from '@/lib/mock-data';
+import ConfirmDialog from '@/components/ui/confirm-dialog';
 
 const losses = [
   'SSO + SCIM provisioning',
@@ -15,6 +19,8 @@ const losses = [
 
 export default function Page() {
   const growth = billingPlans.find((p) => p.id === 'plan-growth')!;
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const [scheduled, setScheduled] = useState(false);
 
   return (
     <div className="space-y-8">
@@ -54,10 +60,32 @@ export default function Page() {
       </div>
 
       <div className="flex justify-end">
-        <button type="button" className="rounded-full border border-amber-500/30 bg-amber-500/10 px-6 py-3 text-xs font-semibold text-amber-300 transition hover:bg-amber-500/20">
-          Schedule downgrade for Sep 1
-        </button>
+        {scheduled ? (
+          <div className="flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-5 py-3 text-xs font-semibold text-emerald-300">
+            <CheckCircle2 className="h-4 w-4" /> Downgrade to Growth scheduled for Sep 1
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setConfirmOpen(true)}
+            className="rounded-full border border-amber-500/30 bg-amber-500/10 px-6 py-3 text-xs font-semibold text-amber-300 transition hover:bg-amber-500/20"
+          >
+            Schedule downgrade for Sep 1
+          </button>
+        )}
       </div>
+
+      <ConfirmDialog
+        open={confirmOpen}
+        onClose={() => setConfirmOpen(false)}
+        onConfirm={() => {
+          setScheduled(true);
+          setConfirmOpen(false);
+        }}
+        title="Schedule downgrade to Growth?"
+        description="will take effect on Sep 1. Features above are disabled at that time."
+        confirmLabel="Schedule downgrade"
+      />
     </div>
   );
 }

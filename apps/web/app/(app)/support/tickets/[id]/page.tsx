@@ -12,8 +12,23 @@ type Params = Promise<{ id: string }>;
 export default function Page({ params }: { params: Params }) {
   const { id } = use(params);
   const ticket = supportTickets.find((t) => t.id === id) ?? supportTickets[0];
-  const messages = ticketConversations[ticket.id] ?? [];
+  const [messages, setMessages] = useState(ticketConversations[ticket.id] ?? []);
   const [draft, setDraft] = useState('');
+
+  const handleSend = () => {
+    const body = draft.trim();
+    if (!body) return;
+    setMessages((prev) => [
+      ...prev,
+      {
+        author: 'Amara Okafor',
+        role: 'Member',
+        time: new Date().toISOString(),
+        body
+      }
+    ]);
+    setDraft('');
+  };
 
   return (
     <div className="space-y-6">
@@ -64,6 +79,7 @@ export default function Page({ params }: { params: Params }) {
                 <button
                   type="button"
                   disabled={!draft.trim()}
+                  onClick={handleSend}
                   className="inline-flex shrink-0 items-center gap-2 rounded-full bg-sentinel-500 px-5 py-3 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400 disabled:opacity-40"
                 >
                   <Send className="h-4 w-4" /> Send

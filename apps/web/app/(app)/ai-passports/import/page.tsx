@@ -1,9 +1,10 @@
-import { FileUp, FileCheck2, ShieldCheck } from 'lucide-react';
+import { FileUp, FileCheck2, ShieldCheck, Upload } from 'lucide-react';
 import { PageHeader, SecondaryButton } from '@/components/ui/page-header';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { StatCard } from '@/components/ui/stat-card';
 import { PassportNav, PassportTable } from '@/components/data-intel/passport-shared';
+import ImportRunner from '@/components/data-intel/import-runner';
 import { passports } from '@/components/data-intel/derived';
 
 export default function Page() {
@@ -16,6 +17,7 @@ export default function Page() {
         actions={<SecondaryButton href="/ai-passports/create">Create manually</SecondaryButton>}
       />
       <PassportNav active="Import" />
+      <ImportRunner />
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard label="Last import" value="2026-08-10" icon={FileUp} accent="sky" sub="18 declarations staged" />
         <StatCard label="Validated" value="16" icon={FileCheck2} accent="green" sub="Passed schema checks" />

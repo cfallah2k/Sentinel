@@ -1,10 +1,10 @@
 import { CheckCircle2, FileWarning, ShieldCheck, Timer } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
-import { ProgressBar } from '@/components/ui/progress';
 import { StatCard } from '@/components/ui/stat-card';
 import { EntityHeader, DetailNav } from '@/components/registry/entity-header';
 import { SeverityBadge } from '@/components/enforcement/badges';
+import ResolutionTracker from '@/components/enforcement/resolution-tracker';
 import { incidentActions, incidentById, incidentNav } from '@/components/enforcement/helpers';
 import { incidents } from '@/lib/mock-data';
 
@@ -35,29 +35,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
         <StatCard label="SLA" value={`${inc.slaHours}h`} icon={Timer} accent="violet" />
       </div>
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-        <Card>
-          <CardHeader title="Remediation status" subtitle="Tracked actions toward closure" />
-          <CardBody className="space-y-4">
-            <div>
-              <div className="mb-2 flex items-center justify-between text-[0.65rem]">
-                <span className="uppercase tracking-wider text-slate-500">Completed</span>
-                <span className="font-semibold text-slate-300">{done} of {actions.length}</span>
-              </div>
-              <ProgressBar value={pct} color={pct === 100 ? 'bg-emerald-400' : pct >= 60 ? 'bg-amber-400' : 'bg-rose-400'} />
-            </div>
-            <div className="space-y-2">
-              {actions.map((a) => (
-                <div key={a.id} className="flex items-center justify-between gap-3 rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3">
-                  <div className="min-w-0">
-                    <p className="text-xs font-medium text-white">{a.title}</p>
-                    <p className="mt-0.5 text-[0.65rem] text-slate-500">{a.owner}</p>
-                  </div>
-                  <Badge label={a.status} tone={a.status === 'Done' ? 'green' : a.status === 'In Progress' ? 'amber' : 'sky'} />
-                </div>
-              ))}
-            </div>
-          </CardBody>
-        </Card>
+        <ResolutionTracker actions={actions} incidentId={inc.id} />
         <Card>
           <CardHeader title="Resolution record" subtitle="Closure notes" />
           <CardBody className="space-y-3">

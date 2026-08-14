@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Plus, ShieldCheck, Trash2 } from '
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ProgressBar } from '@/components/ui/progress';
+import ConfirmDialog from '@/components/ui/confirm-dialog';
 import { DecisionBadge } from './badges';
 import { policies, aiSystems, approvals } from '@/lib/mock-data';
 import { policyById, rulesForPolicy } from './helpers';
@@ -656,6 +657,7 @@ export function PolicySettingsForm({ policyId }: { policyId: string }) {
 export function ApprovalDecisionPanel({ approvalId }: { approvalId: string }) {
   const approval = approvals.find((a) => a.id === approvalId) ?? approvals[0];
   const [decision, setDecision] = useState<'Pending' | 'Approved' | 'Denied'>(approval.status === 'Pending' ? 'Pending' : approval.status === 'Approved' ? 'Approved' : 'Denied');
+  const [confirm, setConfirm] = useState<'Approved' | 'Denied' | null>(null);
 
   return (
     <Card>
@@ -670,14 +672,14 @@ export function ApprovalDecisionPanel({ approvalId }: { approvalId: string }) {
             <div className="flex flex-wrap gap-3">
               <button
                 type="button"
-                onClick={() => setDecision('Approved')}
+                onClick={() => setConfirm('Approved')}
                 className="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-emerald-400"
               >
                 <CheckCircle2 size={14} /> Approve
               </button>
               <button
                 type="button"
-                onClick={() => setDecision('Denied')}
+                onClick={() => setConfirm('Denied')}
                 className="inline-flex items-center gap-2 rounded-full bg-rose-500 px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-rose-400"
               >
                 Deny
@@ -693,6 +695,21 @@ export function ApprovalDecisionPanel({ approvalId }: { approvalId: string }) {
           </div>
         )}
       </CardBody>
+      <ConfirmDialog
+        open={confirm !== null}
+        onClose={() => setConfirm(null)}
+        onConfirm={() => {
+          if (confirm) setDecision(confirm);
+          setConfirm(null);
+        }}
+        title={confirm === 'Approved' ? 'Approve this request?' : 'Deny this request?'}
+        description={
+          confirm === 'Approved'
+            ? 'grants the requester access and is written to the audit trail.'
+            : 'rejects the request and notifies the requester.'
+        }
+        confirmLabel={confirm === 'Approved' ? 'Approve' : 'Deny'}
+      />
     </Card>
   );
 }

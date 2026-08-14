@@ -1,26 +1,21 @@
+'use client';
+
+import { useState } from 'react';
 import { Webhook } from 'lucide-react';
 import Link from 'next/link';
-import { PageHeader, PrimaryButton } from '@/components/ui/page-header';
+import { PageHeader } from '@/components/ui/page-header';
 import { StatCard } from '@/components/ui/stat-card';
 import { Card, CardBody, CardHeader } from '@/components/ui/card';
 import { DataTable, type Column } from '@/components/ui/data-table';
 import { Badge, toneForStatus } from '@/components/ui/badge';
-import { webhookEndpoints, fmtRelative } from '@/components/platform/developer-data';
-
-type Row = {
-  id: string;
-  name: string;
-  url: string;
-  events: string[];
-  status: string;
-  deliveryRate: number;
-  lastDelivery: string;
-};
+import { webhookEndpoints, fmtRelative, type WebhookEndpoint } from '@/components/platform/developer-data';
+import QuickCreateModal from '@/components/ui/quick-create-modal';
 
 export default function Page() {
-  const rows: Row[] = webhookEndpoints.map((w) => ({ ...w }));
+  const [rows, setRows] = useState<WebhookEndpoint[]>(webhookEndpoints);
+  const [createOpen, setCreateOpen] = useState(false);
 
-  const columns: Column<Row>[] = [
+  const columns: Column<WebhookEndpoint>[] = [
     {
       key: 'name',
       label: 'Endpoint',
@@ -51,12 +46,20 @@ export default function Page() {
         eyebrow="Platform"
         title="Webhooks"
         description="Outbound event delivery with signing, retries and delivery analytics."
-        actions={<PrimaryButton href="/developer-portal/webhooks/wh-1">Add Endpoint</PrimaryButton>}
+        actions={
+          <button
+            type="button"
+            onClick={() => setCreateOpen(true)}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-sentinel-500 px-5 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400 sm:text-sm"
+          >
+            Add Endpoint
+          </button>
+        }
       />
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Endpoints" value={webhookEndpoints.length} icon={Webhook} accent="sky" sub="Registered" />
-        <StatCard label="Delivering" value={webhookEndpoints.filter((w) => w.status === 'Active').length} icon={Webhook} accent="green" sub="Active endpoints" />
+        <StatCard label="Endpoints" value={rows.length} icon={Webhook} accent="sky" sub="Registered" />
+        <StatCard label="Delivering" value={rows.filter((w) => w.status === 'Active').length} icon={Webhook} accent="green" sub="Active endpoints" />
         <StatCard label="Avg Delivery Rate" value="98.4%" icon={Webhook} accent="cyan" sub="7-day window" />
         <StatCard label="Events (24h)" value="12,401" icon={Webhook} accent="violet" sub="Delivered and retried" />
       </div>
@@ -81,6 +84,32 @@ export default function Page() {
           </div>
         </CardBody>
       </Card>
+
+      <QuickCreateModal
+        open={createOpen}
+        onClose={() => setCreateOpen(false)}
+        title="Add webhook endpoint"
+        description="Deliveries start once the endpoint is verified with a ping."
+        fields={[
+          { name: 'name', label: 'Endpoint name', placeholder: 'e.g. SOC Alert Fanout' },
+          { name: 'url', label: 'Endpoint URL', placeholder: 'https://hooks.example.com/events' }
+        ]}
+        submitLabel="Add endpoint"
+        onCreate={(values) => {
+          setRows((prev) => [
+            {
+              id: `wh-${Date.now()}`,
+              name: values.name,
+              url: values.url,
+              events: ['incident.created'],
+              status: 'Active',
+              deliveryRate: 100,
+              lastDelivery: '2026-08-13T09:00:00Z'
+            },
+            ...prev
+          ]);
+        }}
+      />
     </div>
   );
 }
