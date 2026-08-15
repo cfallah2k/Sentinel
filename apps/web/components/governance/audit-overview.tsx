@@ -8,7 +8,7 @@ function Attribute({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">{label}</p>
-      <p className="mt-1 text-sm text-white">{value}</p>
+      <p className="mt-1 break-all text-sm text-white">{value}</p>
     </div>
   );
 }

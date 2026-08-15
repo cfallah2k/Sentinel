@@ -67,7 +67,7 @@ export default function HomePage() {
                 Talk to sales
               </Link>
             </div>
-            <div className="grid grid-cols-3 gap-2 text-xs text-slate-400 sm:gap-3 sm:text-sm">
+            <div className="grid grid-cols-3 gap-2 text-[0.6rem] leading-tight text-slate-400 sm:gap-3 sm:text-sm">
               <span>Policy coverage for AI / ML</span>
               <span>Continuous risk detection</span>
               <span>Audit-ready reporting</span>

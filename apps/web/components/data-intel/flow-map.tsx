@@ -23,10 +23,10 @@ export function FlowMap({ flows }: { flows: FlowRow[] }) {
         subtitle={`${flows.length} routes connecting ${sources} sources to ${destinations} AI systems`}
       />
       <CardBody>
-        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/80 p-4 sm:p-6">
+        <div className="relative overflow-x-auto rounded-2xl border border-white/10 bg-slate-950/80 p-4 sm:p-6">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(56,189,248,0.1),transparent_60%)]" />
           <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(148,163,184,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.05)_1px,transparent_1px)] [background-size:32px_32px]" />
-          <div className="relative space-y-3">
+          <div className="relative min-w-[28rem] space-y-3">
             {visible.map((f) => (
               <Link
                 key={f.id}

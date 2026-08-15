@@ -104,7 +104,7 @@ export default function MfaVerifyPage() {
                 onKeyDown={(e) => onKeyDown(i, e)}
                 onPaste={onPaste}
                 aria-label={`Digit ${i + 1}`}
-                className="h-14 w-12 rounded-2xl border border-white/10 bg-slate-950/75 text-center font-mono text-lg text-white outline-none transition focus:border-sentinel-500/60 focus:ring-2 focus:ring-sentinel-500/15"
+                className="h-14 min-w-0 flex-1 rounded-2xl border border-white/10 bg-slate-950/75 text-center font-mono text-lg text-white outline-none transition focus:border-sentinel-500/60 focus:ring-2 focus:ring-sentinel-500/15 max-w-[3.5rem]"
               />
             ))}
           </div>

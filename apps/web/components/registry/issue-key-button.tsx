@@ -11,7 +11,7 @@ export default function IssueKeyButton({ appName }: { appName: string }) {
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <button
           type="button"
           onClick={() => setOpen(true)}
@@ -23,7 +23,7 @@ export default function IssueKeyButton({ appName }: { appName: string }) {
       </div>
 
       {issued.length > 0 ? (
-        <div className="overflow-hidden rounded-2xl border border-white/10">
+        <div className="overflow-x-auto rounded-2xl border border-white/10">
           <table className="w-full text-left text-xs">
             <thead>
               <tr className="border-b border-white/10 bg-white/[0.03] text-[0.65rem] uppercase tracking-[0.15em] text-slate-500">

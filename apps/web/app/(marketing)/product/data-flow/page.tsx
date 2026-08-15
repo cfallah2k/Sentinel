@@ -88,7 +88,7 @@ export default function DataFlowPage() {
                 'simulated · trace.recorded · source to inference · evt-…'
               ]}
             />
-            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
               {[
                 { label: 'Flows active', value: '0' },
                 { label: 'Sensitive', value: '0' },

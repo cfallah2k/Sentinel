@@ -126,7 +126,7 @@ export default function ProductPage() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
               {[
                 { label: 'Policies', value: '0' },
                 { label: 'Flows traced', value: '0' },

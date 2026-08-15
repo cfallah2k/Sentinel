@@ -81,7 +81,7 @@ export default function PolicyEnginePage() {
               'simulated · eval pol-9 · shadow · redact · 12ms'
             ]}
           />
-          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
             {stats.map(({ label, value }) => (
               <div key={label} className="rounded-2xl bg-slate-950/90 p-3 text-center">
                 <p className="text-sm font-semibold text-white sm:text-base">{value}</p>

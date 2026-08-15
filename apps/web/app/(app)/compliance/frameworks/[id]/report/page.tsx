@@ -59,7 +59,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
             value={framework.progress}
             color={framework.status === 'Behind' ? 'bg-rose-400' : framework.status === 'At Risk' ? 'bg-amber-400' : 'bg-sky-400'}
           />
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-4">
             {[
               { label: 'Controls', value: framework.controls },
               { label: 'Passed', value: framework.passed },

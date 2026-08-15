@@ -19,7 +19,7 @@ export default function AuditEventHeader({ log, active }: { log: AuditLog; activ
         <div>
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-sentinel-300">Governance · Audit</p>
           <h1 className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{log.action}</h1>
-          <p className="mt-2 text-sm leading-6 text-slate-400">
+          <p className="mt-2 break-words text-sm leading-6 text-slate-400">
             {log.id} · {log.timestamp.slice(0, 16).replace('T', ' ')} UTC · <span className="text-slate-300">{log.resource}</span>
           </p>
         </div>

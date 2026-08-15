@@ -121,7 +121,7 @@ export default function ReportRecipientsForm({ report }: { report: Report }) {
               <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white transition-all ${digest ? 'left-[22px]' : 'left-0.5'}`} />
             </button>
           </div>
-          <div className="flex items-center justify-between border-t border-white/5 pt-5">
+          <div className="flex flex-col gap-3 border-t border-white/5 pt-5 sm:flex-row sm:items-center sm:justify-between">
             <p className={`text-[0.65rem] ${saved ? 'font-semibold text-emerald-300' : 'text-slate-500'}`}>
               {saved ? 'Recipients updated' : 'Changes apply to the next run'}
             </p>

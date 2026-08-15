@@ -70,7 +70,7 @@ export default function Page() {
               <div key={g.id} className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <p className="truncate text-xs font-medium text-slate-200">{g.title}</p>
-                  <p className="mt-0.5 text-[0.65rem] text-slate-500">
+                  <p className="mt-0.5 truncate text-[0.65rem] text-slate-500">
                     {frameworkName.get(g.frameworkId) ?? g.frameworkId} · {g.owner} · due {g.due}
                   </p>
                 </div>

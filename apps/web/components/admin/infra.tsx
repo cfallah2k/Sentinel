@@ -60,11 +60,11 @@ export function ServiceList({ services = defaultServices }: { services?: { name:
   return (
     <div className="divide-y divide-white/5">
       {services.map((s) => (
-        <div key={s.name} className="flex items-center gap-3 px-5 py-3.5 text-xs sm:px-6">
+        <div key={s.name} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3.5 text-xs sm:px-6">
           <StatusDot tone={s.tone} />
-          <span className="w-48 shrink-0 font-semibold text-white">{s.name}</span>
+          <span className="min-w-0 flex-1 truncate font-semibold text-white">{s.name}</span>
           <span className={`shrink-0 font-medium ${s.tone === 'green' ? 'text-emerald-300' : s.tone === 'amber' ? 'text-amber-300' : 'text-rose-300'}`}>{s.status}</span>
-          <span className="ml-auto text-slate-400">{s.detail}</span>
+          <span className="shrink-0 text-slate-400">{s.detail}</span>
         </div>
       ))}
     </div>
@@ -109,12 +109,12 @@ export function WorkerList({ workers = defaultWorkers }: { workers?: { name: str
   return (
     <div className="divide-y divide-white/5">
       {workers.map((w) => (
-        <div key={w.name} className="flex items-center gap-3 px-5 py-3.5 text-xs sm:px-6">
+        <div key={w.name} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-5 py-3.5 text-xs sm:px-6">
           <StatusDot tone={w.tone} />
-          <span className="font-mono text-sky-300">{w.name}</span>
-          <span className="text-slate-400">{w.queue}</span>
-          <span className="ml-auto text-slate-400">{w.jobs} active jobs</span>
-          <span className={`w-20 text-right font-medium ${w.tone === 'green' ? 'text-emerald-300' : w.tone === 'amber' ? 'text-amber-300' : 'text-rose-300'}`}>{w.status}</span>
+          <span className="min-w-0 flex-1 truncate font-mono text-sky-300">{w.name}</span>
+          <span className="shrink-0 text-slate-400">{w.queue}</span>
+          <span className="ml-auto shrink-0 text-slate-400">{w.jobs} active jobs</span>
+          <span className={`shrink-0 font-medium ${w.tone === 'green' ? 'text-emerald-300' : w.tone === 'amber' ? 'text-amber-300' : 'text-rose-300'}`}>{w.status}</span>
         </div>
       ))}
     </div>
@@ -172,7 +172,7 @@ export function StorageBreakdown() {
 
 export function InfraIconCards() {
   return (
-    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       <StatCard label="DB Connections" value="184" icon={Database} accent="cyan" sub="pool 200 max" />
       <StatCard label="Cache Hits" value="94.2%" icon={Zap} accent="violet" sub="redis 3.1ms" />
       <StatCard label="Health Score" value="98.4%" icon={ShieldCheck} accent="green" sub="last 30 days" />

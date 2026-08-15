@@ -59,7 +59,7 @@ export default function AiGovernancePage() {
           <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.22),_transparent_45%)]" />
           <div className="relative space-y-3">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Governance posture</p>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
               {pillars.map(({ label, value, tone }) => (
                 <div key={label} className="rounded-2xl bg-slate-950/90 p-3.5">
                   <span className={`inline-flex items-center gap-1.5 text-[0.6rem] uppercase tracking-[0.2em] text-slate-400`}>

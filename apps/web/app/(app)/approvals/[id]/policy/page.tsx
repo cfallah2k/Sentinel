@@ -46,7 +46,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                 <DecisionBadge key={d} label={d} />
               ))}
             </div>
-            <div className="mt-5 flex items-center justify-between gap-3 border-t border-white/5 pt-4">
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/5 pt-4">
               <p className="text-[0.65rem] text-slate-500">Open full policy record</p>
               <Link href={`/policies/${policy.id}`} className="inline-flex items-center justify-center rounded-full bg-sentinel-500 px-4 py-2 text-xs font-semibold text-white shadow-glow transition hover:bg-sentinel-400">
                 View policy

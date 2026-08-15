@@ -33,7 +33,7 @@ function StepRow({ log, index, highlighted }: { log: AuditLog; index: number; hi
             <Badge label={log.result} tone={toneForStatus(log.result)} />
           )}
         </div>
-        <p className={`mt-2 font-mono text-xs ${highlighted ? 'text-sentinel-200' : 'text-slate-300'}`}>{log.action}</p>
+        <p className={`mt-2 break-all font-mono text-xs ${highlighted ? 'text-sentinel-200' : 'text-slate-300'}`}>{log.action}</p>
         <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1 text-[0.7rem] text-slate-500">
           <span>{log.actor}</span>
           <span>{log.resource}</span>

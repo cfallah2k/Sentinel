@@ -77,7 +77,7 @@ export default function DevelopersSolutionPage() {
           <pre className="mt-4 overflow-x-auto rounded-[1.25rem] bg-slate-900/95 px-5 py-5 text-xs leading-6 text-slate-200 sm:text-sm">
             <code>{code}</code>
           </pre>
-          <div className="mt-4 grid grid-cols-2 gap-2.5">
+          <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
             {[
               { label: 'SDKs', value: 'TS · Py · Go · Java' },
               { label: 'API style', value: 'REST + gateway' }

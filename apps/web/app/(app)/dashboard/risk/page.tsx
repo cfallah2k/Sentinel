@@ -76,7 +76,7 @@ export default function Page() {
               <div key={f.id} className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <p className="truncate text-xs font-medium text-slate-200">{f.title}</p>
-                  <p className="mt-0.5 text-[0.65rem] text-slate-500">
+                  <p className="mt-0.5 truncate text-[0.65rem] text-slate-500">
                     {f.owner} · due {f.due}
                   </p>
                 </div>

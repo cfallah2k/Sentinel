@@ -79,7 +79,7 @@ export default function CompliancePage() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-slate-950/85 p-3.5">
                 <p className="text-sm font-semibold text-white">0 certified</p>
                 <p className="mt-1 text-[0.6rem] uppercase tracking-[0.25em] text-slate-500">Frameworks — roadmap active</p>

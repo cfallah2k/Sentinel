@@ -141,7 +141,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
             </div>
             <div>
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">Resource id</p>
-              <p className="mt-1 font-mono text-sm text-white">{rid}</p>
+              <p className="mt-1 break-all font-mono text-sm text-white">{rid}</p>
             </div>
             <div>
               <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">Detail</p>

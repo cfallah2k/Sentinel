@@ -68,12 +68,12 @@ export default function Page() {
                   <Activity size={13} />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs text-slate-200">
+                  <p className="break-words text-xs text-slate-200">
                     <span className="font-semibold">{log.actor}</span>{' '}
                     <span className="text-slate-400">{log.action}</span>{' '}
                     <span className="font-mono text-[0.65rem] text-sentinel-300">{log.resource}</span>
                   </p>
-                  <p className="mt-0.5 text-[0.65rem] text-slate-500">
+                  <p className="mt-0.5 break-words text-[0.65rem] text-slate-500">
                     {log.timestamp.slice(5, 16).replace('T', ' ')} · {log.context} · {log.ip}
                   </p>
                 </div>

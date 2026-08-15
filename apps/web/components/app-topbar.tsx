@@ -70,7 +70,7 @@ export default function AppTopbar() {
             {notifOpen ? (
               <>
                 <div className="fixed inset-0 z-30" onClick={() => setNotifOpen(false)} />
-                <div className="absolute right-0 z-40 mt-2 w-80 overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface-strong)] shadow-panel backdrop-blur-xl">
+                <div className="absolute right-0 z-40 mt-2 w-80 max-w-[calc(100vw-1.5rem)] overflow-hidden rounded-3xl border border-white/10 bg-[var(--surface-strong)] shadow-panel backdrop-blur-xl">
                   <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
                     <p className="text-xs font-semibold text-white">Notifications</p>
                     <Link href="/notifications" onClick={() => setNotifOpen(false)} className="text-[0.65rem] font-semibold text-sentinel-300 hover:text-sentinel-200">

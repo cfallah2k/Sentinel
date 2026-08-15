@@ -86,7 +86,7 @@ export default function AiGatewayPage() {
               'simulated · req #1045 · allow · policy pol-7 · ~21ms'
             ]}
           />
-          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
             {[
               { label: 'Latency', value: 'Design target' },
               { label: 'Evaluated', value: '100%' },

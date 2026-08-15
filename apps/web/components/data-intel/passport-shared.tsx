@@ -80,7 +80,7 @@ export function PassportMetrics({ p }: { p: Passport }) {
     { label: 'Compliance score', value: `${p.complianceScore}%` }
   ];
   return (
-    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {items.map((it) => (
         <Card key={it.label}>
           <CardBody>

@@ -71,7 +71,7 @@ export function SettingsForm({ sections, backHref }: { sections: { title: string
           </Card>
         ))}
       </div>
-      <div className="mt-5 flex items-center gap-3">
+      <div className="mt-5 flex flex-wrap items-center gap-3">
         <button
           type="button"
           onClick={() => setSaved(true)}

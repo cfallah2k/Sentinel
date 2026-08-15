@@ -71,7 +71,7 @@ export default function GetStartedPage() {
           <pre className="mt-4 overflow-x-auto rounded-[1.25rem] bg-slate-900/95 px-5 py-5 text-xs leading-6 text-slate-200 sm:text-sm">
             <code>{command}</code>
           </pre>
-          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
             {[
               { label: 'Gateway latency', value: '<50ms' },
               { label: 'Setup time', value: '~45m' },

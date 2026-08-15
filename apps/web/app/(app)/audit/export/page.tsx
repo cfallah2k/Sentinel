@@ -142,7 +142,7 @@ export default function Page() {
                 </button>
               </div>
             </div>
-            <div className="flex items-center justify-between border-t border-white/5 pt-5">
+            <div className="flex flex-col gap-3 border-t border-white/5 pt-5 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-[0.65rem] text-slate-500">{saved ? 'Configuration saved and scheduled exports updated.' : 'Changes apply to future export runs.'}</p>
               <button
                 type="button"

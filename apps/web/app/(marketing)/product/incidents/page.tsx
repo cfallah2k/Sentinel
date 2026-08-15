@@ -95,7 +95,7 @@ export default function IncidentsPage() {
                 'simulated · INC-11 · resolved · audit event written'
               ]}
             />
-            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
               {[
                 { label: 'MTTR', value: '0' },
                 { label: 'SLA met', value: '0%' },

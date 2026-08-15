@@ -36,7 +36,7 @@ export default function ReportScheduleForm({ report }: { report: Report }) {
         <CardBody className="space-y-6">
           <div>
             <label className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-slate-500">Frequency</label>
-            <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:grid-cols-4">
+            <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-4">
               {frequencies.map((f) => (
                 <button
                   key={f}
@@ -106,7 +106,7 @@ export default function ReportScheduleForm({ report }: { report: Report }) {
               <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white transition-all ${notifyOnFailure ? 'left-[22px]' : 'left-0.5'}`} />
             </button>
           </div>
-          <div className="flex items-center justify-between border-t border-white/5 pt-5">
+          <div className="flex flex-col gap-3 border-t border-white/5 pt-5 sm:flex-row sm:items-center sm:justify-between">
             <p className={`text-[0.65rem] ${saved ? 'font-semibold text-emerald-300' : 'text-slate-500'}`}>
               {saved ? 'Schedule saved' : 'Changes apply to future runs'}
             </p>

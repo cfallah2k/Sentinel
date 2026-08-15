@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           <Badge label={policy.version} tone="blue" />
         </>
       } nav={policyNav} base={`/government/policies/${policy.id}`} active="overview">
-        <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <Card><CardBody><Metric label="Decisions" value={policy.decisions.length} /></CardBody></Card>
           <Card><CardBody><Metric label="Conditions" value={policy.conditions} /></CardBody></Card>
           <Card><CardBody><Metric label="Violations" value={policy.violations} /></CardBody></Card>

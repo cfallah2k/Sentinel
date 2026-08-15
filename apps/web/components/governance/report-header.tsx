@@ -19,7 +19,7 @@ export default function ReportHeader({ report, active }: { report: Report; activ
         <div>
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-sentinel-300">Governance · Reports</p>
           <h1 className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{report.name}</h1>
-          <p className="mt-2 text-sm leading-6 text-slate-400">
+          <p className="mt-2 break-words text-sm leading-6 text-slate-400">
             {report.id} · {report.type} · {report.format} · last run {report.lastRun} · {report.recipients}
           </p>
         </div>
