@@ -9,7 +9,7 @@ import { encodeSession, findDemoAccount } from '@/lib/role-access';
 function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const next = searchParams.get('next') ?? '/dashboard';
+  const next = searchParams.get('next');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -32,7 +32,7 @@ function LoginForm() {
         return;
       }
       document.cookie = `sentinel_session=${encodeSession(account.role)};path=/;max-age=86400;SameSite=Lax`;
-      router.push(next === '/login' ? account.landing : next);
+      router.push(next && next !== '/login' ? next : account.landing);
     }, 500);
   };
 
