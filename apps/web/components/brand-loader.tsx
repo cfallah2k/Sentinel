@@ -2,7 +2,11 @@ import { ShieldAlert } from 'lucide-react';
 
 export default function BrandLoader({ label = 'Loading your control plane' }: { label?: string }) {
   return (
-    <div className="flex min-h-[40vh] flex-col items-center justify-center gap-5 px-6 py-20 text-center" role="status" aria-label={label}>
+    <div
+    className="fixed inset-0 z-[90] flex flex-col items-center justify-center gap-5 bg-[var(--bg)] px-6 py-20 text-center"
+    role="status"
+    aria-label={label}
+  >
       <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-sentinel-500 to-cyan-400 shadow-glow">
         <span className="absolute inset-0 animate-pulse rounded-2xl bg-sentinel-500/30" />
         <ShieldAlert className="h-6 w-6 text-white" size={24} />
