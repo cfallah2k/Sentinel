@@ -77,7 +77,7 @@ export default function PlaygroundPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
-        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:p-6">
+        <div className="min-w-0 rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:p-6">
           <div className="flex items-center justify-between gap-3">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Compose a request</p>
             <Activity className="h-4 w-4 text-sentinel-300" />
@@ -150,7 +150,7 @@ export default function PlaygroundPage() {
           </div>
         </div>
 
-        <div className="space-y-6">
+        <div className="min-w-0 space-y-6">
           <div
             className={`rounded-3xl border p-5 shadow-panel backdrop-blur-xl sm:p-6 ${
               decision.tone === 'blocked'
@@ -227,7 +227,7 @@ export default function PlaygroundPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
-        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:p-6">
+        <div className="min-w-0 rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:p-6">
           <div className="flex items-center justify-between gap-3">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Before / After</p>
             <ArrowRight className="h-4 w-4 text-sentinel-300" />
@@ -260,7 +260,7 @@ export default function PlaygroundPage() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:p-6">
+        <div className="min-w-0 rounded-3xl border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:p-6">
           <div className="flex items-center justify-between gap-3">
             <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">What your app would send</p>
             <Code2 className="h-4 w-4 text-sentinel-300" />

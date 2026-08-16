@@ -187,7 +187,7 @@ export default function DevelopersPage() {
   return (
     <div className="space-y-10 lg:space-y-16">
       <section className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
-        <div className="space-y-5 sm:space-y-6">
+        <div className="min-w-0 space-y-5 sm:space-y-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-sentinel-500/35 bg-sentinel-500/10 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-sentinel-300">
             <Terminal className="h-3.5 w-3.5" />
             Developer platform
@@ -217,7 +217,7 @@ export default function DevelopersPage() {
           </div>
         </div>
 
-        <div className="rounded-[1.5rem] border border-white/10 bg-[var(--surface)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
+        <div className="min-w-0 rounded-[1.5rem] border border-white/10 bg-[var(--surface)] p-4 shadow-panel backdrop-blur-xl sm:rounded-[2rem] sm:p-5">
           <div className="flex items-center justify-between gap-3 rounded-[1.25rem] border border-white/10 bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-300 sm:rounded-[1.5rem] sm:text-sm">
             <span className="flex items-center gap-2">
               <Activity className="h-4 w-4 text-sentinel-300" size={16} /> Request lifecycle
@@ -646,7 +646,7 @@ export default function DevelopersPage() {
       </section>
 
       <section className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr] lg:gap-6">
-        <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
+        <div className="min-w-0 rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Decision matrix</p>
           <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">Every evaluation ends in one of four explicit decisions.</h2>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -663,7 +663,7 @@ export default function DevelopersPage() {
           </div>
         </div>
 
-        <div className="rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
+        <div className="min-w-0 rounded-[1.25rem] border border-white/10 bg-[var(--surface)] p-5 shadow-panel backdrop-blur-xl sm:rounded-[1.5rem] sm:p-7">
           <p className="text-[0.65rem] uppercase tracking-[0.3em] text-slate-400">Inside the pipeline</p>
           <h2 className="mt-3 text-lg font-semibold text-white sm:text-xl">What happens between the request and the model.</h2>
           <ol className="mt-6 space-y-3">

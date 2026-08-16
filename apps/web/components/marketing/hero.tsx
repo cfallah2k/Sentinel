@@ -23,7 +23,7 @@ export default function MarketingHero({
     <section className="relative">
       <div className="pointer-events-none absolute inset-x-0 -top-24 h-64 bg-[radial-gradient(circle_at_center,_rgba(56,189,248,0.12),_transparent_55%)] blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1fr] lg:items-center">
-        <div className="space-y-5">
+        <div className="min-w-0 space-y-5">
           <span className="inline-flex items-center gap-2 rounded-full border border-sentinel-500/35 bg-sentinel-500/10 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-sentinel-200 shadow-[0_10px_40px_rgba(56,189,248,0.08)]">
             {eyebrow}
           </span>
@@ -51,7 +51,7 @@ export default function MarketingHero({
             </div>
           ) : null}
         </div>
-        <div className="relative">{children ?? <HeroVisual />}</div>
+        <div className="relative min-w-0">{children ?? <HeroVisual />}</div>
       </div>
     </section>
   );

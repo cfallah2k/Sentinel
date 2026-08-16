@@ -49,7 +49,7 @@ export default function HomePage() {
 
       <section className="relative mx-auto flex max-w-7xl flex-col gap-10 px-5 py-12 sm:px-6 lg:gap-12 lg:py-16">
         <div className="grid gap-8 lg:grid-cols-[0.95fr_1fr] lg:items-center lg:gap-10">
-          <div className="space-y-5 sm:space-y-6">
+          <div className="min-w-0 space-y-5 sm:space-y-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-sentinel-500/35 bg-sentinel-500/10 px-3 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-sentinel-200 shadow-[0_10px_40px_rgba(56,189,248,0.08)]">
               Enterprise AI security
             </span>
@@ -74,7 +74,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl animate-float sm:rounded-[2rem] sm:p-5">
+          <div className="relative min-w-0 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--surface-strong)] p-4 shadow-panel backdrop-blur-xl animate-float sm:rounded-[2rem] sm:p-5">
             <div className="absolute inset-x-0 top-0 h-28 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.24),_transparent_45%)]" />
             <div className="relative space-y-4 sm:space-y-5">
               <div className="flex items-center justify-between gap-3 rounded-[1.25rem] border border-white/10 bg-slate-950/90 px-3.5 py-2.5 text-xs text-slate-300 sm:rounded-[1.5rem] sm:text-sm">
