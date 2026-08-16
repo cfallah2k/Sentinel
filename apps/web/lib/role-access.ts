@@ -117,9 +117,12 @@ export interface NavGroup {
 }
 
 const DASHBOARD: NavItem = { label: 'Dashboard', href: '/dashboard', icon: 'gauge' };
+const CHAT: NavItem = { label: 'Sentinel Chat', href: '/chat', icon: 'messagesquare' };
 const SETTINGS: NavItem = { label: 'Settings', href: '/settings', icon: 'settings2' };
 const NOTIFICATIONS: NavItem = { label: 'Notifications', href: '/notifications', icon: 'sparkles' };
 const SEARCH: NavItem = { label: 'Search', href: '/search', icon: 'search' };
+
+const WORKSPACE = (items: NavItem[]): NavGroup => ({ label: 'Workspace', items });
 
 const REGISTRY = (items: NavItem[]): NavGroup => ({ label: 'Registry', items });
 const DATA_INTEL = (items: NavItem[]): NavGroup => ({ label: 'Data Intelligence', items });
@@ -130,6 +133,7 @@ const ADMINISTRATION = (items: NavItem[]): NavGroup => ({ label: 'Administration
 
 export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
   OWNER: [
+    WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     REGISTRY([
       { label: 'AI Systems', href: '/ai-systems', icon: 'layers' },
@@ -170,6 +174,7 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
     ])
   ],
   ADMIN: [
+    WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     REGISTRY([
       { label: 'AI Systems', href: '/ai-systems', icon: 'layers' },
@@ -209,6 +214,7 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
     ])
   ],
   SECURITY_ANALYST: [
+    WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     ENFORCEMENT([
       { label: 'Gateway', href: '/gateway', icon: 'servercog' },
@@ -224,6 +230,7 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
     PLATFORM([NOTIFICATIONS, SEARCH, SETTINGS])
   ],
   PRIVACY_OFFICER: [
+    WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     REGISTRY([
       { label: 'Data Sources', href: '/data-sources', icon: 'folder' }
@@ -243,6 +250,7 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
     PLATFORM([NOTIFICATIONS, SETTINGS])
   ],
   COMPLIANCE_OFFICER: [
+    WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     ENFORCEMENT([
       { label: 'Policies', href: '/policies', icon: 'shieldcheck' }
@@ -255,6 +263,7 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
     PLATFORM([NOTIFICATIONS, SETTINGS])
   ],
   DEVELOPER: [
+    WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     REGISTRY([
       { label: 'AI Systems', href: '/ai-systems', icon: 'layers' },
@@ -275,6 +284,7 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
     ])
   ],
   AUDITOR: [
+    WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     GOVERNANCE([
       { label: 'Audit', href: '/audit', icon: 'foldersearch' },
@@ -283,6 +293,7 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
     PLATFORM([NOTIFICATIONS, SEARCH, SETTINGS])
   ],
   VIEWER: [
+    WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     PLATFORM([NOTIFICATIONS, SEARCH, SETTINGS])
   ]

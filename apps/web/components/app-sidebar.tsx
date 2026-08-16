@@ -18,6 +18,7 @@ import {
   Link2,
   ListChecks,
   Menu,
+  MessagesSquare,
   Network,
   Package,
   Radar,
@@ -67,7 +68,8 @@ const ICONS: Record<string, LucideIcon> = {
   search: Search,
   shieldhalf: ShieldHalf,
   landmark: Landmark,
-  listchecks: ListChecks
+  listchecks: ListChecks,
+  messagesquare: MessagesSquare
 };
 
 export default function AppSidebar() {
