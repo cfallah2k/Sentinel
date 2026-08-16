@@ -19,7 +19,7 @@ export default function Page() {
         <StatCard label="Total Users" value={platformUsers.length} icon={Users} accent="sky" />
         <StatCard label="Active" value={active} icon={UserCheck} accent="green" />
         <StatCard label="Suspended" value={suspended} icon={UserX} accent="rose" />
-        <StatCard label="Admin Roles" value={platformUsers.filter((u) => u.role === 'ADMIN' || u.role === 'OWNER').length} icon={UserCog} accent="violet" />
+        <StatCard label="Main Accounts" value={platformUsers.filter((u) => ['ADMIN', 'GOVERNMENT', 'ENTERPRISE'].includes(u.role)).length} icon={UserCog} accent="violet" />
       </div>
       <UsersTable rows={platformUsers} title="User Directory" subtitle="All platform users with role and status" />
     </AdminShell>

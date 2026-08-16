@@ -249,16 +249,18 @@ export const currentOrg = {
 export const currentUser = {
   name: 'Amara Okafor',
   email: 'amara.okafor@nexora.io',
-  role: 'OWNER',
+  role: 'ADMIN',
   title: 'VP of AI Security',
   initials: 'AO',
   mfa: true,
   lastLogin: '2026-08-13T09:42:00Z'
 };
 
-// Account-level roles belong to the account itself (the government agency or the
-// private organization that purchased Sentinel). They are not assignable seats.
-export const accountRoleOptions = ['OWNER', 'ADMIN'] as const;
+// Account-level roles are the three main accounts: the platform operator (ADMIN)
+// and the entity accounts (GOVERNMENT / ENTERPRISE) provisioned when they sign up.
+// They are not assignable seats — entities create seat sub-accounts inside their
+// own account instead.
+export const accountRoleOptions = ['ADMIN', 'GOVERNMENT', 'ENTERPRISE'] as const;
 
 // Assignable seat roles are the roles members within the account are invited into.
 export const assignableRoleOptions = ['SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'DEVELOPER', 'AUDITOR', 'VIEWER'] as const;
@@ -266,8 +268,9 @@ export const assignableRoleOptions = ['SECURITY_ANALYST', 'PRIVACY_OFFICER', 'CO
 export const roleOptions = [...accountRoleOptions, ...assignableRoleOptions];
 
 export const roleDescriptions: Record<string, string> = {
-  OWNER: 'The account itself — holds the subscription and full control over billing, settings, and role assignment.',
-  ADMIN: 'Account administrator — manages settings, team, and policies on behalf of the account owner.',
+  ADMIN: 'The platform operator account — manages the whole system, provisions entity accounts, and holds full control over billing, settings, and role assignment.',
+  GOVERNMENT: 'The government agency account — manages its own AI governance and creates sub-accounts (seat roles) for its staff when it signs up.',
+  ENTERPRISE: 'The enterprise account (banks, fintech, telecom, insurance, ...) — manages its own control plane and creates sub-accounts (seat roles) for its team.',
   SECURITY_ANALYST: 'Monitors incidents, gateway traffic, and risk signals. Responds to security events and reviews approvals.',
   PRIVACY_OFFICER: 'Owns privacy controls: data classification, retention, and privacy policy management.',
   COMPLIANCE_OFFICER: 'Owns compliance programs: frameworks, audit readiness, policy coverage, and regulatory reporting.',
@@ -641,7 +644,7 @@ export const reports: Report[] = [
 // ---------- Team ----------
 
 export const teamMembers: TeamMember[] = [
-  { id: 'u-1', name: 'Amara Okafor', email: 'amara.okafor@nexora.io', role: 'OWNER', status: 'Active', lastActive: '2026-08-13T09:42:00Z', mfa: true },
+  { id: 'u-1', name: 'Amara Okafor', email: 'amara.okafor@nexora.io', role: 'ADMIN', status: 'Active', lastActive: '2026-08-13T09:42:00Z', mfa: true },
   { id: 'u-2', name: 'Jordan Patel', email: 'jordan.patel@nexora.io', role: 'SECURITY_ANALYST', status: 'Active', lastActive: '2026-08-13T09:10:00Z', mfa: true },
   { id: 'u-3', name: 'Maya Chen', email: 'maya.chen@nexora.io', role: 'SECURITY_ANALYST', status: 'Active', lastActive: '2026-08-13T08:55:00Z', mfa: true },
   { id: 'u-4', name: 'Devon Clarke', email: 'devon.clarke@nexora.io', role: 'DEVELOPER', status: 'Active', lastActive: '2026-08-13T08:30:00Z', mfa: false },
@@ -654,8 +657,9 @@ export const teamMembers: TeamMember[] = [
 ];
 
 export const rolePermissions: Record<string, string[]> = {
-  OWNER: ['billing.manage', 'settings.manage', 'team.manage', 'policies.manage', 'audit.read', 'reports.manage', 'billing.read', 'api.manage'],
-  ADMIN: ['settings.manage', 'team.manage', 'policies.manage', 'audit.read', 'reports.manage', 'api.manage'],
+  ADMIN: ['billing.manage', 'settings.manage', 'team.manage', 'policies.manage', 'audit.read', 'reports.manage', 'billing.read', 'api.manage'],
+  GOVERNMENT: ['billing.manage', 'settings.manage', 'team.manage', 'policies.manage', 'audit.read', 'reports.manage', 'billing.read', 'api.manage'],
+  ENTERPRISE: ['billing.manage', 'settings.manage', 'team.manage', 'policies.manage', 'audit.read', 'reports.manage', 'billing.read', 'api.manage'],
   SECURITY_ANALYST: ['incidents.manage', 'gateway.read', 'policies.read', 'audit.read', 'reports.read'],
   PRIVACY_OFFICER: ['data.read', 'policies.read', 'classifications.manage', 'audit.read'],
   COMPLIANCE_OFFICER: ['compliance.manage', 'audit.read', 'reports.read', 'policies.read'],

@@ -25,19 +25,23 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
         </div>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           <Card>
-            <CardHeader title="User Roles" subtitle="Role distribution for this tenant" />
+            <CardHeader title="Account Roles" subtitle="Main account and seat sub-accounts for this tenant" />
             <CardBody className="space-y-3">
-              {['OWNER', 'ADMIN', 'MEMBER'].map((role) => {
+              {['ADMIN', 'GOVERNMENT', 'ENTERPRISE'].map((role) => {
                 const count = users.filter((u) => u.role === role).length;
                 return (
                   <div key={role} className="flex items-center justify-between rounded-2xl border border-white/5 bg-white/[0.03] px-4 py-2.5 text-xs">
                     <span className="text-slate-300">{role}</span>
                     <span className="flex items-center gap-2">
-                      <Badge label={String(count)} tone={role === 'OWNER' ? 'violet' : role === 'ADMIN' ? 'blue' : 'slate'} />
+                      <Badge label={String(count)} tone={role === 'ADMIN' ? 'violet' : role === 'GOVERNMENT' ? 'cyan' : 'amber'} />
                     </span>
                   </div>
                 );
               })}
+              <div className="flex items-center justify-between rounded-2xl border border-white/5 bg-white/[0.03] px-4 py-2.5 text-xs">
+                <span className="text-slate-300">Seat sub-accounts</span>
+                <Badge label={String(users.filter((u) => !['ADMIN', 'GOVERNMENT', 'ENTERPRISE'].includes(u.role)).length)} tone="blue" />
+              </div>
             </CardBody>
           </Card>
           <Card>

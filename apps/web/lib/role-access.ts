@@ -1,12 +1,18 @@
 // Role access model for Sentinel. Standalone (no mock-data dependency) so it can
-// run in middleware (edge) as well as client components.
+// run in proxy (edge) as well as client components.
+//
+// Account model: three main accounts.
+// - ADMIN: the platform operator account — manages the whole system.
+// - GOVERNMENT / ENTERPRISE: entity accounts (government agencies, banks,
+//   fintech, telecom, insurance, ...) provisioned by ADMIN when they sign up.
+//   Each entity creates its own sub-accounts (seat roles) inside its account.
 
-export const ACCOUNT_ROLES = ['OWNER', 'ADMIN'] as const;
+export const ACCOUNT_ROLES = ['ADMIN', 'GOVERNMENT', 'ENTERPRISE'] as const;
 export const SEAT_ROLES = ['SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'DEVELOPER', 'AUDITOR', 'VIEWER'] as const;
 export const ALL_ROLES = [...ACCOUNT_ROLES, ...SEAT_ROLES] as const;
 export type SentinelRole = (typeof ALL_ROLES)[number];
 
-export const DEFAULT_ROLE: SentinelRole = 'OWNER';
+export const DEFAULT_ROLE: SentinelRole = 'ADMIN';
 
 export const SESSION_COOKIE = 'sentinel_session';
 
@@ -43,8 +49,9 @@ export interface DemoAccount {
 export const DEMO_PASSWORD = 'demo123';
 
 export const DEMO_CREDENTIALS: DemoAccount[] = [
-  { role: 'OWNER', email: 'owner@sentinel.dev', password: DEMO_PASSWORD, name: 'Alex Morgan', title: 'Owner & Operator', landing: '/dashboard' },
   { role: 'ADMIN', email: 'admin@sentinel.dev', password: DEMO_PASSWORD, name: 'Jordan Lee', title: 'Administrator', landing: '/admin' },
+  { role: 'GOVERNMENT', email: 'government@sentinel.dev', password: DEMO_PASSWORD, name: 'Regina Solis', title: 'Government Account', landing: '/government' },
+  { role: 'ENTERPRISE', email: 'enterprise@sentinel.dev', password: DEMO_PASSWORD, name: 'Alex Morgan', title: 'Enterprise Account', landing: '/dashboard' },
   { role: 'SECURITY_ANALYST', email: 'security@sentinel.dev', password: DEMO_PASSWORD, name: 'Maya Chen', title: 'Security Analyst', landing: '/incidents' },
   { role: 'PRIVACY_OFFICER', email: 'privacy@sentinel.dev', password: DEMO_PASSWORD, name: 'Priya Raman', title: 'Privacy Officer', landing: '/ai-passports' },
   { role: 'COMPLIANCE_OFFICER', email: 'compliance@sentinel.dev', password: DEMO_PASSWORD, name: 'Devon Clarke', title: 'Compliance Officer', landing: '/compliance-admin' },
@@ -70,28 +77,28 @@ export const ROUTE_ACCESS: Record<string, SentinelRole[]> = {
   '/search': [...ALL_ROLES],
   '/support': [...ALL_ROLES],
   '/settings': [...ALL_ROLES],
-  '/ai-systems': ['OWNER', 'ADMIN', 'DEVELOPER'],
-  '/applications': ['OWNER', 'ADMIN', 'DEVELOPER'],
-  '/providers': ['OWNER', 'ADMIN', 'DEVELOPER'],
-  '/models': ['OWNER', 'ADMIN', 'DEVELOPER'],
-  '/data-sources': ['OWNER', 'ADMIN', 'DEVELOPER', 'PRIVACY_OFFICER'],
-  '/data-flows': ['OWNER', 'ADMIN', 'PRIVACY_OFFICER'],
-  '/data-classification': ['OWNER', 'ADMIN', 'PRIVACY_OFFICER'],
-  '/ai-passports': ['OWNER', 'ADMIN', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER'],
-  '/gateway': ['OWNER', 'ADMIN', 'DEVELOPER', 'SECURITY_ANALYST'],
-  '/policies': ['OWNER', 'ADMIN', 'SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'DEVELOPER'],
-  '/incidents': ['OWNER', 'ADMIN', 'SECURITY_ANALYST'],
-  '/approvals': ['OWNER', 'ADMIN', 'SECURITY_ANALYST'],
-  '/risk': ['OWNER', 'ADMIN', 'SECURITY_ANALYST'],
-  '/compliance-admin': ['OWNER', 'ADMIN', 'COMPLIANCE_OFFICER'],
-  '/audit': ['OWNER', 'ADMIN', 'SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'AUDITOR'],
-  '/reports': ['OWNER', 'ADMIN', 'SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'AUDITOR'],
-  '/integrations-hub': ['OWNER', 'ADMIN', 'DEVELOPER'],
-  '/developer-portal': ['OWNER', 'ADMIN', 'DEVELOPER'],
-  '/team': ['OWNER', 'ADMIN'],
-  '/billing': ['OWNER', 'ADMIN'],
-  '/admin': ['OWNER', 'ADMIN'],
-  '/government': ['OWNER', 'ADMIN']
+  '/ai-systems': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'DEVELOPER'],
+  '/applications': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'DEVELOPER'],
+  '/providers': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'DEVELOPER'],
+  '/models': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'DEVELOPER'],
+  '/data-sources': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'DEVELOPER', 'PRIVACY_OFFICER'],
+  '/data-flows': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'PRIVACY_OFFICER'],
+  '/data-classification': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'PRIVACY_OFFICER'],
+  '/ai-passports': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER'],
+  '/gateway': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'DEVELOPER', 'SECURITY_ANALYST'],
+  '/policies': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'DEVELOPER'],
+  '/incidents': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'SECURITY_ANALYST'],
+  '/approvals': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'SECURITY_ANALYST'],
+  '/risk': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'SECURITY_ANALYST'],
+  '/compliance-admin': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'COMPLIANCE_OFFICER'],
+  '/audit': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'AUDITOR'],
+  '/reports': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'SECURITY_ANALYST', 'PRIVACY_OFFICER', 'COMPLIANCE_OFFICER', 'AUDITOR'],
+  '/integrations-hub': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'DEVELOPER'],
+  '/developer-portal': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE', 'DEVELOPER'],
+  '/team': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE'],
+  '/billing': ['ADMIN', 'GOVERNMENT', 'ENTERPRISE'],
+  '/admin': ['ADMIN'],
+  '/government': ['ADMIN', 'GOVERNMENT']
 };
 
 export function canAccessRoute(role: string, pathname: string): boolean {
@@ -132,7 +139,7 @@ const PLATFORM = (items: NavItem[]): NavGroup => ({ label: 'Platform', items });
 const ADMINISTRATION = (items: NavItem[]): NavGroup => ({ label: 'Administration', items });
 
 export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
-  OWNER: [
+  ADMIN: [
     WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     REGISTRY([
@@ -173,7 +180,7 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
       { label: 'Government', href: '/government', icon: 'landmark' }
     ])
   ],
-  ADMIN: [
+  GOVERNMENT: [
     WORKSPACE([CHAT]),
     { label: 'Overview', items: [DASHBOARD] },
     REGISTRY([
@@ -208,9 +215,48 @@ export const NAV_BY_ROLE: Record<string, NavGroup[]> = {
     ]),
     ADMINISTRATION([
       SETTINGS,
+      { label: 'Billing', href: '/billing', icon: 'creditcard' },
       SEARCH,
-      { label: 'Admin', href: '/admin', icon: 'shieldhalf' },
       { label: 'Government', href: '/government', icon: 'landmark' }
+    ])
+  ],
+  ENTERPRISE: [
+    WORKSPACE([CHAT]),
+    { label: 'Overview', items: [DASHBOARD] },
+    REGISTRY([
+      { label: 'AI Systems', href: '/ai-systems', icon: 'layers' },
+      { label: 'Applications', href: '/applications', icon: 'box' },
+      { label: 'Providers', href: '/providers', icon: 'link2' },
+      { label: 'Models', href: '/models', icon: 'package' },
+      { label: 'Data Sources', href: '/data-sources', icon: 'folder' }
+    ]),
+    DATA_INTEL([
+      { label: 'Data Flows', href: '/data-flows', icon: 'network' },
+      { label: 'Classification', href: '/data-classification', icon: 'fingerprint' },
+      { label: 'AI Passports', href: '/ai-passports', icon: 'filesearch' }
+    ]),
+    ENFORCEMENT([
+      { label: 'Gateway', href: '/gateway', icon: 'servercog' },
+      { label: 'Policies', href: '/policies', icon: 'shieldcheck' },
+      { label: 'Incidents', href: '/incidents', icon: 'xcircle' },
+      { label: 'Approvals', href: '/approvals', icon: 'clipboardcheck' }
+    ]),
+    GOVERNANCE([
+      { label: 'Risk', href: '/risk', icon: 'radar' },
+      { label: 'Compliance', href: '/compliance-admin', icon: 'scale' },
+      { label: 'Audit', href: '/audit', icon: 'foldersearch' },
+      { label: 'Reports', href: '/reports', icon: 'barchart3' }
+    ]),
+    PLATFORM([
+      { label: 'Integrations', href: '/integrations-hub', icon: 'boxes' },
+      { label: 'Developer Portal', href: '/developer-portal', icon: 'webhook' },
+      { label: 'Team', href: '/team', icon: 'users' },
+      NOTIFICATIONS
+    ]),
+    ADMINISTRATION([
+      SETTINGS,
+      { label: 'Billing', href: '/billing', icon: 'creditcard' },
+      SEARCH
     ])
   ],
   SECURITY_ANALYST: [
